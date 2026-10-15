@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+
+# Builds
+.next/
+out/
+build/
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local data & secrets
+*.db
+.env
+.env.local
+.env.*.local
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+npm-debug.log*
