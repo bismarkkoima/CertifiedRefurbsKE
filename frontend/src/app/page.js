@@ -1,238 +1,224 @@
-import './globals.css'
+import Link from 'next/link'
+import DeviceArt from '@/components/DeviceArt'
+import Icon from '@/components/Icon'
+import ProductRail from '@/components/ProductRail'
+import { CATEGORIES } from '@/lib/format'
 
-const products = [
-  { id:1, emoji:'📱', brand:'Apple',   name:'iPhone 13',         storage:'128GB · Midnight',       price:'KSh 52,000', was:'KSh 75,000', save:'31%', rating:'4.7', reviews:842,  condition:'Excellent', condClass:'cond-excellent' },
-  { id:2, emoji:'💻', brand:'Apple',   name:'MacBook Air M1',    storage:'8GB · 256GB SSD',        price:'KSh 88,000', was:'KSh 130,000',save:'32%', rating:'4.8', reviews:1204, condition:'Excellent', condClass:'cond-excellent' },
-  { id:3, emoji:'📱', brand:'Samsung', name:'Galaxy S21',        storage:'256GB · Phantom Grey',   price:'KSh 38,500', was:'KSh 58,000', save:'34%', rating:'4.5', reviews:613,  condition:'Good',      condClass:'cond-good' },
-  { id:4, emoji:'💻', brand:'HP',      name:'EliteBook 840 G7',  storage:'16GB · 512GB SSD · i7',  price:'KSh 62,000', was:'KSh 95,000', save:'35%', rating:'4.6', reviews:389,  condition:'Excellent', condClass:'cond-excellent' },
-  { id:5, emoji:'📱', brand:'Samsung', name:'Galaxy S22 Ultra',  storage:'256GB · Phantom Black',  price:'KSh 68,000', was:'KSh 105,000',save:'35%', rating:'4.7', reviews:521,  condition:'Good',      condClass:'cond-good' },
-  { id:6, emoji:'💻', brand:'Lenovo',  name:'ThinkPad X1 Carbon',storage:'16GB · 512GB SSD · i5', price:'KSh 55,000', was:'KSh 82,000', save:'33%', rating:'4.5', reviews:276,  condition:'Good',      condClass:'cond-good' },
-  { id:7, emoji:'📱', brand:'Apple',   name:'iPhone 12 Pro',     storage:'128GB · Pacific Blue',   price:'KSh 44,500', was:'KSh 65,000', save:'32%', rating:'4.6', reviews:934,  condition:'Fair',      condClass:'cond-fair' },
-  { id:8, emoji:'💻', brand:'Dell',    name:'XPS 13',            storage:'16GB · 512GB SSD · i7',  price:'KSh 72,000', was:'KSh 110,000',save:'35%', rating:'4.7', reviews:418,  condition:'Excellent', condClass:'cond-excellent' },
-  { id:9, emoji:'📱', brand:'Google',  name:'Pixel 7 Pro',       storage:'128GB · Obsidian',       price:'KSh 46,000', was:'KSh 68,000', save:'32%', rating:'4.6', reviews:312,  condition:'Good',      condClass:'cond-good' },
+const CAT_ART = { phones: 225, laptops: 215, tablets: 205, accessories: 240 }
+
+const REVIEWS = [
+  { name: 'Wanjiru M.', where: 'Kilimani, Nairobi', color: '#2B5CE6', device: 'iPhone 13 · Excellent',
+    text: 'Honestly couldn’t tell it apart from new. Battery was at 97% and the M-Pesa escrow made me comfortable paying upfront.' },
+  { name: 'Brian O.', where: 'Kisumu', color: '#1A7A4A', device: 'ThinkPad X1 Carbon · Good',
+    text: 'Delivered to Kisumu in two days. The laptop came with a full inspection report and has been flawless for my design work.' },
+  { name: 'Aisha K.', where: 'Nyali, Mombasa', color: '#B45309', device: 'Traded in Galaxy S20',
+    text: 'Got a quote in 30 seconds, a rider picked up my old phone and the money hit my M-Pesa the same afternoon.' },
 ]
 
 export default function Home() {
   return (
     <>
-      <div className="topbar">
-        <strong>Free delivery</strong> to Nairobi on orders over KSh 5,000 · <strong>6-month warranty</strong> on every device
-      </div>
-
-      <header>
-        <nav className="nav">
-          <div className="nav-inner">
-            <a href="/" className="nav-logo">Certified<span className="dot">.</span>Refurbs KE</a>
-            <div className="nav-search">
-              <input type="text" placeholder="Search phones, laptops, tablets…" defaultValue="Samsung" />
-              <button className="nav-search-btn" aria-label="Search">🔍</button>
+      {/* HERO */}
+      <section className="hero">
+        <div className="container hero-inner">
+          <div className="reveal">
+            <span className="eyebrow"><Icon name="shield" size={15} /> Certified · Inspected · Guaranteed</span>
+            <h1 style={{ marginTop: 14 }}>Premium tech, <em>without the premium price.</em></h1>
+            <p className="hero-lead">
+              Engineer-certified refurbished iPhones, Galaxys and MacBooks — up to 40% cheaper than new,
+              backed by a 6-month warranty and paid safely through M-Pesa escrow.
+            </p>
+            <div className="hero-cta">
+              <Link href="/shop" className="btn btn-primary btn-lg">Shop devices <Icon name="arrow" size={16} /></Link>
+              <Link href="/sell" className="btn btn-outline btn-lg">Get cash for your phone</Link>
             </div>
-            <nav className="nav-links">
-              <a href="#">Phones</a>
-              <a href="#">Laptops</a>
-              <a href="#">Tablets</a>
-              <a href="#">Sell</a>
-            </nav>
-            <a href="#" className="nav-cart" aria-label="Cart">🛒</a>
+            <div className="hero-stats">
+              <div className="hero-stat"><strong>25,000+</strong><span>Devices delivered</span></div>
+              <div className="hero-stat"><strong>4.8 ★</strong><span>Average rating</span></div>
+              <div className="hero-stat"><strong>47</strong><span>Counties served</span></div>
+            </div>
           </div>
-        </nav>
-        <div className="cat-strip">
-          <div className="cat-strip-inner">
-            <a href="#" className="cat-tab active">All devices</a>
-            <a href="#" className="cat-tab">Smartphones</a>
-            <a href="#" className="cat-tab">Laptops</a>
-            <a href="#" className="cat-tab">Tablets</a>
-            <a href="#" className="cat-tab">Accessories</a>
-            <a href="#" className="cat-tab">Deals of the week</a>
+          <div className="hero-visual" aria-hidden="true">
+            <div className="hero-card main">
+              <DeviceArt category="phones" name="iPhone 13 Pro" hue={205} />
+              <div className="row" style={{ marginTop: 10 }}>
+                <div>
+                  <div className="product-brand">Apple</div>
+                  <strong>iPhone 13 Pro · 256GB</strong>
+                </div>
+                <div style={{ textAlign: 'right' }}>
+                  <div className="product-was">New KSh 110,000</div>
+                  <strong className="product-price">KSh 60,000</strong>
+                </div>
+              </div>
+            </div>
+            <div className="hero-card chip one"><span className="chip-dot" /> M-Pesa payment received</div>
+            <div className="hero-card chip two">🔒 Funds held in escrow</div>
+            <div className="hero-card chip three">🔋 Battery 96%</div>
           </div>
         </div>
-      </header>
+      </section>
 
-      <div className="page-body">
-        {/* SIDEBAR */}
-        <aside className="sidebar">
-          <div className="filter-section">
-            <div className="filter-title">Condition <span className="filter-title-chevron">▾</span></div>
-            <div className="filter-body">
-              <div className="grade-pills">
-                <div className="grade-pill active">Excellent</div>
-                <div className="grade-pill">Good</div>
-                <div className="grade-pill">Fair</div>
-              </div>
+      {/* TRUST BAR */}
+      <section className="trust-bar">
+        <div className="container trust-bar-inner">
+          {[
+            ['shield', '72-point inspection', 'Every device, by certified engineers'],
+            ['refresh', '30-day free returns', 'Change your mind? No problem'],
+            ['lock', 'M-Pesa escrow', 'Funds released only on delivery'],
+            ['truck', 'Fast delivery', 'Same day in Nairobi, 1–3 days countrywide'],
+          ].map(([icon, title, sub]) => (
+            <div className="trust-tile" key={title}>
+              <div className="trust-icon"><Icon name={icon} /></div>
+              <div><strong>{title}</strong><span>{sub}</span></div>
             </div>
-          </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="filter-section">
-            <div className="filter-title">Brand <span className="filter-title-chevron">▾</span></div>
-            <div className="filter-body">
-              {[['Apple','4'],['Samsung','6'],['HP','3'],['Lenovo','2'],['Dell','2'],['Google','1']].map(([b,c]) => (
-                <label className="filter-option" key={b}>
-                  <input type="checkbox" defaultChecked={b==='Samsung'} />
-                  {b}
-                  <span className="filter-count">{c}</span>
-                </label>
-              ))}
+      {/* CATEGORIES */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Shop by category</span>
+              <h2>Find your next device</h2>
             </div>
+            <Link href="/shop" className="btn btn-outline btn-sm">Browse everything <Icon name="arrow" size={14} /></Link>
           </div>
-
-          <div className="filter-section">
-            <div className="filter-title">Price (KSh) <span className="filter-title-chevron">▾</span></div>
-            <div className="filter-body">
-              <div className="price-range">
-                <input className="price-input" placeholder="Min" defaultValue="10000" />
-                <input className="price-input" placeholder="Max" defaultValue="120000" />
-              </div>
-              <div className="filter-divider" />
-              {[['Under 30,000','2'],['30,000–60,000','5'],['60,000–100,000','4'],['Over 100,000','1']].map(([r,c]) => (
-                <label className="filter-option" key={r}>
-                  <input type="checkbox" />
-                  {r}
-                  <span className="filter-count">{c}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div className="filter-section">
-            <div className="filter-title">Storage <span className="filter-title-chevron">▾</span></div>
-            <div className="filter-body">
-              {[['128GB','6'],['256GB','5'],['512GB','4'],['1TB','1']].map(([s,c]) => (
-                <label className="filter-option" key={s}>
-                  <input type="checkbox" />
-                  {s}
-                  <span className="filter-count">{c}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div className="filter-section">
-            <div className="filter-title">Seller rating <span className="filter-title-chevron">▾</span></div>
-            <div className="filter-body">
-              {[['4★ and above','11'],['3★ and above','14']].map(([r,c]) => (
-                <label className="filter-option" key={r}>
-                  <input type="checkbox" defaultChecked={r.startsWith('4')} />
-                  {r}
-                  <span className="filter-count">{c}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <span className="clear-filters">Clear all filters</span>
-        </aside>
-
-        {/* MAIN */}
-        <main>
-          <div className="promo-banner">
-            <div className="promo-text">
-              <h3>M-Pesa accepted on all orders 📲</h3>
-              <p>Pay via Lipa Na M-Pesa · Instant confirmation · Zero extra fees</p>
-            </div>
-            <a href="#" className="promo-btn">Shop now</a>
-          </div>
-
-          <div className="trust-strip">
-            <div className="trust-item">✅ 72-point inspection</div>
-            <div className="trust-item">✅ 6-month warranty</div>
-            <div className="trust-item">✅ 30-day free returns</div>
-            <div className="trust-item">✅ Engineer certified</div>
-          </div>
-
-          <div className="main-header">
-            <div className="results-count"><strong>9 results</strong> for &ldquo;Samsung&rdquo; · All devices</div>
-            <div className="sort-row">
-              <span className="sort-label">Sort by:</span>
-              <select className="sort-select">
-                <option>Best match</option>
-                <option>Price: low to high</option>
-                <option>Price: high to low</option>
-                <option>Best rated</option>
-                <option>Newest</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="products-grid">
-            {products.map(p => (
-              <a href="#" className="product-card" key={p.id}>
-                <div className="product-thumb">
-                  {p.emoji}
-                  <span className={`product-condition ${p.condClass}`}>{p.condition}</span>
-                  <button className="wishlist-btn" aria-label="Save">🤍</button>
-                </div>
-                <div className="product-brand">{p.brand}</div>
-                <div className="product-name">{p.name}</div>
-                <div className="product-storage">{p.storage}</div>
-                <div className="product-rating">
-                  <span className="stars">★★★★★</span>
-                  {p.rating} ({p.reviews.toLocaleString()})
-                </div>
-                <div className="product-pricing">
-                  <div className="product-from">From</div>
-                  <div className="product-price">{p.price}</div>
-                  <div className="product-was">Was {p.was}</div>
-                  <span className="product-save">Save {p.save}</span>
-                </div>
-                <div className="mpesa-pill">
-                  <div className="mpesa-dot"></div>
-                  M-Pesa · Free delivery
-                </div>
-              </a>
+          <div className="cat-grid">
+            {Object.entries(CATEGORIES).map(([key, c]) => (
+              <Link href={`/shop?category=${key}`} className="cat-card" key={key}>
+                <h3>{c.label}</h3>
+                <p>{c.blurb}</p>
+                <span className="arrow"><Icon name="arrow" size={14} /></span>
+                <DeviceArt category={key} name={key === 'accessories' ? 'Watch' : key} hue={CAT_ART[key]} />
+              </Link>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="pagination">
-            <button className="page-btn">‹</button>
-            <button className="page-btn active">1</button>
-            <button className="page-btn">2</button>
-            <button className="page-btn">3</button>
-            <span style={{padding:'0 4px',color:'var(--text-3)'}}>…</span>
-            <button className="page-btn">12</button>
-            <button className="page-btn">›</button>
+      {/* FEATURED */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Customer favourites</span>
+              <h2>Bestsellers this week</h2>
+            </div>
+            <Link href="/shop?sort=rating" className="link">See top rated →</Link>
           </div>
-        </main>
-      </div>
+          <ProductRail params={{ featured: true }} count={8} />
+        </div>
+      </section>
 
-      <footer className="footer">
-        <div className="footer-inner">
-          <div className="footer-col">
-            <h4>CertifiedRefurbs KE</h4>
-            <a href="#">About us</a>
-            <a href="#">How it works</a>
-            <a href="#">Our grading system</a>
-            <a href="#">Careers</a>
-            <a href="#">Press</a>
-          </div>
-          <div className="footer-col">
-            <h4>Buying</h4>
-            <a href="#">Browse all devices</a>
-            <a href="#">Smartphones</a>
-            <a href="#">Laptops</a>
-            <a href="#">Tablets</a>
-            <a href="#">Deals</a>
-          </div>
-          <div className="footer-col">
-            <h4>Help & Support</h4>
-            <a href="#">Warranty policy</a>
-            <a href="#">Returns</a>
-            <a href="#">Payment methods</a>
-            <a href="#">Track your order</a>
-            <a href="#">Contact us</a>
-          </div>
-          <div className="footer-col">
-            <h4>Sell with us</h4>
-            <a href="#">Become a seller</a>
-            <a href="#">Seller guidelines</a>
-            <a href="#">Seller dashboard</a>
-            <a href="#">Seller support</a>
+      {/* MPESA BAND */}
+      <section className="section-sm">
+        <div className="container">
+          <div className="band dark">
+            <div>
+              <span className="eyebrow" style={{ color: '#7FD4A6' }}>Lipa na M-Pesa · Escrow protected</span>
+              <h2 style={{ marginTop: 10 }}>Pay with M-Pesa. Your money stays safe until your device arrives.</h2>
+              <p>Approve an STK push on your phone — we hold the funds in escrow and only release them once you confirm your delivery. If anything’s wrong, you get a full refund.</p>
+              <div style={{ marginTop: 22 }}><Link href="/how-it-works#escrow" className="btn btn-white">How escrow works</Link></div>
+            </div>
+            <div className="mpesa-steps">
+              <div><b>1</b> Choose your device & check out</div>
+              <div><b>2</b> Enter your M-Pesa PIN on the STK prompt</div>
+              <div><b>3</b> Funds held securely in escrow</div>
+              <div><b>4</b> Confirm delivery → seller gets paid</div>
+            </div>
           </div>
         </div>
-        <div className="footer-bottom">
-          <span>© 2025 CertifiedRefurbs KE · Nairobi, Kenya</span>
-          <span>Privacy · Terms · Cookies</span>
+      </section>
+
+      {/* DEALS */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow" style={{ color: 'var(--red)' }}><Icon name="bolt" size={14} /> Limited stock</span>
+              <h2>Deals of the week</h2>
+              <p>Hand-picked price drops on devices our engineers love. Refreshed every Friday.</p>
+            </div>
+            <Link href="/shop?deal=true" className="btn btn-outline btn-sm">All deals <Icon name="arrow" size={14} /></Link>
+          </div>
+          <ProductRail params={{ deal: true, sort: 'discount' }} count={4} />
         </div>
-      </footer>
+      </section>
+
+      {/* SERVICES */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">More than a shop</span>
+              <h2>Everything tech, one trusted place</h2>
+            </div>
+          </div>
+          <div className="feature-grid">
+            <Link href="/import" className="feature" style={{ textDecoration: 'none' }}>
+              <div className="feature-icon">🌍</div>
+              <h3>Import for me</h3>
+              <p>Found a device abroad? Our calculator shows the full landed cost — freight, KRA duty, VAT and levies — before you commit.</p>
+              <p className="link" style={{ marginTop: 12 }}>Calculate import cost →</p>
+            </Link>
+            <Link href="/sell" className="feature" style={{ textDecoration: 'none' }}>
+              <div className="feature-icon">💸</div>
+              <h3>Sell or trade in</h3>
+              <p>Get an instant quote for your old phone or laptop. Free pickup in Nairobi and payment straight to M-Pesa.</p>
+              <p className="link" style={{ marginTop: 12 }}>Get a quote →</p>
+            </Link>
+            <Link href="/how-it-works#grading" className="feature" style={{ textDecoration: 'none' }}>
+              <div className="feature-icon">🔍</div>
+              <h3>Honest grading</h3>
+              <p>Excellent, Good or Fair — every grade is clearly defined with battery health guarantees, so you know exactly what you’re getting.</p>
+              <p className="link" style={{ marginTop: 12 }}>See our grades →</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* REVIEWS */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">4.8 ★ from 6,000+ reviews</span>
+              <h2>Kenyans love buying refurbished</h2>
+            </div>
+          </div>
+          <div className="reviews-grid">
+            {REVIEWS.map((r) => (
+              <figure className="review" key={r.name}>
+                <span className="stars" style={{ fontSize: 15 }}>★★★★★</span>
+                <blockquote><p>“{r.text}”</p></blockquote>
+                <figcaption className="review-who">
+                  <span className="avatar" style={{ background: r.color }}>{r.name[0]}</span>
+                  <span><strong>{r.name}</strong><span>{r.where} · {r.device}</span></span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-sm">
+        <div className="container">
+          <div className="band">
+            <div>
+              <h2>Better for your wallet. Better for the planet.</h2>
+              <p>Every refurbished device saves around 80% of the carbon of making a new one — and keeps e-waste out of Dandora.</p>
+            </div>
+            <div className="band-actions">
+              <Link href="/shop" className="btn btn-white btn-lg">Start shopping</Link>
+              <Link href="/about#impact" className="btn btn-lg" style={{ color: '#fff', borderColor: 'rgba(255,255,255,.4)' }}>Our impact</Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
