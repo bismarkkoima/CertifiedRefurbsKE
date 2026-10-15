@@ -1,6 +1,6 @@
 import os
 
-os.environ["DATABASE_URL"] = "sqlite:///./test.db"
+os.environ["DATABASE_URL"] = os.environ.get("TEST_DATABASE_URL", "sqlite:///./test.db")
 os.environ["MPESA_ENV"] = "simulate"
 
 import pytest  # noqa: E402
