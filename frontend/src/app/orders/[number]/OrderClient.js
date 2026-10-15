@@ -101,16 +101,17 @@ export default function OrderClient({ number }) {
             <h3>Items</h3>
             <div className="divider" />
             {order.items.map((i) => (
-              <div className="row" key={i.product_slug + i.grade}>
+              <div className="row" key={`${i.product_slug}-${i.storage}-${i.color}-${i.grade}`}>
                 <div>
                   <Link href={`/product/${i.product_slug}`} style={{ fontWeight: 600, textDecoration: 'none' }}>{i.product_name}</Link>
-                  <div className="subtle">{GRADES[i.grade]?.label} · Qty {i.quantity}</div>
+                  <div className="subtle">{i.storage}{i.color && ` · ${i.color}`} · {GRADES[i.grade]?.label} · Qty {i.quantity}</div>
                 </div>
                 <strong>{ksh(i.unit_price * i.quantity)}</strong>
               </div>
             ))}
             <div className="divider" />
             <div className="row"><span className="muted">Subtotal</span><span>{ksh(order.subtotal)}</span></div>
+            {order.discount > 0 && <div className="row" style={{ color: 'var(--green)' }}><span>Promo {order.coupon_code}</span><span>−{ksh(order.discount)}</span></div>}
             <div className="row"><span className="muted">Delivery</span><span>{order.delivery_fee ? ksh(order.delivery_fee) : 'Free'}</span></div>
             <div className="row total"><span>Total</span><span>{ksh(order.total)}</span></div>
           </section>

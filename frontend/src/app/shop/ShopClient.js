@@ -43,6 +43,7 @@ export default function ShopClient() {
   const [data, setData] = useState(null)
   const [error, setError] = useState('')
   const [drawer, setDrawer] = useState(false)
+  const [allBrands, setAllBrands] = useState(false)
   const [price, setPrice] = useState({ min: params.min_price || '', max: params.max_price || '' })
 
   useEffect(() => { setPrice({ min: params.min_price || '', max: params.max_price || '' }) }, [params.min_price, params.max_price])
@@ -50,7 +51,7 @@ export default function ShopClient() {
   useEffect(() => {
     let live = true
     setData((d) => (d ? { ...d, loading: true } : null))
-    api.listProducts({ page_size: 12, ...params })
+    api.listProducts({ page_size: 24, ...params })
       .then((r) => { if (live) { setData(r); setError('') } })
       .catch((e) => live && setError(e.message))
     return () => { live = false }
@@ -69,11 +70,15 @@ export default function ShopClient() {
   }
 
   const category = params.category
-  const title = params.q ? `Results for “${params.q}”`
-    : params.deal ? 'Deals of the week'
-    : category ? CATEGORIES[category]?.label || 'Shop'
-    : params.brand && !params.brand.includes(',') ? `Refurbished ${params.brand}`
-    : 'All refurbished devices'
+  const singleBrand = params.brand && !params.brand.includes(',') ? params.brand : null
+  const title = params.q ? `Results for “${params.q}”.`
+    : params.deal ? 'Deals.'
+    : singleBrand && category ? `${singleBrand} ${CATEGORIES[category]?.short.toLowerCase() || ''}.`
+    : category ? CATEGORIES[category]?.title || 'Shop.'
+    : singleBrand ? `${singleBrand}.`
+    : 'All devices.'
+  const tagline = params.deal ? 'Hand-picked price drops on devices our engineers love.'
+    : category ? CATEGORIES[category]?.tagline : 'Certified refurbished. 6-month warranty. M-Pesa escrow.'
 
   const chips = [
     params.q && ['q', `“${params.q}”`],
@@ -96,8 +101,9 @@ export default function ShopClient() {
   return (
     <div className="container">
       <div className="shop-head">
-        <nav className="crumbs" aria-label="Breadcrumb"><Link href="/">Home</Link>/<Link href="/shop">Shop</Link>{category && <>/<span>{CATEGORIES[category]?.short}</span></>}</nav>
+        <nav className="crumbs" aria-label="Breadcrumb"><Link href="/">Store</Link>/<Link href="/shop">Shop</Link>{category && <>/<span>{CATEGORIES[category]?.short}</span></>}</nav>
         <h1>{title}</h1>
+        {tagline && !params.q && <p>{tagline}</p>}
       </div>
 
       <div className="shop-layout">
@@ -135,12 +141,17 @@ export default function ShopClient() {
           </Section>
 
           <Section title="Brand">
-            {facets.brand.map((f) => (
+            {(allBrands ? facets.brand : facets.brand.slice(0, 8)).map((f) => (
               <label className="filter-option" key={f.value}>
                 <input type="checkbox" checked={list('brand').includes(f.value)} onChange={() => toggleList('brand', f.value)} />
                 {f.value}<span className="filter-count">{f.count}</span>
               </label>
             ))}
+            {facets.brand.length > 8 && (
+              <button className="show-more" onClick={() => setAllBrands(!allBrands)}>
+                {allBrands ? 'Show fewer' : `Show all ${facets.brand.length} brands`}
+              </button>
+            )}
           </Section>
 
           <Section title="Price (KSh)">
@@ -159,7 +170,7 @@ export default function ShopClient() {
             ))}
           </Section>
 
-          <Section title="Storage / size" defaultOpen={false}>
+          <Section title="Storage / size" defaultOpen={!!params.storage}>
             {facets.storage.map((f) => (
               <label className="filter-option" key={f.value}>
                 <input type="checkbox" checked={list('storage').includes(f.value)} onChange={() => toggleList('storage', f.value)} />
@@ -175,25 +186,18 @@ export default function ShopClient() {
             </label>
           </Section>
 
-          {chips.length > 0 && <button className="btn btn-ghost btn-sm" onClick={() => router.push(pathname)}>Clear all filters</button>}
+          {chips.length > 0 && <button className="btn btn-ghost btn-sm" style={{ marginTop: 12, alignSelf: 'flex-start' }} onClick={() => router.push(pathname)}>Clear all filters</button>}
         </aside>
 
         <div>
-          <div className="trust-strip" style={{ marginBottom: 14 }}>
-            <span className="trust-item">✓ 72-point inspection</span>
-            <span className="trust-item">✓ 6-month warranty</span>
-            <span className="trust-item">✓ 30-day free returns</span>
-            <span className="trust-item">✓ M-Pesa escrow</span>
-          </div>
-
           <div className="toolbar">
             <div className="results-count">
               {data ? <><strong>{data.total} device{data.total === 1 ? '' : 's'}</strong> found</> : 'Loading devices…'}
             </div>
             <div className="toolbar-right">
-              <button className="btn btn-outline btn-sm filters-btn" onClick={() => setDrawer(true)}><Icon name="filter" size={14} /> Filters</button>
+              <button className="btn btn-dark btn-sm filters-btn" onClick={() => setDrawer(true)}><Icon name="filter" size={14} /> Filters</button>
               <label className="sr-only" htmlFor="sort">Sort by</label>
-              <select id="sort" className="select input-sm" style={{ width: 'auto', borderRadius: 100 }} value={params.sort || 'featured'} onChange={(e) => setParams({ sort: e.target.value })}>
+              <select id="sort" className="select input-sm" style={{ width: 'auto', borderRadius: 980 }} value={params.sort || 'featured'} onChange={(e) => setParams({ sort: e.target.value })}>
                 {SORTS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
               </select>
             </div>
@@ -210,11 +214,11 @@ export default function ShopClient() {
           {error && <p className="form-error">{error}</p>}
 
           <div className="products-grid cols-3" style={{ opacity: data?.loading ? 0.55 : 1, transition: 'opacity .2s' }}>
-            {!data ? <ProductSkeletons count={6} /> : data.items.map((p) => <ProductCard key={p.id} product={p} showGrade={!!params.grade} />)}
+            {!data ? <ProductSkeletons count={6} /> : data.items.map((p) => <ProductCard key={p.id} product={p} showGrade={!!params.grade} compare />)}
           </div>
 
           {data && data.total === 0 && (
-            <div className="empty-state card">
+            <div className="empty-state">
               <div className="big">🔍</div>
               <h2>No devices match those filters</h2>
               <p>Try removing a filter — or ask us to import exactly what you want.</p>

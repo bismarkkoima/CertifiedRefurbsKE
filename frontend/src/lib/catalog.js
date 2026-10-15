@@ -4,43 +4,57 @@
 import raw from '@/data/catalog.json'
 
 const MULT = { excellent: 1, good: 0.92, fair: 0.84 }
-const STOCK = { excellent: 6, good: 9, fair: 4 }
+const SPREAD = { excellent: 4, good: 6, fair: 3 }
 const BATTERY = { excellent: 95, good: 89, fair: 84 }
+const GRADE_KEYS = ['excellent', 'good', 'fair']
 const round500 = (v) => Math.floor(v / 500 + 0.5) * 500
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
+let nextVariantId = 1
 export const PRODUCTS = raw.map((item, i) => {
-  const variants = ['excellent', 'good', 'fair'].map((grade, g) => ({
-    id: i * 3 + g + 1,
-    grade,
-    price: round500(item.price * MULT[grade]),
-    stock: STOCK[grade],
-    battery_health: BATTERY[grade],
-  }))
-  const cheapest = variants[variants.length - 1]
+  const [step, newStep] = item.category === 'accessories' ? [0.08, 0.08] : [0.14, 0.16]
+  const variants = []
+  item.storages.forEach((storage, tier) => {
+    const price = round500(item.price * (1 + step * tier))
+    const newPrice = round500(item.new_price * (1 + newStep * tier))
+    GRADE_KEYS.forEach((grade) => variants.push({
+      id: nextVariantId++, grade, storage, price: round500(price * MULT[grade]), new_price: newPrice,
+      stock: (i * 5 + tier * 7 + grade.length) % 11 === 0 ? 0 : 1 + (i * 7 + tier * 3 + grade.length) % SPREAD[grade],
+      battery_health: BATTERY[grade],
+    }))
+  })
   return {
-    ...item,
-    id: i + 1,
-    slug: slugify(`${item.brand} ${item.name} ${item.storage}`),
-    warranty_months: 6,
-    variants,
-    price_from: cheapest.price,
-    best_grade: cheapest.grade,
-    in_stock: true,
-    created_at: i,
+    ...item, id: i + 1, slug: slugify(`${item.brand} ${item.name}`), warranty_months: 6,
+    image_url: null, rating: 0, reviews_count: 0, variants, ...pick(variants),
+    in_stock: variants.some((v) => v.stock > 0),
   }
 })
+
+function pick(variants) {
+  const pool = variants.filter((v) => v.stock > 0)
+  const list = pool.length ? pool : variants
+  const cheapest = list.reduce((a, b) => (b.price < a.price ? b : a), list[0])
+  return cheapest
+    ? { price_from: cheapest.price, best_grade: cheapest.grade, new_price: cheapest.new_price }
+    : { price_from: 0, best_grade: 'good' }
+}
 
 const facet = (list, key) => {
   const counts = {}
   list.forEach((p) => { counts[p[key]] = (counts[p[key]] || 0) + 1 })
-  return Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([value, count]) => ({ value, count }))
+  return Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([value, count]) => ({ value, count }))
+}
+const gb = (s) => (/^\d+(GB|TB)$/.test(s) ? parseInt(s, 10) * (s.endsWith('TB') ? 1024 : 1) : 1e9)
+const storageFacet = (list) => {
+  const counts = {}
+  list.forEach((p) => p.storages.forEach((s) => { counts[s] = (counts[s] || 0) + 1 }))
+  return Object.entries(counts).sort((a, b) => gb(a[0]) - gb(b[0])).map(([value, count]) => ({ value, count }))
 }
 
-const summary = (p, grade) => {
-  if (!grade) return p
-  const v = p.variants.find((x) => x.grade === grade)
-  return { ...p, price_from: v.price, best_grade: grade }
+const summary = (p, grade, storages) => {
+  if (!grade && !storages.length) return p
+  const vs = p.variants.filter((v) => (!grade || v.grade === grade) && (!storages.length || storages.includes(v.storage)))
+  return vs.length ? { ...p, ...pick(vs) } : null
 }
 
 export function queryProducts(params = {}) {
@@ -48,37 +62,36 @@ export function queryProducts(params = {}) {
   const page = Number(params.page) || 1
   const pageSize = Number(params.page_size) || 12
   const terms = (q || '').toLowerCase().split(/\s+/).filter(Boolean)
-  const matchQ = (p) => terms.every((t) => `${p.name} ${p.brand} ${p.subtitle} ${p.category}`.toLowerCase().includes(t))
+  const matchQ = (p) => terms.every((t) => `${p.name} ${p.brand} ${p.subtitle} ${p.category} ${p.tagline}`.toLowerCase().includes(t))
 
   const byQ = PRODUCTS.filter(matchQ)
   const base = byQ.filter((p) => !category || p.category === category)
   const brands = brand ? brand.split(',') : []
   const storages = storage ? storage.split(',') : []
 
-  let list = base.map((p) => summary(p, grade)).filter((p) =>
+  let list = base.map((p) => summary(p, grade, storages)).filter((p) => p &&
     (!brands.length || brands.includes(p.brand)) &&
-    (!storages.length || storages.includes(p.storage)) &&
     (min_price == null || min_price === '' || p.price_from >= Number(min_price)) &&
     (max_price == null || max_price === '' || p.price_from <= Number(max_price)) &&
     (deal == null || String(p.deal) === String(deal)) &&
     (featured == null || String(p.featured) === String(featured)))
 
   const sorters = {
-    featured: (a, b) => b.featured - a.featured || b.reviews_count - a.reviews_count,
+    featured: (a, b) => b.featured - a.featured || b.year - a.year || b.new_price - a.new_price,
     price_asc: (a, b) => a.price_from - b.price_from,
     price_desc: (a, b) => b.price_from - a.price_from,
-    rating: (a, b) => b.rating - a.rating || b.reviews_count - a.reviews_count,
-    newest: (a, b) => b.created_at - a.created_at,
+    rating: (a, b) => b.rating - a.rating || b.year - a.year,
+    newest: (a, b) => b.year - a.year || b.new_price - a.new_price,
     discount: (a, b) => a.price_from / a.new_price - b.price_from / b.new_price,
   }
-  list = [...list].sort(sorters[sort] || sorters.featured)
+  list = [...list].sort((a, b) => (sorters[sort] || sorters.featured)(a, b) || a.id - b.id)
 
   return {
     items: list.slice((page - 1) * pageSize, page * pageSize),
     total: list.length,
     page,
     pages: Math.max(1, Math.ceil(list.length / pageSize)),
-    facets: { brand: facet(base, 'brand'), storage: facet(base, 'storage'), category: facet(byQ, 'category') },
+    facets: { brand: facet(base, 'brand'), storage: storageFacet(base), category: facet(byQ, 'category') },
   }
 }
 
@@ -88,8 +101,19 @@ export const relatedProducts = (slug, limit = 4) => {
   const p = findProduct(slug)
   if (!p) return []
   return PRODUCTS.filter((x) => x.category === p.category && x.id !== p.id)
-    .sort((a, b) => (b.brand === p.brand) - (a.brand === p.brand) || b.rating - a.rating)
+    .sort((a, b) => (b.brand === p.brand) - (a.brand === p.brand) || Math.abs(a.new_price - p.new_price) - Math.abs(b.new_price - p.new_price))
     .slice(0, limit)
+}
+
+export function listBrands() {
+  const out = {}
+  PRODUCTS.forEach((p) => {
+    const b = (out[p.brand] ||= { name: p.brand, count: 0, categories: [], price_from: Infinity })
+    b.count += 1
+    if (!b.categories.includes(p.category)) b.categories.push(p.category)
+    b.price_from = Math.min(b.price_from, ...p.variants.map((v) => v.price))
+  })
+  return Object.values(out).sort((a, b) => b.count - a.count)
 }
 
 // ── Calculators (instant client-side estimates; the API stores the official quote) ──

@@ -1,28 +1,28 @@
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter } from 'next/font/google'
+import CompareBar from '@/components/CompareBar'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Providers from '@/components/Providers'
 import './globals.css'
 
-const display = Space_Grotesk({ subsets: ['latin'], variable: '--font-heading', weight: ['500', '600', '700'] })
 const body = Inter({ subsets: ['latin'], variable: '--font-body' })
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
-    default: 'CertifiedRefurbs KE — Certified refurbished phones & laptops in Kenya',
+    default: 'CertifiedRefurbs KE — Certified refurbished iPhone, Samsung, Tecno, Infinix & more',
     template: '%s · CertifiedRefurbs KE',
   },
   description:
-    'Kenya’s trusted source for certified refurbished iPhones, Samsung Galaxy phones, MacBooks and laptops. 72-point inspection, 6-month warranty and M-Pesa escrow protection.',
-  keywords: ['refurbished phones Kenya', 'refurbished iPhone Nairobi', 'refurbished MacBook Kenya', 'M-Pesa', 'trade in phone Kenya'],
+    'Kenya’s store for certified refurbished phones, laptops and tablets from Apple, Samsung, Google, Tecno, Infinix, itel, Xiaomi and 15 more brands. 6-month warranty and M-Pesa escrow.',
+  keywords: ['refurbished phones Kenya', 'refurbished Tecno', 'refurbished Infinix', 'Samsung Galaxy Kenya', 'refurbished iPhone Nairobi', 'refurbished MacBook Kenya', 'M-Pesa', 'trade in phone Kenya'],
   openGraph: { type: 'website', locale: 'en_KE', siteName: 'CertifiedRefurbs KE' },
 }
 
 export const viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0e0f13' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
   ],
 }
 
@@ -31,7 +31,7 @@ const themeScript = `try{var t=localStorage.getItem('crk_theme');if(!t)t=matchMe
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
+    <html lang="en" className={body.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
@@ -40,6 +40,7 @@ export default function RootLayout({ children }) {
           <Header />
           <main>{children}</main>
           <Footer />
+          <CompareBar />
         </Providers>
       </body>
     </html>

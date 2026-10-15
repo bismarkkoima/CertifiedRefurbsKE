@@ -2,9 +2,9 @@
 
 import Link from 'next/link'
 import { ksh, savePct } from '@/lib/format'
-import DeviceArt from './DeviceArt'
+import { ProductImage } from './DeviceArt'
 import Icon from './Icon'
-import { useToast, useWishlist } from './Providers'
+import { useCompare, useToast, useWishlist } from './Providers'
 
 export function Stars({ rating }) {
   const full = Math.round(rating)
@@ -15,49 +15,67 @@ export function GradeBadge({ grade }) {
   return <span className={`grade grade-${grade}`}>{grade}</span>
 }
 
-export default function ProductCard({ product, showGrade = false }) {
+export function Swatches({ colors = [], max = 6 }) {
+  return (
+    <div className="swatches" aria-label={`${colors.length} finishes`}>
+      {colors.slice(0, max).map((c) => <span key={c.name} className="swatch-dot" style={{ background: c.hex }} title={c.name} />)}
+      {colors.length > max && <span className="swatch-more">+{colors.length - max}</span>}
+    </div>
+  )
+}
+
+const isNew = (p) => p.year >= new Date().getFullYear() - 2
+
+export default function ProductCard({ product, showGrade = false, compare = false }) {
   const wish = useWishlist()
+  const cmp = useCompare()
   const toast = useToast()
   const saved = wish.has(product.slug)
+  const comparing = cmp.has(product.slug)
   const save = savePct(product.price_from, product.new_price)
 
   const toggle = (e) => {
     e.preventDefault()
     wish.toggle(product.slug)
-    toast(saved ? 'Removed from wishlist' : '♥ Saved to wishlist', saved ? null : { href: '/wishlist', label: 'View' })
+    toast(saved ? 'Removed from your favourites' : '♥ Saved to favourites', saved ? null : { href: '/wishlist', label: 'View' })
+  }
+  const toggleCompare = (e) => {
+    e.preventDefault()
+    const ok = cmp.toggle(product)
+    if (!ok) toast('You can compare up to 3 devices', { href: '/compare', label: 'Compare now' })
   }
 
   return (
     <Link href={`/product/${product.slug}`} className="product-card">
-      <div className="product-thumb">
-        <div className="product-tags">
-          {product.deal && <span className="tag tag-deal">Deal</span>}
-          {showGrade && <GradeBadge grade={product.best_grade} />}
-          {!product.in_stock && <span className="tag">Sold out</span>}
-        </div>
-        <button className={`wishlist-btn ${saved ? 'on' : ''}`} onClick={toggle}
-          aria-label={saved ? 'Remove from wishlist' : 'Save to wishlist'} aria-pressed={saved}>
-          <Icon name="heart" size={16} fill={saved ? 'currentColor' : 'none'} />
-        </button>
-        <DeviceArt category={product.category} name={product.name} hue={product.hue} />
+      <div className="product-tags">
+        {product.deal ? <span className="tag tag-deal">Deal</span> : isNew(product) && <span className="tag">New in refurbished</span>}
+        {!product.in_stock && <span className="tag tag-muted">Sold out</span>}
+        {showGrade && <GradeBadge grade={product.best_grade} />}
       </div>
+      <button className={`wishlist-btn ${saved ? 'on' : ''}`} onClick={toggle}
+        aria-label={saved ? 'Remove from favourites' : 'Save to favourites'} aria-pressed={saved}>
+        <Icon name="heart" size={17} fill={saved ? 'currentColor' : 'none'} />
+      </button>
+      <div className="product-thumb"><ProductImage product={product} view="pair" /></div>
+      <Swatches colors={product.colors} />
       <div className="product-brand">{product.brand}</div>
       <div className="product-name">{product.name}</div>
-      <div className="product-sub">{product.subtitle}</div>
-      <div className="product-rating">
-        <Stars rating={product.rating} /> {product.rating} ({product.reviews_count.toLocaleString()})
-      </div>
+      <div className="product-sub">{product.storages.length > 1 ? `${product.storages[0]} – ${product.storages.at(-1)} · ` : ''}{product.subtitle}</div>
+      {product.reviews_count > 0 && (
+        <div className="product-rating"><Stars rating={product.rating} /> {product.rating} ({product.reviews_count})</div>
+      )}
       <div className="product-pricing">
         <div>
-          <div className="product-from">From</div>
-          <div className="product-price">{ksh(product.price_from)}</div>
-          <div className="product-was">New {ksh(product.new_price)}</div>
+          <div className="product-price">From {ksh(product.price_from)}</div>
+          {save > 0 && <div className="product-was">{ksh(product.new_price)} new</div>}
         </div>
-        {save > 0 && <span className="save-pill">−{save}%</span>}
+        {save > 0 && <span className="save-pill">Save {save}%</span>}
       </div>
-      <div className="product-foot">
-        <span className="mpesa-dot" /> M-Pesa · {product.in_stock ? 'In stock' : 'Sold out'} · 6-mo warranty
-      </div>
+      {compare && (
+        <label className="compare-toggle" onClick={toggleCompare}>
+          <input type="checkbox" checked={comparing} readOnly tabIndex={-1} /> Compare
+        </label>
+      )}
     </Link>
   )
 }

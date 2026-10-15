@@ -19,6 +19,10 @@ const PATHS = {
   chevron: <path d="m6 9 6 6 6-6" />,
   globe: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" /></>,
   tag: <><path d="M3 12V4h8l10 10-8 8L3 12Z" /><circle cx="7.5" cy="8.5" r="1.3" /></>,
+  bag: <><path d="M5 8h14l-1 12.5a1.5 1.5 0 0 1-1.5 1.4h-9A1.5 1.5 0 0 1 6 20.5L5 8Z" /><path d="M9 8V6.5a3 3 0 0 1 6 0V8" /></>,
+  compare: <><rect x="3" y="4" width="7" height="16" rx="1.5" /><rect x="14" y="4" width="7" height="16" rx="1.5" /></>,
+  chat: <path d="M4 5h16v11H9l-5 4V5Z" />,
+  store: <><path d="M4 9h16l-1-5H5L4 9Z" /><path d="M5 9v11h14V9M9 20v-6h6v6" /></>,
   bolt: <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />,
 }
 

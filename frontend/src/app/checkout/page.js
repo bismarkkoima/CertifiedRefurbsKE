@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import DeviceArt from '@/components/DeviceArt'
+import { ProductImage } from '@/components/DeviceArt'
 import Icon from '@/components/Icon'
 import { useAuth, useCart } from '@/components/Providers'
 import { GRADES, ksh } from '@/lib/format'
@@ -24,6 +24,9 @@ export default function CheckoutPage() {
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
   const [pay, setPay] = useState(null) // { state: 'waiting'|'success'|'failed', message, simulated }
+  const [promo, setPromo] = useState('')
+  const [coupon, setCoupon] = useState(null)
+  const [promoError, setPromoError] = useState('')
   const poll = useRef(null)
 
   useEffect(() => {
@@ -35,9 +38,9 @@ export default function CheckoutPage() {
   if (!cart.items.length && !order) {
     return (
       <div className="container empty-state">
-        <div className="big">🧾</div>
-        <h2>Nothing to check out yet</h2>
-        <p>Add a device to your cart first.</p>
+        <div className="big">🛍️</div>
+        <h2>Your bag is empty.</h2>
+        <p>Add a device to your bag first.</p>
         <Link href="/shop" className="btn btn-primary">Browse devices</Link>
       </div>
     )
@@ -48,7 +51,18 @@ export default function CheckoutPage() {
   const lines = cart.items.length ? cart.items : order.items.map((i) => ({ ...i, price: i.unit_price }))
   const subtotal = order ? order.subtotal : cart.subtotal
   const fee = order ? order.delivery_fee : method.fee(subtotal)
-  const total = order ? order.total : subtotal + fee
+  const discount = order ? order.discount : coupon?.discount || 0
+  const total = order ? order.total : subtotal - discount + fee
+
+  const applyPromo = async () => {
+    setPromoError('')
+    try {
+      setCoupon(await api.validateCoupon(promo.trim(), cart.subtotal))
+    } catch (e) {
+      setCoupon(null)
+      setPromoError(e.message)
+    }
+  }
 
   const startPayment = async (o) => {
     setPay({ state: 'waiting', message: `Check your phone (${form.phone}) and enter your M-Pesa PIN to pay ${ksh(o.total)}.` })
@@ -83,7 +97,7 @@ export default function CheckoutPage() {
     setBusy(true)
     try {
       const details = form.delivery_method === 'pickup' ? { ...form, address: 'Store pickup — The Mall, Westlands', city: 'Nairobi' } : form
-      const o = order || await api.createOrder({ ...details, items: cart.items.map((i) => ({ variant_id: i.variant_id, quantity: i.quantity })) })
+      const o = order || await api.createOrder({ ...details, coupon_code: coupon?.code || null, items: cart.items.map((i) => ({ variant_id: i.variant_id, quantity: i.quantity, color: i.color })) })
       setOrder(o)
       await startPayment(o)
     } catch (err) {
@@ -96,11 +110,11 @@ export default function CheckoutPage() {
   return (
     <div className="container section-sm">
       <div className="steps">
-        <span className="step done"><span className="step-num">✓</span>Cart</span><span className="step-line" />
+        <span className="step done"><span className="step-num">✓</span>Bag</span><span className="step-line" />
         <span className={`step ${order ? 'done' : 'active'}`}><span className="step-num">{order ? '✓' : 2}</span>Details</span><span className="step-line" />
         <span className={`step ${order ? 'active' : ''}`}><span className="step-num">3</span>M-Pesa payment</span>
       </div>
-      <h1 style={{ fontSize: 34, marginBottom: 20 }}>Checkout</h1>
+      <h1 style={{ fontSize: 40, marginBottom: 24 }}>Checkout.</h1>
 
       <form className="panel-grid" onSubmit={submit}>
         <div className="stack">
@@ -153,14 +167,14 @@ export default function CheckoutPage() {
           <div className="divider" />
           <div className="stack-sm">
             {lines.map((i) => (
-              <div className="row" key={`${i.variant_id}-${i.product_slug || i.slug}`} style={{ alignItems: 'center' }}>
+              <div className="row" key={i.key || `${i.product_slug}-${i.storage}-${i.color}-${i.grade}`} style={{ alignItems: 'center' }}>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-                  <div className="cart-thumb" style={{ width: 52, height: 52 }}>
-                    <DeviceArt category={i.category || 'phones'} name={i.name || i.product_name} hue={i.hue ?? 220} />
+                  <div className="cart-thumb" style={{ width: 56, height: 56 }}>
+                    <ProductImage product={{ category: i.category || 'phones', name: i.name || i.product_name, hue: i.hue ?? 220, image_url: i.image_url, colors: [] }} color={i.colorHex} />
                   </div>
                   <div>
                     <strong style={{ fontSize: 14 }}>{i.name || i.product_name}</strong>
-                    <div className="subtle">{GRADES[i.grade]?.label} · Qty {i.quantity}</div>
+                    <div className="subtle">{i.storage}{i.color && ` · ${i.color}`} · {GRADES[i.grade]?.label} · Qty {i.quantity}</div>
                   </div>
                 </div>
                 <strong>{ksh(i.price * i.quantity)}</strong>
@@ -169,7 +183,19 @@ export default function CheckoutPage() {
           </div>
           <div className="divider" />
           <div className="row"><span className="muted">Subtotal</span><span>{ksh(subtotal)}</span></div>
+          {discount > 0 && <div className="row" style={{ color: 'var(--green)' }}><span>Promo {order?.coupon_code || coupon?.code}</span><span>−{ksh(discount)}</span></div>}
           <div className="row"><span className="muted">Delivery</span><span>{fee ? ksh(fee) : 'Free'}</span></div>
+          {!order && (
+            <div style={{ marginTop: 14 }}>
+              <div className="coupon-row">
+                <label htmlFor="promo" className="sr-only">Promo code</label>
+                <input id="promo" className="input" placeholder="Promo code" value={promo} onChange={(e) => setPromo(e.target.value.toUpperCase())} />
+                <button type="button" className="btn btn-outline btn-sm" onClick={applyPromo} disabled={!promo.trim()}>Apply</button>
+              </div>
+              {coupon && <p className="subtle" style={{ color: 'var(--green)', marginTop: 6 }}>✓ {coupon.description}</p>}
+              {promoError && <p className="subtle" style={{ color: 'var(--red)', marginTop: 6 }}>{promoError}</p>}
+            </div>
+          )}
           <div className="divider" />
           <div className="row total"><span>Total</span><span>{ksh(total)}</span></div>
           {error && <p className="form-error" style={{ marginTop: 14 }}>{error}</p>}

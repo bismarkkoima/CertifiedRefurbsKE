@@ -1,4 +1,4 @@
-import { findProduct, queryProducts, relatedProducts } from '@/lib/catalog'
+import { findProduct, listBrands, queryProducts, relatedProducts } from '@/lib/catalog'
 
 export const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '')
 
@@ -52,7 +52,11 @@ export const api = {
     if (!p) throw new ApiError('Product not found', 404)
     return p
   })),
-  relatedProducts: (slug) => request(`/listings/${slug}/related`).catch(offline(() => relatedProducts(slug))),
+  relatedProducts: (slug) => request(`/listings/${slug}/related`, { params: { limit: 10 } }).catch(offline(() => relatedProducts(slug, 10))),
+  brands: () => request('/listings/brands').catch(offline(listBrands)),
+  reviews: (slug) => request(`/listings/${slug}/reviews`).catch(offline(() => ({ items: [], average: 0, count: 0, distribution: { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 } }))),
+  postReview: (slug, body) => request(`/listings/${slug}/reviews`, { method: 'POST', body }),
+  validateCoupon: (code, subtotal) => request('/orders/validate-coupon', { method: 'POST', body: { code, subtotal } }),
 
   createOrder: (body) => request('/orders', { method: 'POST', body }),
   getOrder: (number, phone) => request(`/orders/${number}`, { params: { phone } }),
@@ -75,4 +79,12 @@ export const api = {
 
   adminStats: () => request('/admin/stats'),
   adminUpdateOrder: (number, status) => request(`/admin/orders/${number}`, { method: 'PATCH', body: { status } }),
+  adminProducts: () => request('/admin/products'),
+  adminCreateProduct: (body) => request('/admin/products', { method: 'POST', body }),
+  adminUpdateProduct: (id, body) => request(`/admin/products/${id}`, { method: 'PATCH', body }),
+  adminUpdateVariant: (id, body) => request(`/admin/variants/${id}`, { method: 'PATCH', body }),
+  adminCoupons: () => request('/admin/coupons'),
+  adminCreateCoupon: (body) => request('/admin/coupons', { method: 'POST', body }),
+  adminToggleCoupon: (id) => request(`/admin/coupons/${id}`, { method: 'PATCH' }),
+  adminDeleteReview: (id) => request(`/admin/reviews/${id}`, { method: 'DELETE' }),
 }

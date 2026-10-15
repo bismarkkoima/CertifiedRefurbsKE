@@ -6,8 +6,8 @@ export async function generateMetadata({ params }) {
   const p = findProduct(slug)
   if (!p) return { title: 'Refurbished device' }
   return {
-    title: `Refurbished ${p.brand} ${p.name} ${p.storage}`,
-    description: `${p.brand} ${p.name} (${p.subtitle}) certified refurbished from KSh ${p.price_from.toLocaleString()}. 6-month warranty, free returns and M-Pesa escrow.`,
+    title: `Buy refurbished ${p.brand} ${p.name}`,
+    description: `${p.brand} ${p.name} — ${p.tagline} Certified refurbished from KSh ${p.price_from.toLocaleString()} in ${p.storages.join(', ')}. 6-month warranty, free returns and M-Pesa escrow.`,
   }
 }
 

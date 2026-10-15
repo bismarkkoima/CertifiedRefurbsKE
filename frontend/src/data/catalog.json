@@ -1,74 +1,4440 @@
 [
-  {"name":"iPhone 13","brand":"Apple","category":"phones","storage":"128GB","color":"Midnight","subtitle":"128GB · Midnight · Unlocked","price":52000,"new_price":75000,"rating":4.7,"reviews_count":842,"hue":225,"featured":true,"deal":false,
-   "specs":{"Display":"6.1\" Super Retina XDR OLED","Chip":"A15 Bionic","Camera":"Dual 12MP (Wide, Ultra Wide)","Battery":"3,240 mAh","Network":"5G","Face ID":"Yes"},
-   "description":"The iPhone 13 brings the A15 Bionic chip, a brighter Super Retina XDR display and cinematic mode video. Each unit passes our 72-point inspection and ships with a fresh, certified-compatible battery check."},
-  {"name":"iPhone 13 Pro","brand":"Apple","category":"phones","storage":"256GB","color":"Sierra Blue","subtitle":"256GB · Sierra Blue · Unlocked","price":71500,"new_price":110000,"rating":4.8,"reviews_count":611,"hue":205,"featured":true,"deal":true,
-   "specs":{"Display":"6.1\" ProMotion 120Hz OLED","Chip":"A15 Bionic (5-core GPU)","Camera":"Triple 12MP + LiDAR","Battery":"3,095 mAh","Network":"5G","Build":"Surgical-grade stainless steel"},
-   "description":"ProMotion, a pro camera system with macro photography and ProRAW, and all-day battery. A flagship experience at a fraction of the new price."},
-  {"name":"iPhone 12 Pro","brand":"Apple","category":"phones","storage":"128GB","color":"Pacific Blue","subtitle":"128GB · Pacific Blue · Unlocked","price":44500,"new_price":65000,"rating":4.6,"reviews_count":934,"hue":200,"featured":false,"deal":false,
-   "specs":{"Display":"6.1\" Super Retina XDR OLED","Chip":"A14 Bionic","Camera":"Triple 12MP + LiDAR","Battery":"2,815 mAh","Network":"5G","MagSafe":"Yes"},
-   "description":"Ceramic Shield front, LiDAR scanner and MagSafe accessories support — a premium iPhone that still feels fast years later."},
-  {"name":"iPhone 14","brand":"Apple","category":"phones","storage":"128GB","color":"Purple","subtitle":"128GB · Purple · Unlocked","price":63000,"new_price":92000,"rating":4.7,"reviews_count":402,"hue":270,"featured":false,"deal":false,
-   "specs":{"Display":"6.1\" Super Retina XDR OLED","Chip":"A15 Bionic (5-core GPU)","Camera":"Dual 12MP with Photonic Engine","Battery":"3,279 mAh","Network":"5G","Safety":"Crash Detection"},
-   "description":"Improved low-light camera, Crash Detection and Action mode video stabilisation in a durable aluminium design."},
-  {"name":"iPhone 11","brand":"Apple","category":"phones","storage":"64GB","color":"Black","subtitle":"64GB · Black · Unlocked","price":29500,"new_price":48000,"rating":4.5,"reviews_count":1530,"hue":230,"featured":false,"deal":true,
-   "specs":{"Display":"6.1\" Liquid Retina LCD","Chip":"A13 Bionic","Camera":"Dual 12MP","Battery":"3,110 mAh","Network":"4G LTE","Water resistance":"IP68"},
-   "description":"The best-selling iPhone that still does it all. A brilliant first iPhone or a dependable everyday phone."},
-  {"name":"Galaxy S21","brand":"Samsung","category":"phones","storage":"256GB","color":"Phantom Grey","subtitle":"256GB · Phantom Grey · Dual SIM","price":38500,"new_price":58000,"rating":4.5,"reviews_count":613,"hue":250,"featured":false,"deal":false,
-   "specs":{"Display":"6.2\" Dynamic AMOLED 2X 120Hz","Chip":"Exynos 2100","Camera":"Triple 64MP + 12MP + 12MP","Battery":"4,000 mAh","Network":"5G","RAM":"8GB"},
-   "description":"Samsung's compact flagship with a silky 120Hz display, 8K video and a versatile triple camera."},
-  {"name":"Galaxy S22 Ultra","brand":"Samsung","category":"phones","storage":"256GB","color":"Phantom Black","subtitle":"256GB · Phantom Black · S Pen","price":68000,"new_price":105000,"rating":4.7,"reviews_count":521,"hue":160,"featured":true,"deal":true,
-   "specs":{"Display":"6.8\" Dynamic AMOLED 2X 120Hz","Chip":"Snapdragon 8 Gen 1","Camera":"108MP quad with 10x optical zoom","Battery":"5,000 mAh","Network":"5G","S Pen":"Built-in"},
-   "description":"The Note reborn — a built-in S Pen, 100x Space Zoom and a stunning 6.8-inch display for work and play."},
-  {"name":"Galaxy S23","brand":"Samsung","category":"phones","storage":"256GB","color":"Cream","subtitle":"256GB · Cream · Dual SIM","price":69500,"new_price":99000,"rating":4.8,"reviews_count":288,"hue":40,"featured":false,"deal":false,
-   "specs":{"Display":"6.1\" Dynamic AMOLED 2X 120Hz","Chip":"Snapdragon 8 Gen 2 for Galaxy","Camera":"Triple 50MP + 12MP + 10MP","Battery":"3,900 mAh","Network":"5G","RAM":"8GB"},
-   "description":"Flagship performance that fits in one hand, with excellent battery efficiency and Nightography."},
-  {"name":"Galaxy A54","brand":"Samsung","category":"phones","storage":"128GB","color":"Awesome Lime","subtitle":"128GB · Awesome Lime · Dual SIM","price":27500,"new_price":42000,"rating":4.4,"reviews_count":744,"hue":95,"featured":false,"deal":true,
-   "specs":{"Display":"6.4\" Super AMOLED 120Hz","Chip":"Exynos 1380","Camera":"Triple 50MP OIS","Battery":"5,000 mAh","Network":"5G","Water resistance":"IP67"},
-   "description":"Mid-range done right: a smooth 120Hz screen, two-day battery and four years of OS updates."},
-  {"name":"Pixel 7 Pro","brand":"Google","category":"phones","storage":"128GB","color":"Obsidian","subtitle":"128GB · Obsidian · Unlocked","price":46000,"new_price":68000,"rating":4.6,"reviews_count":312,"hue":30,"featured":true,"deal":false,
-   "specs":{"Display":"6.7\" LTPO OLED 120Hz","Chip":"Google Tensor G2","Camera":"50MP + 48MP 5x tele + 12MP","Battery":"5,000 mAh","Network":"5G","Software":"Clean Android + Magic Eraser"},
-   "description":"Google's computational photography at its best — with Magic Eraser, Real Tone and clean, fast Android."},
-  {"name":"Redmi Note 12 Pro","brand":"Xiaomi","category":"phones","storage":"256GB","color":"Midnight Black","subtitle":"256GB · Midnight Black · Dual SIM","price":24000,"new_price":36000,"rating":4.3,"reviews_count":421,"hue":10,"featured":false,"deal":false,
-   "specs":{"Display":"6.67\" OLED 120Hz","Chip":"Dimensity 1080","Camera":"50MP OIS triple","Battery":"5,000 mAh · 67W","Network":"5G","RAM":"8GB"},
-   "description":"Big screen, fast 67W charging and a sharp 50MP camera at an unbeatable price."},
-  {"name":"MacBook Air M1","brand":"Apple","category":"laptops","storage":"256GB","color":"Space Grey","subtitle":"8GB · 256GB SSD · 13.3\"","price":88000,"new_price":130000,"rating":4.8,"reviews_count":1204,"hue":215,"featured":true,"deal":false,
-   "specs":{"Display":"13.3\" Retina (2560×1600)","Chip":"Apple M1 (8-core CPU)","Memory":"8GB unified","Storage":"256GB SSD","Battery":"Up to 18 hours","Weight":"1.29 kg"},
-   "description":"Fanless, silent and astonishingly fast. The M1 MacBook Air remains the best value laptop for students and professionals."},
-  {"name":"MacBook Air M2","brand":"Apple","category":"laptops","storage":"512GB","color":"Midnight","subtitle":"8GB · 512GB SSD · 13.6\"","price":124000,"new_price":175000,"rating":4.9,"reviews_count":356,"hue":235,"featured":false,"deal":true,
-   "specs":{"Display":"13.6\" Liquid Retina","Chip":"Apple M2 (8-core CPU, 10-core GPU)","Memory":"8GB unified","Storage":"512GB SSD","Battery":"Up to 18 hours","Charging":"MagSafe 3"},
-   "description":"All-new design, MagSafe charging and a bigger Liquid Retina display — thin, light and seriously powerful."},
-  {"name":"MacBook Pro 14\" M1 Pro","brand":"Apple","category":"laptops","storage":"512GB","color":"Silver","subtitle":"16GB · 512GB SSD · 14.2\"","price":168000,"new_price":260000,"rating":4.9,"reviews_count":198,"hue":200,"featured":true,"deal":false,
-   "specs":{"Display":"14.2\" Liquid Retina XDR 120Hz","Chip":"Apple M1 Pro (10-core CPU)","Memory":"16GB unified","Storage":"512GB SSD","Ports":"HDMI, SDXC, 3× Thunderbolt 4","Battery":"Up to 17 hours"},
-   "description":"A true pro machine: mini-LED XDR display, the ports you need and performance for video, code and design."},
-  {"name":"EliteBook 840 G7","brand":"HP","category":"laptops","storage":"512GB","color":"Silver","subtitle":"16GB · 512GB SSD · Core i7","price":62000,"new_price":95000,"rating":4.6,"reviews_count":389,"hue":190,"featured":false,"deal":false,
-   "specs":{"Display":"14\" FHD IPS","CPU":"Intel Core i7-10610U","Memory":"16GB DDR4","Storage":"512GB NVMe SSD","Security":"Fingerprint + IR camera","Weight":"1.33 kg"},
-   "description":"Business-class build quality with enterprise security and a comfortable keyboard for long workdays."},
-  {"name":"ThinkPad X1 Carbon Gen 8","brand":"Lenovo","category":"laptops","storage":"512GB","color":"Black","subtitle":"16GB · 512GB SSD · Core i5","price":55000,"new_price":82000,"rating":4.5,"reviews_count":276,"hue":0,"featured":false,"deal":true,
-   "specs":{"Display":"14\" FHD IPS","CPU":"Intel Core i5-10310U","Memory":"16GB LPDDR3","Storage":"512GB NVMe SSD","Keyboard":"Legendary ThinkPad, backlit","Weight":"1.09 kg"},
-   "description":"Carbon-fibre ultralight with the best laptop keyboard in the business and MIL-STD tested durability."},
-  {"name":"ThinkPad T14","brand":"Lenovo","category":"laptops","storage":"256GB","color":"Black","subtitle":"16GB · 256GB SSD · Ryzen 5 Pro","price":46500,"new_price":72000,"rating":4.5,"reviews_count":233,"hue":350,"featured":false,"deal":false,
-   "specs":{"Display":"14\" FHD IPS","CPU":"AMD Ryzen 5 Pro 4650U","Memory":"16GB DDR4","Storage":"256GB NVMe SSD","Ports":"USB-C, HDMI, Ethernet","Weight":"1.47 kg"},
-   "description":"The dependable workhorse — great performance per shilling and every port you'll need."},
-  {"name":"XPS 13 9310","brand":"Dell","category":"laptops","storage":"512GB","color":"Platinum Silver","subtitle":"16GB · 512GB SSD · Core i7","price":72000,"new_price":110000,"rating":4.7,"reviews_count":418,"hue":180,"featured":false,"deal":false,
-   "specs":{"Display":"13.4\" FHD+ InfinityEdge","CPU":"Intel Core i7-1165G7","Memory":"16GB LPDDR4x","Storage":"512GB NVMe SSD","Build":"CNC aluminium + carbon fibre","Weight":"1.2 kg"},
-   "description":"Edge-to-edge display in one of the most compact 13-inch laptops ever made."},
-  {"name":"Latitude 5420","brand":"Dell","category":"laptops","storage":"256GB","color":"Grey","subtitle":"8GB · 256GB SSD · Core i5","price":38000,"new_price":62000,"rating":4.4,"reviews_count":512,"hue":210,"featured":false,"deal":true,
-   "specs":{"Display":"14\" FHD","CPU":"Intel Core i5-1135G7","Memory":"8GB DDR4","Storage":"256GB NVMe SSD","Ports":"USB-C, HDMI, RJ45","Weight":"1.4 kg"},
-   "description":"A no-nonsense office laptop that's built to last — ideal for SMEs and students on a budget."},
-  {"name":"iPad Air (5th gen)","brand":"Apple","category":"tablets","storage":"64GB","color":"Blue","subtitle":"64GB · Wi-Fi · 10.9\"","price":58000,"new_price":85000,"rating":4.8,"reviews_count":301,"hue":205,"featured":true,"deal":false,
-   "specs":{"Display":"10.9\" Liquid Retina","Chip":"Apple M1","Camera":"12MP Center Stage","Storage":"64GB","Connectivity":"Wi-Fi 6, USB-C","Pencil":"Apple Pencil (2nd gen)"},
-   "description":"M1 power in a thin, colourful tablet. Perfect for notes, drawing and entertainment."},
-  {"name":"iPad 9th gen","brand":"Apple","category":"tablets","storage":"64GB","color":"Space Grey","subtitle":"64GB · Wi-Fi · 10.2\"","price":32000,"new_price":48000,"rating":4.6,"reviews_count":688,"hue":220,"featured":false,"deal":true,
-   "specs":{"Display":"10.2\" Retina","Chip":"A13 Bionic","Camera":"12MP Ultra Wide front","Storage":"64GB","Connectivity":"Wi-Fi, Lightning","Pencil":"Apple Pencil (1st gen)"},
-   "description":"The everyday iPad for school, streaming and video calls — at its most affordable."},
-  {"name":"Galaxy Tab S8","brand":"Samsung","category":"tablets","storage":"128GB","color":"Graphite","subtitle":"128GB · Wi-Fi · 11\"","price":52000,"new_price":80000,"rating":4.6,"reviews_count":174,"hue":260,"featured":false,"deal":false,
-   "specs":{"Display":"11\" LTPS 120Hz","Chip":"Snapdragon 8 Gen 1","S Pen":"Included","Storage":"128GB + microSD","Battery":"8,000 mAh","Mode":"Samsung DeX"},
-   "description":"An Android powerhouse with S Pen in the box and DeX for desktop-style multitasking."},
-  {"name":"Apple Watch Series 7","brand":"Apple","category":"accessories","storage":"45mm","color":"Midnight","subtitle":"45mm · GPS · Aluminium","price":28500,"new_price":45000,"rating":4.7,"reviews_count":266,"hue":240,"featured":false,"deal":false,
-   "specs":{"Display":"Always-On Retina","Size":"45mm","Health":"ECG, Blood oxygen","Water resistance":"WR50","Charging":"Fast charging","Connectivity":"GPS"},
-   "description":"The biggest Apple Watch display yet at the time, with fast charging and advanced health sensors."},
-  {"name":"AirPods Pro (2nd gen)","brand":"Apple","category":"accessories","storage":"MagSafe","color":"White","subtitle":"MagSafe case · USB-C","price":24000,"new_price":36000,"rating":4.8,"reviews_count":512,"hue":190,"featured":false,"deal":true,
-   "specs":{"Chip":"H2","ANC":"2× more Active Noise Cancellation","Battery":"Up to 6h (30h with case)","Case":"MagSafe, USB-C, speaker","Water resistance":"IP54","Audio":"Personalised Spatial Audio"},
-   "description":"Class-leading noise cancellation and Adaptive Transparency. New ear tips included with every pair."}
+ {
+  "name": "iPhone 16 Pro Max",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "The biggest Pro. Built for Apple Intelligence.",
+  "subtitle": "6.9\" · A18 Pro",
+  "price": 165000,
+  "new_price": 215000,
+  "storages": [
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Desert Titanium",
+    "hex": "#bfa48f"
+   },
+   {
+    "name": "Natural Titanium",
+    "hex": "#c2bcb2"
+   },
+   {
+    "name": "White Titanium",
+    "hex": "#f2f1ec"
+   },
+   {
+    "name": "Black Titanium",
+    "hex": "#3c3c3d"
+   }
+  ],
+  "hue": 26,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "6.9\" Super Retina XDR ProMotion",
+   "Chip": "A18 Pro",
+   "Camera": "48MP Fusion + 5x Telephoto",
+   "Battery": "Up to 33 hrs video",
+   "Network": "5G"
+  },
+  "description": "The biggest Pro. Built for Apple Intelligence. The Apple iPhone 16 Pro Max is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 16 Pro",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Camera Control. Pro power in your hand.",
+  "subtitle": "6.3\" · A18 Pro",
+  "price": 135000,
+  "new_price": 178000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Desert Titanium",
+    "hex": "#bfa48f"
+   },
+   {
+    "name": "Natural Titanium",
+    "hex": "#c2bcb2"
+   },
+   {
+    "name": "White Titanium",
+    "hex": "#f2f1ec"
+   },
+   {
+    "name": "Black Titanium",
+    "hex": "#3c3c3d"
+   }
+  ],
+  "hue": 26,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "6.3\" Super Retina XDR ProMotion",
+   "Chip": "A18 Pro",
+   "Camera": "48MP Fusion + 5x Telephoto",
+   "Battery": "Up to 27 hrs video",
+   "Network": "5G"
+  },
+  "description": "Camera Control. Pro power in your hand. The Apple iPhone 16 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 16",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Hello, Camera Control. Hello, Action button.",
+  "subtitle": "6.1\" · A18",
+  "price": 98000,
+  "new_price": 132000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Ultramarine",
+    "hex": "#5b6ee1"
+   },
+   {
+    "name": "Teal",
+    "hex": "#9dc3c1"
+   },
+   {
+    "name": "Pink",
+    "hex": "#f2adda"
+   },
+   {
+    "name": "White",
+    "hex": "#f5f5f0"
+   },
+   {
+    "name": "Black",
+    "hex": "#3c3c3d"
+   }
+  ],
+  "hue": 231,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.1\" Super Retina XDR",
+   "Chip": "A18",
+   "Camera": "48MP Fusion + Ultra Wide",
+   "Battery": "Up to 22 hrs video",
+   "Network": "5G"
+  },
+  "description": "Hello, Camera Control. Hello, Action button. The Apple iPhone 16 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 15 Pro Max",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Titanium. So strong. So light. So Pro.",
+  "subtitle": "6.7\" · A17 Pro",
+  "price": 128000,
+  "new_price": 185000,
+  "storages": [
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Natural Titanium",
+    "hex": "#bab4a8"
+   },
+   {
+    "name": "Blue Titanium",
+    "hex": "#3f4a59"
+   },
+   {
+    "name": "White Titanium",
+    "hex": "#f2f1ec"
+   },
+   {
+    "name": "Black Titanium",
+    "hex": "#3c3c3d"
+   }
+  ],
+  "hue": 214,
+  "featured": true,
+  "deal": true,
+  "specs": {
+   "Display": "6.7\" Super Retina XDR ProMotion",
+   "Chip": "A17 Pro",
+   "Camera": "48MP Main + 5x Telephoto",
+   "Battery": "Up to 29 hrs video",
+   "Network": "5G"
+  },
+  "description": "Titanium. So strong. So light. So Pro. The Apple iPhone 15 Pro Max is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 15 Pro",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Forged in titanium. USB-C at last.",
+  "subtitle": "6.1\" · A17 Pro",
+  "price": 105000,
+  "new_price": 155000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Natural Titanium",
+    "hex": "#bab4a8"
+   },
+   {
+    "name": "Blue Titanium",
+    "hex": "#3f4a59"
+   },
+   {
+    "name": "White Titanium",
+    "hex": "#f2f1ec"
+   },
+   {
+    "name": "Black Titanium",
+    "hex": "#3c3c3d"
+   }
+  ],
+  "hue": 214,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.1\" Super Retina XDR ProMotion",
+   "Chip": "A17 Pro",
+   "Camera": "48MP Main + 3x Telephoto",
+   "Battery": "Up to 23 hrs video",
+   "Network": "5G"
+  },
+  "description": "Forged in titanium. USB-C at last. The Apple iPhone 15 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 15",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Dynamic Island comes to iPhone 15.",
+  "subtitle": "6.1\" · A16 Bionic",
+  "price": 80000,
+  "new_price": 115000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Blue",
+    "hex": "#d5dde3"
+   },
+   {
+    "name": "Pink",
+    "hex": "#f9e0e3"
+   },
+   {
+    "name": "Yellow",
+    "hex": "#f6f2c8"
+   },
+   {
+    "name": "Green",
+    "hex": "#dde6d6"
+   },
+   {
+    "name": "Black",
+    "hex": "#3d3f42"
+   }
+  ],
+  "hue": 54,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "6.1\" Super Retina XDR",
+   "Chip": "A16 Bionic",
+   "Camera": "48MP Main + Ultra Wide",
+   "Battery": "Up to 20 hrs video",
+   "Network": "5G"
+  },
+  "description": "Dynamic Island comes to iPhone 15. The Apple iPhone 15 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 14 Pro Max",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2022,
+  "tagline": "A magical new way to interact with iPhone.",
+  "subtitle": "6.7\" · A16 Bionic",
+  "price": 92000,
+  "new_price": 145000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Deep Purple",
+    "hex": "#594f63"
+   },
+   {
+    "name": "Gold",
+    "hex": "#f4e8ce"
+   },
+   {
+    "name": "Silver",
+    "hex": "#f0f0ef"
+   },
+   {
+    "name": "Space Black",
+    "hex": "#403e3d"
+   }
+  ],
+  "hue": 41,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.7\" Super Retina XDR ProMotion",
+   "Chip": "A16 Bionic",
+   "Camera": "48MP Main + 3x Telephoto",
+   "Battery": "Up to 29 hrs video",
+   "Network": "5G"
+  },
+  "description": "A magical new way to interact with iPhone. The Apple iPhone 14 Pro Max is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 14 Pro",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2022,
+  "tagline": "Always-On display. 48MP camera.",
+  "subtitle": "6.1\" · A16 Bionic",
+  "price": 82000,
+  "new_price": 130000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Deep Purple",
+    "hex": "#594f63"
+   },
+   {
+    "name": "Gold",
+    "hex": "#f4e8ce"
+   },
+   {
+    "name": "Silver",
+    "hex": "#f0f0ef"
+   },
+   {
+    "name": "Space Black",
+    "hex": "#403e3d"
+   }
+  ],
+  "hue": 41,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.1\" Super Retina XDR ProMotion",
+   "Chip": "A16 Bionic",
+   "Camera": "48MP Main + 3x Telephoto",
+   "Battery": "Up to 23 hrs video",
+   "Network": "5G"
+  },
+  "description": "Always-On display. 48MP camera. The Apple iPhone 14 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 14",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2022,
+  "tagline": "Crash Detection. Big upgrade to the camera.",
+  "subtitle": "6.1\" · A15 Bionic (5-core GPU)",
+  "price": 63000,
+  "new_price": 92000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Purple",
+    "hex": "#e5ddea"
+   },
+   {
+    "name": "Blue",
+    "hex": "#a0b4c7"
+   },
+   {
+    "name": "Midnight",
+    "hex": "#222930"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#f9f3ee"
+   },
+   {
+    "name": "(PRODUCT)RED",
+    "hex": "#d82e2e"
+   }
+  ],
+  "hue": 0,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.1\" Super Retina XDR",
+   "Chip": "A15 Bionic (5-core GPU)",
+   "Camera": "12MP Main + Ultra Wide",
+   "Battery": "Up to 20 hrs video",
+   "Network": "5G"
+  },
+  "description": "Crash Detection. Big upgrade to the camera. The Apple iPhone 14 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 13 Pro Max",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2021,
+  "tagline": "ProMotion. Macro photography. Huge battery.",
+  "subtitle": "6.7\" · A15 Bionic",
+  "price": 72000,
+  "new_price": 115000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Sierra Blue",
+    "hex": "#9bb5ce"
+   },
+   {
+    "name": "Graphite",
+    "hex": "#54524f"
+   },
+   {
+    "name": "Gold",
+    "hex": "#f9e5c9"
+   },
+   {
+    "name": "Silver",
+    "hex": "#f1f2ed"
+   }
+  ],
+  "hue": 209,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.7\" Super Retina XDR ProMotion",
+   "Chip": "A15 Bionic",
+   "Camera": "12MP Triple + LiDAR",
+   "Battery": "Up to 28 hrs video",
+   "Network": "5G"
+  },
+  "description": "ProMotion. Macro photography. Huge battery. The Apple iPhone 13 Pro Max is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 13 Pro",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2021,
+  "tagline": "A pro camera system for everyone.",
+  "subtitle": "6.1\" · A15 Bionic",
+  "price": 64000,
+  "new_price": 105000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Sierra Blue",
+    "hex": "#9bb5ce"
+   },
+   {
+    "name": "Graphite",
+    "hex": "#54524f"
+   },
+   {
+    "name": "Gold",
+    "hex": "#f9e5c9"
+   },
+   {
+    "name": "Silver",
+    "hex": "#f1f2ed"
+   }
+  ],
+  "hue": 209,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.1\" Super Retina XDR ProMotion",
+   "Chip": "A15 Bionic",
+   "Camera": "12MP Triple + LiDAR",
+   "Battery": "Up to 22 hrs video",
+   "Network": "5G"
+  },
+  "description": "A pro camera system for everyone. The Apple iPhone 13 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 13",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2021,
+  "tagline": "Your new superpower.",
+  "subtitle": "6.1\" · A15 Bionic",
+  "price": 52000,
+  "new_price": 75000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Midnight",
+    "hex": "#232a31"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#faf6f2"
+   },
+   {
+    "name": "Blue",
+    "hex": "#276787"
+   },
+   {
+    "name": "Pink",
+    "hex": "#fae0d8"
+   },
+   {
+    "name": "Green",
+    "hex": "#394c38"
+   }
+  ],
+  "hue": 199,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "6.1\" Super Retina XDR",
+   "Chip": "A15 Bionic",
+   "Camera": "12MP Dual",
+   "Battery": "Up to 19 hrs video",
+   "Network": "5G"
+  },
+  "description": "Your new superpower. The Apple iPhone 13 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 12 Pro",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2020,
+  "tagline": "It's a leap year.",
+  "subtitle": "6.1\" · A14 Bionic",
+  "price": 44500,
+  "new_price": 65000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Pacific Blue",
+    "hex": "#2e4f6a"
+   },
+   {
+    "name": "Graphite",
+    "hex": "#52514d"
+   },
+   {
+    "name": "Gold",
+    "hex": "#fbe8cf"
+   },
+   {
+    "name": "Silver",
+    "hex": "#f1f2ed"
+   }
+  ],
+  "hue": 207,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.1\" Super Retina XDR",
+   "Chip": "A14 Bionic",
+   "Camera": "12MP Triple + LiDAR",
+   "Battery": "Up to 17 hrs video",
+   "Network": "5G"
+  },
+  "description": "It's a leap year. The Apple iPhone 12 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 12",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2020,
+  "tagline": "Blast past fast.",
+  "subtitle": "6.1\" · A14 Bionic",
+  "price": 36000,
+  "new_price": 55000,
+  "storages": [
+   "64GB",
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f2020"
+   },
+   {
+    "name": "White",
+    "hex": "#f6f2ef"
+   },
+   {
+    "name": "Blue",
+    "hex": "#023b63"
+   },
+   {
+    "name": "Green",
+    "hex": "#d8efd5"
+   },
+   {
+    "name": "Purple",
+    "hex": "#b7afe6"
+   }
+  ],
+  "hue": 204,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.1\" Super Retina XDR",
+   "Chip": "A14 Bionic",
+   "Camera": "12MP Dual",
+   "Battery": "Up to 17 hrs video",
+   "Network": "5G"
+  },
+  "description": "Blast past fast. The Apple iPhone 12 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone 11",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2019,
+  "tagline": "Just the right amount of everything.",
+  "subtitle": "6.1\" · A13 Bionic",
+  "price": 29500,
+  "new_price": 48000,
+  "storages": [
+   "64GB",
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f2020"
+   },
+   {
+    "name": "White",
+    "hex": "#f5f5f0"
+   },
+   {
+    "name": "Purple",
+    "hex": "#d1cdda"
+   },
+   {
+    "name": "Green",
+    "hex": "#aee1cd"
+   }
+  ],
+  "hue": 156,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.1\" Liquid Retina LCD",
+   "Chip": "A13 Bionic",
+   "Camera": "12MP Dual",
+   "Battery": "Up to 17 hrs video",
+   "Network": "4G LTE"
+  },
+  "description": "Just the right amount of everything. The Apple iPhone 11 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone SE (3rd gen)",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2022,
+  "tagline": "Serious power. Serious value.",
+  "subtitle": "4.7\" · A15 Bionic",
+  "price": 26000,
+  "new_price": 42000,
+  "storages": [
+   "64GB",
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Midnight",
+    "hex": "#232a31"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#faf6f2"
+   },
+   {
+    "name": "(PRODUCT)RED",
+    "hex": "#bf0013"
+   }
+  ],
+  "hue": 354,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "4.7\" Retina HD",
+   "Chip": "A15 Bionic",
+   "Camera": "12MP Wide",
+   "Battery": "Up to 15 hrs video",
+   "Network": "5G"
+  },
+  "description": "Serious power. Serious value. The Apple iPhone SE (3rd gen) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPhone XR",
+  "brand": "Apple",
+  "category": "phones",
+  "year": 2018,
+  "tagline": "Brilliant. In every way.",
+  "subtitle": "6.1\" · A12 Bionic",
+  "price": 19500,
+  "new_price": 35000,
+  "storages": [
+   "64GB",
+   "128GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f2020"
+   },
+   {
+    "name": "White",
+    "hex": "#f5f5f0"
+   },
+   {
+    "name": "Purple",
+    "hex": "#d1cdda"
+   },
+   {
+    "name": "Green",
+    "hex": "#aee1cd"
+   }
+  ],
+  "hue": 156,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.1\" Liquid Retina LCD",
+   "Chip": "A12 Bionic",
+   "Camera": "12MP Wide",
+   "Battery": "Up to 16 hrs video",
+   "Network": "4G LTE"
+  },
+  "description": "Brilliant. In every way. The Apple iPhone XR is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy S24 Ultra",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Galaxy AI is here. Titanium built.",
+  "subtitle": "6.8\" · Snapdragon 8 Gen 3 for Galaxy",
+  "price": 125000,
+  "new_price": 180000,
+  "storages": [
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Titanium Gray",
+    "hex": "#8e8b87"
+   },
+   {
+    "name": "Titanium Black",
+    "hex": "#3b3b3b"
+   },
+   {
+    "name": "Titanium Violet",
+    "hex": "#4b4459"
+   },
+   {
+    "name": "Titanium Yellow",
+    "hex": "#f1e7b8"
+   }
+  ],
+  "hue": 49,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "6.8\" QHD+ Dynamic AMOLED 2X 120Hz",
+   "Chip": "Snapdragon 8 Gen 3 for Galaxy",
+   "Camera": "200MP Quad + 5x zoom",
+   "Battery": "5,000 mAh · 45W",
+   "Network": "5G"
+  },
+  "description": "Galaxy AI is here. Titanium built. The Samsung Galaxy S24 Ultra is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy S24",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Compact flagship with Galaxy AI.",
+  "subtitle": "6.2\" · Exynos 2400",
+  "price": 78000,
+  "new_price": 115000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Onyx Black",
+    "hex": "#2b2b2d"
+   },
+   {
+    "name": "Marble Gray",
+    "hex": "#cfcdc9"
+   },
+   {
+    "name": "Cobalt Violet",
+    "hex": "#6c5f8f"
+   },
+   {
+    "name": "Amber Yellow",
+    "hex": "#f2dfa0"
+   }
+  ],
+  "hue": 46,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.2\" FHD+ Dynamic AMOLED 2X 120Hz",
+   "Chip": "Exynos 2400",
+   "Camera": "50MP Triple + 3x zoom",
+   "Battery": "4,000 mAh · 25W",
+   "Network": "5G"
+  },
+  "description": "Compact flagship with Galaxy AI. The Samsung Galaxy S24 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy S23 Ultra",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Epic nights. Epic zoom.",
+  "subtitle": "6.8\" · Snapdragon 8 Gen 2 for Galaxy",
+  "price": 98000,
+  "new_price": 150000,
+  "storages": [
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Phantom Black",
+    "hex": "#2c2c2e"
+   },
+   {
+    "name": "Cream",
+    "hex": "#efe6d6"
+   },
+   {
+    "name": "Green",
+    "hex": "#4e5b4b"
+   },
+   {
+    "name": "Lavender",
+    "hex": "#cfc5e1"
+   }
+  ],
+  "hue": 261,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.8\" QHD+ Dynamic AMOLED 2X 120Hz",
+   "Chip": "Snapdragon 8 Gen 2 for Galaxy",
+   "Camera": "200MP Quad + 10x zoom",
+   "Battery": "5,000 mAh · 45W",
+   "Network": "5G"
+  },
+  "description": "Epic nights. Epic zoom. The Samsung Galaxy S23 Ultra is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy S23",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Flagship power that fits in one hand.",
+  "subtitle": "6.1\" · Snapdragon 8 Gen 2 for Galaxy",
+  "price": 62000,
+  "new_price": 99000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Phantom Black",
+    "hex": "#2c2c2e"
+   },
+   {
+    "name": "Cream",
+    "hex": "#efe6d6"
+   },
+   {
+    "name": "Green",
+    "hex": "#4e5b4b"
+   },
+   {
+    "name": "Lavender",
+    "hex": "#cfc5e1"
+   }
+  ],
+  "hue": 261,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.1\" FHD+ Dynamic AMOLED 2X 120Hz",
+   "Chip": "Snapdragon 8 Gen 2 for Galaxy",
+   "Camera": "50MP Triple",
+   "Battery": "3,900 mAh · 25W",
+   "Network": "5G"
+  },
+  "description": "Flagship power that fits in one hand. The Samsung Galaxy S23 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy S22 Ultra",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2022,
+  "tagline": "The Note, reborn with a built-in S Pen.",
+  "subtitle": "6.8\" · Snapdragon 8 Gen 1",
+  "price": 62000,
+  "new_price": 105000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Phantom Black",
+    "hex": "#262626"
+   },
+   {
+    "name": "Phantom White",
+    "hex": "#f1f0ec"
+   },
+   {
+    "name": "Burgundy",
+    "hex": "#6b2b33"
+   },
+   {
+    "name": "Green",
+    "hex": "#2f4a3a"
+   }
+  ],
+  "hue": 352,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.8\" QHD+ Dynamic AMOLED 2X 120Hz",
+   "Chip": "Snapdragon 8 Gen 1",
+   "Camera": "108MP Quad + 10x zoom",
+   "Battery": "5,000 mAh · 45W",
+   "Network": "5G"
+  },
+  "description": "The Note, reborn with a built-in S Pen. The Samsung Galaxy S22 Ultra is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy S21 FE",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2022,
+  "tagline": "The fan favourite flagship.",
+  "subtitle": "6.4\" · Snapdragon 888",
+  "price": 34000,
+  "new_price": 55000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Phantom Black",
+    "hex": "#262626"
+   },
+   {
+    "name": "Phantom White",
+    "hex": "#f1f0ec"
+   },
+   {
+    "name": "Burgundy",
+    "hex": "#6b2b33"
+   },
+   {
+    "name": "Green",
+    "hex": "#2f4a3a"
+   }
+  ],
+  "hue": 352,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.4\" FHD+ Dynamic AMOLED 2X 120Hz",
+   "Chip": "Snapdragon 888",
+   "Camera": "12MP Triple",
+   "Battery": "4,500 mAh · 25W",
+   "Network": "5G"
+  },
+  "description": "The fan favourite flagship. The Samsung Galaxy S21 FE is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy Z Fold5",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Unfold a tablet in your pocket.",
+  "subtitle": "7.6\" · Snapdragon 8 Gen 2 for Galaxy",
+  "price": 125000,
+  "new_price": 210000,
+  "storages": [
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Icy Blue",
+    "hex": "#b7c7d6"
+   },
+   {
+    "name": "Phantom Black",
+    "hex": "#2b2b2d"
+   },
+   {
+    "name": "Cream",
+    "hex": "#efe6d6"
+   }
+  ],
+  "hue": 209,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "7.6\" foldable Dynamic AMOLED 2X",
+   "Chip": "Snapdragon 8 Gen 2 for Galaxy",
+   "Camera": "50MP Triple",
+   "Battery": "4,400 mAh",
+   "Network": "5G"
+  },
+  "description": "Unfold a tablet in your pocket. The Samsung Galaxy Z Fold5 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy Z Flip5",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Big Flex Window. Pocket-sized.",
+  "subtitle": "6.7\" · Snapdragon 8 Gen 2 for Galaxy",
+  "price": 72000,
+  "new_price": 120000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Mint",
+    "hex": "#cfe6d6"
+   },
+   {
+    "name": "Graphite",
+    "hex": "#4a4a4c"
+   },
+   {
+    "name": "Cream",
+    "hex": "#efe6d6"
+   },
+   {
+    "name": "Lavender",
+    "hex": "#cfc5e1"
+   }
+  ],
+  "hue": 261,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.7\" foldable + 3.4\" Flex Window",
+   "Chip": "Snapdragon 8 Gen 2 for Galaxy",
+   "Camera": "12MP Dual",
+   "Battery": "3,700 mAh",
+   "Network": "5G"
+  },
+  "description": "Big Flex Window. Pocket-sized. The Samsung Galaxy Z Flip5 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy A55 5G",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Awesome made premium.",
+  "subtitle": "6.6\" · Exynos 1480",
+  "price": 38000,
+  "new_price": 52000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Awesome Navy",
+    "hex": "#2d3550"
+   },
+   {
+    "name": "Awesome Iceblue",
+    "hex": "#bcd2e6"
+   },
+   {
+    "name": "Awesome Lilac",
+    "hex": "#d6c9e6"
+   }
+  ],
+  "hue": 208,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.6\" Super AMOLED 120Hz",
+   "Chip": "Exynos 1480",
+   "Camera": "50MP OIS Triple",
+   "Battery": "5,000 mAh · 25W",
+   "Network": "5G"
+  },
+  "description": "Awesome made premium. The Samsung Galaxy A55 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy A54 5G",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Two-day battery. Four years of updates.",
+  "subtitle": "6.4\" · Exynos 1380",
+  "price": 30000,
+  "new_price": 42000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Awesome Navy",
+    "hex": "#2d3550"
+   },
+   {
+    "name": "Awesome Iceblue",
+    "hex": "#bcd2e6"
+   },
+   {
+    "name": "Awesome Lilac",
+    "hex": "#d6c9e6"
+   }
+  ],
+  "hue": 208,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.4\" Super AMOLED 120Hz",
+   "Chip": "Exynos 1380",
+   "Camera": "50MP OIS Triple",
+   "Battery": "5,000 mAh · 25W",
+   "Network": "5G"
+  },
+  "description": "Two-day battery. Four years of updates. The Samsung Galaxy A54 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy A35 5G",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Awesome screen, awesome value.",
+  "subtitle": "6.6\" · Exynos 1380",
+  "price": 31000,
+  "new_price": 42000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Awesome Navy",
+    "hex": "#2d3550"
+   },
+   {
+    "name": "Awesome Iceblue",
+    "hex": "#bcd2e6"
+   },
+   {
+    "name": "Awesome Lilac",
+    "hex": "#d6c9e6"
+   }
+  ],
+  "hue": 208,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.6\" Super AMOLED 120Hz",
+   "Chip": "Exynos 1380",
+   "Camera": "50MP OIS Triple",
+   "Battery": "5,000 mAh · 25W",
+   "Network": "5G"
+  },
+  "description": "Awesome screen, awesome value. The Samsung Galaxy A35 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy A15",
+  "brand": "Samsung",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Super AMOLED for less.",
+  "subtitle": "6.5\" · Helio G99",
+  "price": 17500,
+  "new_price": 24000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Awesome Navy",
+    "hex": "#2d3550"
+   },
+   {
+    "name": "Awesome Iceblue",
+    "hex": "#bcd2e6"
+   },
+   {
+    "name": "Awesome Lilac",
+    "hex": "#d6c9e6"
+   }
+  ],
+  "hue": 208,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.5\" Super AMOLED 90Hz",
+   "Chip": "Helio G99",
+   "Camera": "50MP Triple",
+   "Battery": "5,000 mAh · 25W",
+   "Network": "4G LTE"
+  },
+  "description": "Super AMOLED for less. The Samsung Galaxy A15 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Pixel 8 Pro",
+  "brand": "Google",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "The all-pro phone engineered by Google.",
+  "subtitle": "6.7\" · Google Tensor G3",
+  "price": 82000,
+  "new_price": 125000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Obsidian",
+    "hex": "#2b2b2b"
+   },
+   {
+    "name": "Porcelain",
+    "hex": "#ece7df"
+   },
+   {
+    "name": "Bay",
+    "hex": "#a9c3dc"
+   }
+  ],
+  "hue": 209,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "6.7\" Super Actua LTPO 120Hz",
+   "Chip": "Google Tensor G3",
+   "Camera": "50MP + 48MP 5x tele + 48MP UW",
+   "Battery": "5,050 mAh",
+   "Network": "5G"
+  },
+  "description": "The all-pro phone engineered by Google. The Google Pixel 8 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Pixel 8",
+  "brand": "Google",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Helpful AI. Seven years of updates.",
+  "subtitle": "6.2\" · Google Tensor G3",
+  "price": 60000,
+  "new_price": 90000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Obsidian",
+    "hex": "#2b2b2b"
+   },
+   {
+    "name": "Hazel",
+    "hex": "#8b8f80"
+   },
+   {
+    "name": "Mint",
+    "hex": "#cfe6d6"
+   }
+  ],
+  "hue": 138,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.2\" Actua OLED 120Hz",
+   "Chip": "Google Tensor G3",
+   "Camera": "50MP + 12MP UW",
+   "Battery": "4,575 mAh",
+   "Network": "5G"
+  },
+  "description": "Helpful AI. Seven years of updates. The Google Pixel 8 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Pixel 7a",
+  "brand": "Google",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "The Pixel to get.",
+  "subtitle": "6.1\" · Google Tensor G2",
+  "price": 38000,
+  "new_price": 58000,
+  "storages": [
+   "128GB"
+  ],
+  "colors": [
+   {
+    "name": "Obsidian",
+    "hex": "#2b2b2b"
+   },
+   {
+    "name": "Hazel",
+    "hex": "#8b8f80"
+   },
+   {
+    "name": "Mint",
+    "hex": "#cfe6d6"
+   }
+  ],
+  "hue": 138,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.1\" OLED 90Hz",
+   "Chip": "Google Tensor G2",
+   "Camera": "64MP + 13MP UW",
+   "Battery": "4,385 mAh",
+   "Network": "5G"
+  },
+  "description": "The Pixel to get. The Google Pixel 7a is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Pixel 7 Pro",
+  "brand": "Google",
+  "category": "phones",
+  "year": 2022,
+  "tagline": "Magic Eraser. Real Tone. Pro camera.",
+  "subtitle": "6.7\" · Google Tensor G2",
+  "price": 46000,
+  "new_price": 68000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Obsidian",
+    "hex": "#2b2b2b"
+   },
+   {
+    "name": "Porcelain",
+    "hex": "#ece7df"
+   },
+   {
+    "name": "Bay",
+    "hex": "#a9c3dc"
+   }
+  ],
+  "hue": 209,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.7\" LTPO OLED 120Hz",
+   "Chip": "Google Tensor G2",
+   "Camera": "50MP + 48MP 5x tele + 12MP UW",
+   "Battery": "5,000 mAh",
+   "Network": "5G"
+  },
+  "description": "Magic Eraser. Real Tone. Pro camera. The Google Pixel 7 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Camon 30 Pro 5G",
+  "brand": "Tecno",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Pro portraits, day or night.",
+  "subtitle": "6.78\" · Dimensity 8200 Ultimate",
+  "price": 36000,
+  "new_price": 48000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Starry Black",
+    "hex": "#1d1f26"
+   },
+   {
+    "name": "Glacier White",
+    "hex": "#eef1f4"
+   },
+   {
+    "name": "Dune Gold",
+    "hex": "#d9c19a"
+   }
+  ],
+  "hue": 37,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "6.78\" AMOLED 144Hz",
+   "Chip": "Dimensity 8200 Ultimate",
+   "Camera": "50MP OIS + 50MP 2x",
+   "Battery": "5,000 mAh · 70W",
+   "Network": "5G"
+  },
+  "description": "Pro portraits, day or night. The Tecno Camon 30 Pro 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Camon 20 Premier 5G",
+  "brand": "Tecno",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Sensor-shift stabilisation, pocket-sized.",
+  "subtitle": "6.67\" · Dimensity 8050",
+  "price": 30000,
+  "new_price": 42000,
+  "storages": [
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Starry Black",
+    "hex": "#1d1f26"
+   },
+   {
+    "name": "Glacier White",
+    "hex": "#eef1f4"
+   },
+   {
+    "name": "Dune Gold",
+    "hex": "#d9c19a"
+   }
+  ],
+  "hue": 37,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.67\" AMOLED 120Hz",
+   "Chip": "Dimensity 8050",
+   "Camera": "50MP RGBW + 108MP UW",
+   "Battery": "5,000 mAh · 45W",
+   "Network": "5G"
+  },
+  "description": "Sensor-shift stabilisation, pocket-sized. The Tecno Camon 20 Premier 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Spark 20 Pro+",
+  "brand": "Tecno",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Curved screen. Flagship looks.",
+  "subtitle": "6.78\" · Helio G99 Ultimate",
+  "price": 21000,
+  "new_price": 28000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Lunar Gray",
+    "hex": "#6f7275"
+   },
+   {
+    "name": "Moonlight Green",
+    "hex": "#b8d6c6"
+   },
+   {
+    "name": "Comet Blue",
+    "hex": "#39507c"
+   }
+  ],
+  "hue": 219,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.78\" curved AMOLED 120Hz",
+   "Chip": "Helio G99 Ultimate",
+   "Camera": "108MP Main",
+   "Battery": "5,000 mAh · 33W",
+   "Network": "4G LTE"
+  },
+  "description": "Curved screen. Flagship looks. The Tecno Spark 20 Pro+ is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Pova 6 Pro 5G",
+  "brand": "Tecno",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Monster battery. Gamer-grade speed.",
+  "subtitle": "6.78\" · Dimensity 6080",
+  "price": 25000,
+  "new_price": 33000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Lunar Gray",
+    "hex": "#6f7275"
+   },
+   {
+    "name": "Moonlight Green",
+    "hex": "#b8d6c6"
+   },
+   {
+    "name": "Comet Blue",
+    "hex": "#39507c"
+   }
+  ],
+  "hue": 219,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.78\" AMOLED 120Hz",
+   "Chip": "Dimensity 6080",
+   "Camera": "108MP Main",
+   "Battery": "6,000 mAh · 70W",
+   "Network": "5G"
+  },
+  "description": "Monster battery. Gamer-grade speed. The Tecno Pova 6 Pro 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Phantom V Fold",
+  "brand": "Tecno",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "The foldable that changed the price of folding.",
+  "subtitle": "7.85\" · Dimensity 9000+",
+  "price": 70000,
+  "new_price": 120000,
+  "storages": [
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Starry Black",
+    "hex": "#1d1f26"
+   },
+   {
+    "name": "Glacier White",
+    "hex": "#eef1f4"
+   },
+   {
+    "name": "Dune Gold",
+    "hex": "#d9c19a"
+   }
+  ],
+  "hue": 37,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "7.85\" foldable LTPO AMOLED",
+   "Chip": "Dimensity 9000+",
+   "Camera": "50MP Triple + 2x",
+   "Battery": "5,000 mAh · 45W",
+   "Network": "5G"
+  },
+  "description": "The foldable that changed the price of folding. The Tecno Phantom V Fold is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Phantom V Flip",
+  "brand": "Tecno",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Flip it. Snap it. Love it.",
+  "subtitle": "6.9\" · Dimensity 8050",
+  "price": 42000,
+  "new_price": 70000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Lunar Gray",
+    "hex": "#6f7275"
+   },
+   {
+    "name": "Moonlight Green",
+    "hex": "#b8d6c6"
+   },
+   {
+    "name": "Comet Blue",
+    "hex": "#39507c"
+   }
+  ],
+  "hue": 219,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.9\" foldable + 1.32\" cover",
+   "Chip": "Dimensity 8050",
+   "Camera": "64MP Dual",
+   "Battery": "4,000 mAh · 45W",
+   "Network": "5G"
+  },
+  "description": "Flip it. Snap it. Love it. The Tecno Phantom V Flip is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Zero 30 5G",
+  "brand": "Infinix",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "4K 60fps selfies. Vlog like a pro.",
+  "subtitle": "6.78\" · Dimensity 8020",
+  "price": 28000,
+  "new_price": 39000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Rome Green",
+    "hex": "#4f6b5a"
+   },
+   {
+    "name": "Fantasy Purple",
+    "hex": "#7b5ea7"
+   },
+   {
+    "name": "Golden Hour",
+    "hex": "#e6c48f"
+   },
+   {
+    "name": "Night Black",
+    "hex": "#1f1f24"
+   }
+  ],
+  "hue": 36,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "6.78\" curved AMOLED 144Hz",
+   "Chip": "Dimensity 8020",
+   "Camera": "108MP OIS + 50MP 4K selfie",
+   "Battery": "5,000 mAh · 68W",
+   "Network": "5G"
+  },
+  "description": "4K 60fps selfies. Vlog like a pro. The Infinix Zero 30 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Note 40 Pro",
+  "brand": "Infinix",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Wireless MagCharge. Big, bright AMOLED.",
+  "subtitle": "6.78\" · Helio G99 Ultimate",
+  "price": 26000,
+  "new_price": 35000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Rome Green",
+    "hex": "#4f6b5a"
+   },
+   {
+    "name": "Fantasy Purple",
+    "hex": "#7b5ea7"
+   },
+   {
+    "name": "Golden Hour",
+    "hex": "#e6c48f"
+   },
+   {
+    "name": "Night Black",
+    "hex": "#1f1f24"
+   }
+  ],
+  "hue": 36,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.78\" curved AMOLED 120Hz",
+   "Chip": "Helio G99 Ultimate",
+   "Camera": "108MP OIS",
+   "Battery": "5,000 mAh · 70W + wireless",
+   "Network": "4G LTE"
+  },
+  "description": "Wireless MagCharge. Big, bright AMOLED. The Infinix Note 40 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Hot 40 Pro",
+  "brand": "Infinix",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Power-packed everyday phone.",
+  "subtitle": "6.78\" · Helio G99",
+  "price": 17000,
+  "new_price": 23000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Rome Green",
+    "hex": "#4f6b5a"
+   },
+   {
+    "name": "Fantasy Purple",
+    "hex": "#7b5ea7"
+   },
+   {
+    "name": "Golden Hour",
+    "hex": "#e6c48f"
+   },
+   {
+    "name": "Night Black",
+    "hex": "#1f1f24"
+   }
+  ],
+  "hue": 36,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.78\" IPS 120Hz",
+   "Chip": "Helio G99",
+   "Camera": "108MP Main",
+   "Battery": "5,000 mAh · 33W",
+   "Network": "4G LTE"
+  },
+  "description": "Power-packed everyday phone. The Infinix Hot 40 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "GT 20 Pro",
+  "brand": "Infinix",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Born for gaming. Mecha design.",
+  "subtitle": "6.78\" · Dimensity 8200 Ultimate",
+  "price": 30000,
+  "new_price": 40000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Mecha Silver",
+    "hex": "#c5c8cc"
+   },
+   {
+    "name": "Mecha Blue",
+    "hex": "#3a4e8c"
+   },
+   {
+    "name": "Mecha Orange",
+    "hex": "#ec7b2c"
+   }
+  ],
+  "hue": 24,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.78\" AMOLED 144Hz",
+   "Chip": "Dimensity 8200 Ultimate",
+   "Camera": "108MP OIS",
+   "Battery": "5,000 mAh · 45W",
+   "Network": "5G"
+  },
+  "description": "Born for gaming. Mecha design. The Infinix GT 20 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Smart 8",
+  "brand": "Infinix",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Smart starts here.",
+  "subtitle": "6.6\" · Unisoc T606",
+  "price": 9500,
+  "new_price": 13000,
+  "storages": [
+   "64GB",
+   "128GB"
+  ],
+  "colors": [
+   {
+    "name": "Rome Green",
+    "hex": "#4f6b5a"
+   },
+   {
+    "name": "Fantasy Purple",
+    "hex": "#7b5ea7"
+   },
+   {
+    "name": "Golden Hour",
+    "hex": "#e6c48f"
+   },
+   {
+    "name": "Night Black",
+    "hex": "#1f1f24"
+   }
+  ],
+  "hue": 36,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.6\" HD+ 90Hz",
+   "Chip": "Unisoc T606",
+   "Camera": "13MP Dual",
+   "Battery": "5,000 mAh",
+   "Network": "4G LTE"
+  },
+  "description": "Smart starts here. The Infinix Smart 8 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "S24",
+  "brand": "itel",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "108MP clarity at a smart price.",
+  "subtitle": "6.6\" · Helio G91",
+  "price": 12500,
+  "new_price": 16500,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Stardust Black",
+    "hex": "#242528"
+   },
+   {
+    "name": "Crystal Blue",
+    "hex": "#7fa9d9"
+   },
+   {
+    "name": "Mysterious Purple",
+    "hex": "#8c74b8"
+   }
+  ],
+  "hue": 212,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.6\" HD+ 90Hz",
+   "Chip": "Helio G91",
+   "Camera": "108MP Main",
+   "Battery": "5,000 mAh · 18W",
+   "Network": "4G LTE"
+  },
+  "description": "108MP clarity at a smart price. The itel S24 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "P55",
+  "brand": "itel",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Big battery. Fast charge.",
+  "subtitle": "6.6\" · Unisoc T606",
+  "price": 11000,
+  "new_price": 15000,
+  "storages": [
+   "128GB"
+  ],
+  "colors": [
+   {
+    "name": "Stardust Black",
+    "hex": "#242528"
+   },
+   {
+    "name": "Crystal Blue",
+    "hex": "#7fa9d9"
+   },
+   {
+    "name": "Mysterious Purple",
+    "hex": "#8c74b8"
+   }
+  ],
+  "hue": 212,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.6\" HD+ 90Hz",
+   "Chip": "Unisoc T606",
+   "Camera": "50MP AI Dual",
+   "Battery": "5,000 mAh · 45W",
+   "Network": "4G LTE"
+  },
+  "description": "Big battery. Fast charge. The itel P55 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Xiaomi 14",
+  "brand": "Xiaomi",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Leica optics in a compact flagship.",
+  "subtitle": "6.36\" · Snapdragon 8 Gen 3",
+  "price": 72000,
+  "new_price": 105000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f2023"
+   },
+   {
+    "name": "Jade Green",
+    "hex": "#a6c9b6"
+   },
+   {
+    "name": "White",
+    "hex": "#f3f3f1"
+   }
+  ],
+  "hue": 147,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.36\" LTPO AMOLED 120Hz",
+   "Chip": "Snapdragon 8 Gen 3",
+   "Camera": "50MP Leica Triple",
+   "Battery": "4,610 mAh · 90W",
+   "Network": "5G"
+  },
+  "description": "Leica optics in a compact flagship. The Xiaomi Xiaomi 14 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Redmi Note 13 Pro+ 5G",
+  "brand": "Xiaomi",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "200MP. 120W. Curved and IP68.",
+  "subtitle": "6.67\" · Dimensity 7200 Ultra",
+  "price": 40000,
+  "new_price": 55000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Midnight Black",
+    "hex": "#1f2023"
+   },
+   {
+    "name": "Ocean Teal",
+    "hex": "#3f8f8a"
+   },
+   {
+    "name": "Aurora Purple",
+    "hex": "#9f8cd6"
+   },
+   {
+    "name": "Moonlight White",
+    "hex": "#f2f2f0"
+   }
+  ],
+  "hue": 176,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "6.67\" curved AMOLED 120Hz",
+   "Chip": "Dimensity 7200 Ultra",
+   "Camera": "200MP OIS Triple",
+   "Battery": "5,000 mAh · 120W",
+   "Network": "5G"
+  },
+  "description": "200MP. 120W. Curved and IP68. The Xiaomi Redmi Note 13 Pro+ 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Redmi Note 13",
+  "brand": "Xiaomi",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Bright AMOLED for everyone.",
+  "subtitle": "6.67\" · Snapdragon 685",
+  "price": 21000,
+  "new_price": 28000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Midnight Black",
+    "hex": "#1f2023"
+   },
+   {
+    "name": "Ocean Teal",
+    "hex": "#3f8f8a"
+   },
+   {
+    "name": "Aurora Purple",
+    "hex": "#9f8cd6"
+   },
+   {
+    "name": "Moonlight White",
+    "hex": "#f2f2f0"
+   }
+  ],
+  "hue": 176,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.67\" AMOLED 120Hz",
+   "Chip": "Snapdragon 685",
+   "Camera": "108MP Triple",
+   "Battery": "5,000 mAh · 33W",
+   "Network": "4G LTE"
+  },
+  "description": "Bright AMOLED for everyone. The Xiaomi Redmi Note 13 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Redmi 13C",
+  "brand": "Xiaomi",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Big screen, small price.",
+  "subtitle": "6.74\" · Helio G85",
+  "price": 12500,
+  "new_price": 17000,
+  "storages": [
+   "128GB"
+  ],
+  "colors": [
+   {
+    "name": "Midnight Black",
+    "hex": "#1f2023"
+   },
+   {
+    "name": "Ocean Teal",
+    "hex": "#3f8f8a"
+   },
+   {
+    "name": "Aurora Purple",
+    "hex": "#9f8cd6"
+   },
+   {
+    "name": "Moonlight White",
+    "hex": "#f2f2f0"
+   }
+  ],
+  "hue": 176,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.74\" HD+ 90Hz",
+   "Chip": "Helio G85",
+   "Camera": "50MP AI Triple",
+   "Battery": "5,000 mAh · 18W",
+   "Network": "4G LTE"
+  },
+  "description": "Big screen, small price. The Xiaomi Redmi 13C is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Reno11 F 5G",
+  "brand": "Oppo",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "The portrait expert.",
+  "subtitle": "6.7\" · Dimensity 7050",
+  "price": 32000,
+  "new_price": 42000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Ocean Blue",
+    "hex": "#2f6fa8"
+   },
+   {
+    "name": "Moonlit Gray",
+    "hex": "#8b8f96"
+   },
+   {
+    "name": "Coral Purple",
+    "hex": "#b49bd6"
+   }
+  ],
+  "hue": 208,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.7\" AMOLED 120Hz",
+   "Chip": "Dimensity 7050",
+   "Camera": "64MP Triple",
+   "Battery": "5,000 mAh · 67W",
+   "Network": "5G"
+  },
+  "description": "The portrait expert. The Oppo Reno11 F 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Reno10 Pro 5G",
+  "brand": "Oppo",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Telephoto portraits, beautifully.",
+  "subtitle": "6.7\" · Snapdragon 778G",
+  "price": 38000,
+  "new_price": 55000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Ocean Blue",
+    "hex": "#2f6fa8"
+   },
+   {
+    "name": "Moonlit Gray",
+    "hex": "#8b8f96"
+   },
+   {
+    "name": "Coral Purple",
+    "hex": "#b49bd6"
+   }
+  ],
+  "hue": 208,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.7\" curved AMOLED 120Hz",
+   "Chip": "Snapdragon 778G",
+   "Camera": "50MP + 32MP 2x tele",
+   "Battery": "4,600 mAh · 80W",
+   "Network": "5G"
+  },
+  "description": "Telephoto portraits, beautifully. The Oppo Reno10 Pro 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "A79 5G",
+  "brand": "Oppo",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Smooth and stylish every day.",
+  "subtitle": "6.72\" · Dimensity 6020",
+  "price": 22000,
+  "new_price": 30000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Ocean Blue",
+    "hex": "#2f6fa8"
+   },
+   {
+    "name": "Moonlit Gray",
+    "hex": "#8b8f96"
+   },
+   {
+    "name": "Coral Purple",
+    "hex": "#b49bd6"
+   }
+  ],
+  "hue": 208,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.72\" FHD+ 90Hz",
+   "Chip": "Dimensity 6020",
+   "Camera": "50MP AI Dual",
+   "Battery": "5,000 mAh · 33W",
+   "Network": "5G"
+  },
+  "description": "Smooth and stylish every day. The Oppo A79 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "V30 5G",
+  "brand": "Vivo",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Aura Light portraits.",
+  "subtitle": "6.78\" · Snapdragon 7 Gen 3",
+  "price": 42000,
+  "new_price": 58000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Peacock Green",
+    "hex": "#2f6a5f"
+   },
+   {
+    "name": "Noble Black",
+    "hex": "#1f1f24"
+   },
+   {
+    "name": "Bloom White",
+    "hex": "#f2efe9"
+   }
+  ],
+  "hue": 168,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.78\" curved AMOLED 120Hz",
+   "Chip": "Snapdragon 7 Gen 3",
+   "Camera": "50MP Dual + Aura Light",
+   "Battery": "5,000 mAh · 80W",
+   "Network": "5G"
+  },
+  "description": "Aura Light portraits. The Vivo V30 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Y36",
+  "brand": "Vivo",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Glassy design, all-day battery.",
+  "subtitle": "6.64\" · Snapdragon 680",
+  "price": 19500,
+  "new_price": 26000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Peacock Green",
+    "hex": "#2f6a5f"
+   },
+   {
+    "name": "Noble Black",
+    "hex": "#1f1f24"
+   },
+   {
+    "name": "Bloom White",
+    "hex": "#f2efe9"
+   }
+  ],
+  "hue": 168,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.64\" FHD+ 90Hz",
+   "Chip": "Snapdragon 680",
+   "Camera": "50MP Dual",
+   "Battery": "5,000 mAh · 44W",
+   "Network": "4G LTE"
+  },
+  "description": "Glassy design, all-day battery. The Vivo Y36 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "12 Pro+ 5G",
+  "brand": "Realme",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Periscope portrait master.",
+  "subtitle": "6.7\" · Snapdragon 7s Gen 2",
+  "price": 36000,
+  "new_price": 50000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Submarine Blue",
+    "hex": "#2d4f78"
+   },
+   {
+    "name": "Explorer Red",
+    "hex": "#b8433a"
+   },
+   {
+    "name": "Nebula Black",
+    "hex": "#22252b"
+   }
+  ],
+  "hue": 4,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.7\" curved AMOLED 120Hz",
+   "Chip": "Snapdragon 7s Gen 2",
+   "Camera": "50MP OIS + 64MP 3x periscope",
+   "Battery": "5,000 mAh · 67W",
+   "Network": "5G"
+  },
+  "description": "Periscope portrait master. The Realme 12 Pro+ 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "C67",
+  "brand": "Realme",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Champion of value.",
+  "subtitle": "6.72\" · Snapdragon 685",
+  "price": 16000,
+  "new_price": 21000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Submarine Blue",
+    "hex": "#2d4f78"
+   },
+   {
+    "name": "Explorer Red",
+    "hex": "#b8433a"
+   },
+   {
+    "name": "Nebula Black",
+    "hex": "#22252b"
+   }
+  ],
+  "hue": 4,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.72\" FHD+ 90Hz",
+   "Chip": "Snapdragon 685",
+   "Camera": "108MP Main",
+   "Battery": "5,000 mAh · 33W",
+   "Network": "4G LTE"
+  },
+  "description": "Champion of value. The Realme C67 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "12",
+  "brand": "OnePlus",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Smooth beyond belief.",
+  "subtitle": "6.82\" · Snapdragon 8 Gen 3",
+  "price": 78000,
+  "new_price": 110000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Flowy Emerald",
+    "hex": "#2f5c4b"
+   },
+   {
+    "name": "Silky Black",
+    "hex": "#1d1d1f"
+   }
+  ],
+  "hue": 157,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "6.82\" LTPO AMOLED 120Hz",
+   "Chip": "Snapdragon 8 Gen 3",
+   "Camera": "50MP Hasselblad Triple",
+   "Battery": "5,400 mAh · 80W",
+   "Network": "5G"
+  },
+  "description": "Smooth beyond belief. The OnePlus 12 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Nord 3 5G",
+  "brand": "OnePlus",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Flagship speed for less.",
+  "subtitle": "6.74\" · Dimensity 9000",
+  "price": 36000,
+  "new_price": 52000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Flowy Emerald",
+    "hex": "#2f5c4b"
+   },
+   {
+    "name": "Silky Black",
+    "hex": "#1d1d1f"
+   }
+  ],
+  "hue": 157,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.74\" AMOLED 120Hz",
+   "Chip": "Dimensity 9000",
+   "Camera": "50MP OIS Triple",
+   "Battery": "5,000 mAh · 80W",
+   "Network": "5G"
+  },
+  "description": "Flagship speed for less. The OnePlus Nord 3 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "G42 5G",
+  "brand": "Nokia",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Repair it yourself. Keep it for years.",
+  "subtitle": "6.56\" · Snapdragon 480+",
+  "price": 16500,
+  "new_price": 23000,
+  "storages": [
+   "128GB"
+  ],
+  "colors": [
+   {
+    "name": "Pink",
+    "hex": "#f2c9d1"
+   },
+   {
+    "name": "Grey",
+    "hex": "#7b7f86"
+   },
+   {
+    "name": "Purple",
+    "hex": "#7d6a9e"
+   }
+  ],
+  "hue": 261,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.56\" HD+ 90Hz",
+   "Chip": "Snapdragon 480+",
+   "Camera": "50MP Triple",
+   "Battery": "5,000 mAh · 20W",
+   "Network": "5G"
+  },
+  "description": "Repair it yourself. Keep it for years. The Nokia G42 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "XR21",
+  "brand": "Nokia",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Built to survive anything.",
+  "subtitle": "6.49\" · Snapdragon 695",
+  "price": 34000,
+  "new_price": 55000,
+  "storages": [
+   "128GB"
+  ],
+  "colors": [
+   {
+    "name": "Pink",
+    "hex": "#f2c9d1"
+   },
+   {
+    "name": "Grey",
+    "hex": "#7b7f86"
+   },
+   {
+    "name": "Purple",
+    "hex": "#7d6a9e"
+   }
+  ],
+  "hue": 261,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.49\" FHD+ 120Hz",
+   "Chip": "Snapdragon 695",
+   "Camera": "64MP Dual",
+   "Battery": "4,800 mAh · 33W",
+   "Network": "5G"
+  },
+  "description": "Built to survive anything. The Nokia XR21 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "P60 Pro",
+  "brand": "Huawei",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Ultra Lighting XMAGE camera.",
+  "subtitle": "6.67\" · Snapdragon 8+ Gen 1 (4G)",
+  "price": 70000,
+  "new_price": 115000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f1f21"
+   },
+   {
+    "name": "Rococo Pearl",
+    "hex": "#f0ede6"
+   },
+   {
+    "name": "Green",
+    "hex": "#3d5b4c"
+   }
+  ],
+  "hue": 150,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.67\" LTPO OLED 120Hz",
+   "Chip": "Snapdragon 8+ Gen 1 (4G)",
+   "Camera": "48MP variable aperture + 48MP tele",
+   "Battery": "4,815 mAh · 88W",
+   "Network": "4G LTE"
+  },
+  "description": "Ultra Lighting XMAGE camera. The Huawei P60 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "nova 11",
+  "brand": "Huawei",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Style that shines.",
+  "subtitle": "6.7\" · Snapdragon 778G (4G)",
+  "price": 34000,
+  "new_price": 50000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f1f21"
+   },
+   {
+    "name": "Rococo Pearl",
+    "hex": "#f0ede6"
+   },
+   {
+    "name": "Green",
+    "hex": "#3d5b4c"
+   }
+  ],
+  "hue": 150,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.7\" curved OLED 120Hz",
+   "Chip": "Snapdragon 778G (4G)",
+   "Camera": "50MP Dual",
+   "Battery": "4,500 mAh · 66W",
+   "Network": "4G LTE"
+  },
+  "description": "Style that shines. The Huawei nova 11 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Magic6 Pro",
+  "brand": "Honor",
+  "category": "phones",
+  "year": 2024,
+  "tagline": "Falcon camera. Silicon-carbon battery.",
+  "subtitle": "6.8\" · Snapdragon 8 Gen 3",
+  "price": 88000,
+  "new_price": 130000,
+  "storages": [
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f1f21"
+   },
+   {
+    "name": "Sunrise Orange",
+    "hex": "#e98a4c"
+   },
+   {
+    "name": "Emerald Green",
+    "hex": "#2f6a52"
+   }
+  ],
+  "hue": 23,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.8\" LTPO OLED 120Hz",
+   "Chip": "Snapdragon 8 Gen 3",
+   "Camera": "180MP periscope + 50MP Triple",
+   "Battery": "5,600 mAh · 80W",
+   "Network": "5G"
+  },
+  "description": "Falcon camera. Silicon-carbon battery. The Honor Magic6 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "X9b 5G",
+  "brand": "Honor",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "The anti-drop display.",
+  "subtitle": "6.78\" · Snapdragon 6 Gen 1",
+  "price": 28000,
+  "new_price": 38000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f1f21"
+   },
+   {
+    "name": "Sunrise Orange",
+    "hex": "#e98a4c"
+   },
+   {
+    "name": "Emerald Green",
+    "hex": "#2f6a52"
+   }
+  ],
+  "hue": 23,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "6.78\" curved AMOLED 120Hz",
+   "Chip": "Snapdragon 6 Gen 1",
+   "Camera": "108MP Triple",
+   "Battery": "5,800 mAh · 35W",
+   "Network": "5G"
+  },
+  "description": "The anti-drop display. The Honor X9b 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "90 5G",
+  "brand": "Honor",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "200MP portraits, eye-comfort display.",
+  "subtitle": "6.7\" · Snapdragon 7 Gen 1",
+  "price": 36000,
+  "new_price": 52000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f1f21"
+   },
+   {
+    "name": "Sunrise Orange",
+    "hex": "#e98a4c"
+   },
+   {
+    "name": "Emerald Green",
+    "hex": "#2f6a52"
+   }
+  ],
+  "hue": 23,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.7\" curved AMOLED 120Hz",
+   "Chip": "Snapdragon 7 Gen 1",
+   "Camera": "200MP Triple",
+   "Battery": "5,000 mAh · 66W",
+   "Network": "5G"
+  },
+  "description": "200MP portraits, eye-comfort display. The Honor 90 5G is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Edge 40",
+  "brand": "Motorola",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Thin, water-resistant, gorgeous.",
+  "subtitle": "6.55\" · Dimensity 8020",
+  "price": 34000,
+  "new_price": 52000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Lunar Blue",
+    "hex": "#3a4a6b"
+   },
+   {
+    "name": "Eclipse Black",
+    "hex": "#1d1e21"
+   },
+   {
+    "name": "Viva Magenta",
+    "hex": "#a52a5f"
+   }
+  ],
+  "hue": 334,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.55\" curved pOLED 144Hz",
+   "Chip": "Dimensity 8020",
+   "Camera": "50MP OIS Dual",
+   "Battery": "4,400 mAh · 68W",
+   "Network": "5G"
+  },
+  "description": "Thin, water-resistant, gorgeous. The Motorola Edge 40 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "razr 40 Ultra",
+  "brand": "Motorola",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "The largest external display on a flip.",
+  "subtitle": "6.9\" · Snapdragon 8+ Gen 1",
+  "price": 56000,
+  "new_price": 95000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Lunar Blue",
+    "hex": "#3a4a6b"
+   },
+   {
+    "name": "Eclipse Black",
+    "hex": "#1d1e21"
+   },
+   {
+    "name": "Viva Magenta",
+    "hex": "#a52a5f"
+   }
+  ],
+  "hue": 334,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.9\" foldable pOLED 165Hz + 3.6\" cover",
+   "Chip": "Snapdragon 8+ Gen 1",
+   "Camera": "12MP Dual",
+   "Battery": "3,800 mAh · 30W",
+   "Network": "5G"
+  },
+  "description": "The largest external display on a flip. The Motorola razr 40 Ultra is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Xperia 1 V",
+  "brand": "Sony",
+  "category": "phones",
+  "year": 2023,
+  "tagline": "Next-gen sensor. Creator's dream.",
+  "subtitle": "6.5\" · Snapdragon 8 Gen 2",
+  "price": 82000,
+  "new_price": 135000,
+  "storages": [
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f1f21"
+   },
+   {
+    "name": "Platinum Silver",
+    "hex": "#cfd1d3"
+   },
+   {
+    "name": "Khaki Green",
+    "hex": "#6f735a"
+   }
+  ],
+  "hue": 69,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "6.5\" 4K OLED 120Hz",
+   "Chip": "Snapdragon 8 Gen 2",
+   "Camera": "48MP Exmor T Triple",
+   "Battery": "5,000 mAh · 30W",
+   "Network": "5G"
+  },
+  "description": "Next-gen sensor. Creator's dream. The Sony Xperia 1 V is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "MacBook Air 13\" (M3)",
+  "brand": "Apple",
+  "category": "laptops",
+  "year": 2024,
+  "tagline": "Lean. Mean. M3 machine.",
+  "subtitle": "Apple M3 (8-core CPU) · 8GB unified",
+  "price": 125000,
+  "new_price": 170000,
+  "storages": [
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Midnight",
+    "hex": "#2e3641"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#f0e4d3"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#7d7e80"
+   },
+   {
+    "name": "Silver",
+    "hex": "#e3e4e5"
+   }
+  ],
+  "hue": 35,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "13.6\" Liquid Retina",
+   "Processor": "Apple M3 (8-core CPU)",
+   "Memory": "8GB unified",
+   "Battery": "Up to 18 hrs",
+   "Weight": "1.24 kg"
+  },
+  "description": "Lean. Mean. M3 machine. The Apple MacBook Air 13\" (M3) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "MacBook Air 13\" (M2)",
+  "brand": "Apple",
+  "category": "laptops",
+  "year": 2022,
+  "tagline": "Strikingly thin. Remarkably fast.",
+  "subtitle": "Apple M2 (8-core CPU) · 8GB unified",
+  "price": 98000,
+  "new_price": 145000,
+  "storages": [
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Midnight",
+    "hex": "#2e3641"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#f0e4d3"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#7d7e80"
+   },
+   {
+    "name": "Silver",
+    "hex": "#e3e4e5"
+   }
+  ],
+  "hue": 35,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "13.6\" Liquid Retina",
+   "Processor": "Apple M2 (8-core CPU)",
+   "Memory": "8GB unified",
+   "Battery": "Up to 18 hrs",
+   "Weight": "1.24 kg"
+  },
+  "description": "Strikingly thin. Remarkably fast. The Apple MacBook Air 13\" (M2) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "MacBook Air 13\" (M1)",
+  "brand": "Apple",
+  "category": "laptops",
+  "year": 2020,
+  "tagline": "Small chip. Giant leap.",
+  "subtitle": "Apple M1 (8-core CPU) · 8GB unified",
+  "price": 72000,
+  "new_price": 115000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "13.3\" Retina",
+   "Processor": "Apple M1 (8-core CPU)",
+   "Memory": "8GB unified",
+   "Battery": "Up to 18 hrs",
+   "Weight": "1.29 kg"
+  },
+  "description": "Small chip. Giant leap. The Apple MacBook Air 13\" (M1) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "MacBook Pro 14\" (M3 Pro)",
+  "brand": "Apple",
+  "category": "laptops",
+  "year": 2023,
+  "tagline": "Mind-blowing. Head-turning.",
+  "subtitle": "Apple M3 Pro (11-core CPU) · 18GB unified",
+  "price": 210000,
+  "new_price": 310000,
+  "storages": [
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Space Black",
+    "hex": "#2e2c2f"
+   },
+   {
+    "name": "Silver",
+    "hex": "#e3e4e5"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "14.2\" Liquid Retina XDR 120Hz",
+   "Processor": "Apple M3 Pro (11-core CPU)",
+   "Memory": "18GB unified",
+   "Battery": "Up to 18 hrs",
+   "Weight": "1.61 kg"
+  },
+  "description": "Mind-blowing. Head-turning. The Apple MacBook Pro 14\" (M3 Pro) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "MacBook Pro 14\" (M1 Pro)",
+  "brand": "Apple",
+  "category": "laptops",
+  "year": 2021,
+  "tagline": "Pro to the max, with all the ports.",
+  "subtitle": "Apple M1 Pro (10-core CPU) · 16GB unified",
+  "price": 138000,
+  "new_price": 230000,
+  "storages": [
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "14.2\" Liquid Retina XDR 120Hz",
+   "Processor": "Apple M1 Pro (10-core CPU)",
+   "Memory": "16GB unified",
+   "Battery": "Up to 17 hrs",
+   "Weight": "1.6 kg"
+  },
+  "description": "Pro to the max, with all the ports. The Apple MacBook Pro 14\" (M1 Pro) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "MacBook Pro 16\" (M1 Pro)",
+  "brand": "Apple",
+  "category": "laptops",
+  "year": 2021,
+  "tagline": "The big screen for big ideas.",
+  "subtitle": "Apple M1 Pro (10-core CPU) · 16GB unified",
+  "price": 165000,
+  "new_price": 280000,
+  "storages": [
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "16.2\" Liquid Retina XDR 120Hz",
+   "Processor": "Apple M1 Pro (10-core CPU)",
+   "Memory": "16GB unified",
+   "Battery": "Up to 21 hrs",
+   "Weight": "2.1 kg"
+  },
+  "description": "The big screen for big ideas. The Apple MacBook Pro 16\" (M1 Pro) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "EliteBook 840 G7",
+  "brand": "HP",
+  "category": "laptops",
+  "year": 2020,
+  "tagline": "Business-class, built to last.",
+  "subtitle": "Intel Core i7-10610U · 16GB DDR4",
+  "price": 52000,
+  "new_price": 85000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "14\" FHD IPS",
+   "Processor": "Intel Core i7-10610U",
+   "Memory": "16GB DDR4",
+   "Battery": "Up to 12 hrs",
+   "Weight": "1.33 kg"
+  },
+  "description": "Business-class, built to last. The HP EliteBook 840 G7 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Spectre x360 14",
+  "brand": "HP",
+  "category": "laptops",
+  "year": 2021,
+  "tagline": "Gem-cut 2-in-1 with OLED.",
+  "subtitle": "Intel Core i7-1165G7 · 16GB LPDDR4x",
+  "price": 95000,
+  "new_price": 160000,
+  "storages": [
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#2a2b2e"
+   },
+   {
+    "name": "Platinum",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "13.5\" 3K2K OLED touch",
+   "Processor": "Intel Core i7-1165G7",
+   "Memory": "16GB LPDDR4x",
+   "Battery": "Up to 14 hrs",
+   "Weight": "1.36 kg"
+  },
+  "description": "Gem-cut 2-in-1 with OLED. The HP Spectre x360 14 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "ProBook 450 G8",
+  "brand": "HP",
+  "category": "laptops",
+  "year": 2021,
+  "tagline": "Full-size keyboard, full-size value.",
+  "subtitle": "Intel Core i5-1135G7 · 8GB DDR4",
+  "price": 42000,
+  "new_price": 70000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "15.6\" FHD IPS",
+   "Processor": "Intel Core i5-1135G7",
+   "Memory": "8GB DDR4",
+   "Battery": "Up to 10 hrs",
+   "Weight": "1.74 kg"
+  },
+  "description": "Full-size keyboard, full-size value. The HP ProBook 450 G8 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "XPS 13 9310",
+  "brand": "Dell",
+  "category": "laptops",
+  "year": 2021,
+  "tagline": "InfinityEdge, endlessly impressive.",
+  "subtitle": "Intel Core i7-1165G7 · 16GB LPDDR4x",
+  "price": 68000,
+  "new_price": 110000,
+  "storages": [
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "13.4\" FHD+ InfinityEdge",
+   "Processor": "Intel Core i7-1165G7",
+   "Memory": "16GB LPDDR4x",
+   "Battery": "Up to 14 hrs",
+   "Weight": "1.2 kg"
+  },
+  "description": "InfinityEdge, endlessly impressive. The Dell XPS 13 9310 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "XPS 15 9510",
+  "brand": "Dell",
+  "category": "laptops",
+  "year": 2021,
+  "tagline": "Creator power, OLED brilliance.",
+  "subtitle": "Intel Core i7-11800H · 16GB DDR4",
+  "price": 120000,
+  "new_price": 200000,
+  "storages": [
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "15.6\" 3.5K OLED",
+   "Processor": "Intel Core i7-11800H + RTX 3050 Ti",
+   "Memory": "16GB DDR4",
+   "Battery": "Up to 11 hrs",
+   "Weight": "1.9 kg"
+  },
+  "description": "Creator power, OLED brilliance. The Dell XPS 15 9510 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Latitude 5420",
+  "brand": "Dell",
+  "category": "laptops",
+  "year": 2021,
+  "tagline": "The dependable office workhorse.",
+  "subtitle": "Intel Core i5-1135G7 · 8GB DDR4",
+  "price": 36000,
+  "new_price": 62000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#2a2b2e"
+   },
+   {
+    "name": "Platinum",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "14\" FHD",
+   "Processor": "Intel Core i5-1135G7",
+   "Memory": "8GB DDR4",
+   "Battery": "Up to 12 hrs",
+   "Weight": "1.4 kg"
+  },
+  "description": "The dependable office workhorse. The Dell Latitude 5420 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Inspiron 15 3520",
+  "brand": "Dell",
+  "category": "laptops",
+  "year": 2022,
+  "tagline": "Everyday computing, made easy.",
+  "subtitle": "Intel Core i5-1235U · 8GB DDR4",
+  "price": 45000,
+  "new_price": 70000,
+  "storages": [
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#2a2b2e"
+   },
+   {
+    "name": "Platinum",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "15.6\" FHD 120Hz",
+   "Processor": "Intel Core i5-1235U",
+   "Memory": "8GB DDR4",
+   "Battery": "Up to 8 hrs",
+   "Weight": "1.65 kg"
+  },
+  "description": "Everyday computing, made easy. The Dell Inspiron 15 3520 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "ThinkPad X1 Carbon Gen 9",
+  "brand": "Lenovo",
+  "category": "laptops",
+  "year": 2021,
+  "tagline": "Carbon-fibre ultralight legend.",
+  "subtitle": "Intel Core i7-1165G7 · 16GB LPDDR4x",
+  "price": 75000,
+  "new_price": 120000,
+  "storages": [
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#2a2b2e"
+   },
+   {
+    "name": "Platinum",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 220,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "14\" WUXGA IPS",
+   "Processor": "Intel Core i7-1165G7",
+   "Memory": "16GB LPDDR4x",
+   "Battery": "Up to 16 hrs",
+   "Weight": "1.13 kg"
+  },
+  "description": "Carbon-fibre ultralight legend. The Lenovo ThinkPad X1 Carbon Gen 9 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "ThinkPad T14 Gen 2",
+  "brand": "Lenovo",
+  "category": "laptops",
+  "year": 2021,
+  "tagline": "Every port. Every day.",
+  "subtitle": "AMD Ryzen 5 Pro 5650U · 16GB DDR4",
+  "price": 44000,
+  "new_price": 72000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#2a2b2e"
+   },
+   {
+    "name": "Platinum",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "14\" FHD IPS",
+   "Processor": "AMD Ryzen 5 Pro 5650U",
+   "Memory": "16GB DDR4",
+   "Battery": "Up to 13 hrs",
+   "Weight": "1.47 kg"
+  },
+  "description": "Every port. Every day. The Lenovo ThinkPad T14 Gen 2 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "IdeaPad Slim 5",
+  "brand": "Lenovo",
+  "category": "laptops",
+  "year": 2023,
+  "tagline": "Slim, light, all-day battery.",
+  "subtitle": "AMD Ryzen 7 7730U · 16GB DDR4",
+  "price": 55000,
+  "new_price": 80000,
+  "storages": [
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "14\" WUXGA OLED",
+   "Processor": "AMD Ryzen 7 7730U",
+   "Memory": "16GB DDR4",
+   "Battery": "Up to 14 hrs",
+   "Weight": "1.46 kg"
+  },
+  "description": "Slim, light, all-day battery. The Lenovo IdeaPad Slim 5 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Legion 5 Pro",
+  "brand": "Lenovo",
+  "category": "laptops",
+  "year": 2022,
+  "tagline": "Win more. QHD+ 165Hz gaming.",
+  "subtitle": "AMD Ryzen 7 6800H · 16GB DDR5",
+  "price": 125000,
+  "new_price": 185000,
+  "storages": [
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#2a2b2e"
+   },
+   {
+    "name": "Platinum",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "16\" WQXGA 165Hz",
+   "Processor": "AMD Ryzen 7 6800H + RTX 3070 Ti",
+   "Memory": "16GB DDR5",
+   "Battery": "Up to 8 hrs",
+   "Weight": "2.5 kg"
+  },
+  "description": "Win more. QHD+ 165Hz gaming. The Lenovo Legion 5 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Zenbook 14 OLED",
+  "brand": "Asus",
+  "category": "laptops",
+  "year": 2023,
+  "tagline": "OLED everywhere you go.",
+  "subtitle": "Intel Core i7-1360P · 16GB LPDDR5",
+  "price": 72000,
+  "new_price": 105000,
+  "storages": [
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#2a2b2e"
+   },
+   {
+    "name": "Platinum",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "14\" 2.8K OLED 90Hz",
+   "Processor": "Intel Core i7-1360P",
+   "Memory": "16GB LPDDR5",
+   "Battery": "Up to 15 hrs",
+   "Weight": "1.39 kg"
+  },
+  "description": "OLED everywhere you go. The Asus Zenbook 14 OLED is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "ROG Zephyrus G14",
+  "brand": "Asus",
+  "category": "laptops",
+  "year": 2022,
+  "tagline": "Compact gaming powerhouse.",
+  "subtitle": "AMD Ryzen 9 6900HS · 16GB DDR5",
+  "price": 135000,
+  "new_price": 200000,
+  "storages": [
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "14\" QHD+ 120Hz",
+   "Processor": "AMD Ryzen 9 6900HS + RX 6800S",
+   "Memory": "16GB DDR5",
+   "Battery": "Up to 10 hrs",
+   "Weight": "1.72 kg"
+  },
+  "description": "Compact gaming powerhouse. The Asus ROG Zephyrus G14 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Swift Go 14",
+  "brand": "Acer",
+  "category": "laptops",
+  "year": 2023,
+  "tagline": "OLED. Intel Evo. Under 1.3kg.",
+  "subtitle": "Intel Core i5-13500H · 16GB LPDDR5",
+  "price": 62000,
+  "new_price": 90000,
+  "storages": [
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "14\" 2.8K OLED 90Hz",
+   "Processor": "Intel Core i5-13500H",
+   "Memory": "16GB LPDDR5",
+   "Battery": "Up to 12 hrs",
+   "Weight": "1.25 kg"
+  },
+  "description": "OLED. Intel Evo. Under 1.3kg. The Acer Swift Go 14 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Nitro 5",
+  "brand": "Acer",
+  "category": "laptops",
+  "year": 2022,
+  "tagline": "Your first serious gaming rig.",
+  "subtitle": "Intel Core i5-12500H · 16GB DDR4",
+  "price": 78000,
+  "new_price": 115000,
+  "storages": [
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#2a2b2e"
+   },
+   {
+    "name": "Platinum",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "15.6\" FHD 144Hz",
+   "Processor": "Intel Core i5-12500H + RTX 3050",
+   "Memory": "16GB DDR4",
+   "Battery": "Up to 6 hrs",
+   "Weight": "2.5 kg"
+  },
+  "description": "Your first serious gaming rig. The Acer Nitro 5 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Surface Laptop 4",
+  "brand": "Microsoft",
+  "category": "laptops",
+  "year": 2021,
+  "tagline": "Style and speed, with a touchscreen.",
+  "subtitle": "Intel Core i5-1145G7 · 8GB LPDDR4x",
+  "price": 62000,
+  "new_price": 110000,
+  "storages": [
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "13.5\" PixelSense touch",
+   "Processor": "Intel Core i5-1145G7",
+   "Memory": "8GB LPDDR4x",
+   "Battery": "Up to 17 hrs",
+   "Weight": "1.27 kg"
+  },
+  "description": "Style and speed, with a touchscreen. The Microsoft Surface Laptop 4 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPad Pro 11\" (M2)",
+  "brand": "Apple",
+  "category": "tablets",
+  "year": 2022,
+  "tagline": "Supercharged by M2.",
+  "subtitle": "11\" · Apple M2",
+  "price": 98000,
+  "new_price": 140000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB",
+   "1TB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "11\" Liquid Retina ProMotion",
+   "Chip": "Apple M2",
+   "Camera": "12MP Wide + LiDAR",
+   "Connectivity": "Wi-Fi 6E, USB-C (Thunderbolt)"
+  },
+  "description": "Supercharged by M2. The Apple iPad Pro 11\" (M2) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPad Air 11\" (M2)",
+  "brand": "Apple",
+  "category": "tablets",
+  "year": 2024,
+  "tagline": "Fresh Air, now with M2.",
+  "subtitle": "11\" · Apple M2",
+  "price": 85000,
+  "new_price": 115000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   },
+   {
+    "name": "Blue",
+    "hex": "#a6c5dc"
+   },
+   {
+    "name": "Purple",
+    "hex": "#c9b8dc"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#f0e4d3"
+   }
+  ],
+  "hue": 205,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "11\" Liquid Retina",
+   "Chip": "Apple M2",
+   "Camera": "12MP Wide",
+   "Connectivity": "Wi-Fi 6E, USB-C"
+  },
+  "description": "Fresh Air, now with M2. The Apple iPad Air 11\" (M2) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPad Air (5th gen)",
+  "brand": "Apple",
+  "category": "tablets",
+  "year": 2022,
+  "tagline": "Light. Bright. Full of might.",
+  "subtitle": "10.9\" · Apple M1",
+  "price": 58000,
+  "new_price": 85000,
+  "storages": [
+   "64GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   },
+   {
+    "name": "Blue",
+    "hex": "#a6c5dc"
+   },
+   {
+    "name": "Purple",
+    "hex": "#c9b8dc"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#f0e4d3"
+   }
+  ],
+  "hue": 205,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "10.9\" Liquid Retina",
+   "Chip": "Apple M1",
+   "Camera": "12MP Wide",
+   "Connectivity": "Wi-Fi 6, USB-C"
+  },
+  "description": "Light. Bright. Full of might. The Apple iPad Air (5th gen) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPad (10th gen)",
+  "brand": "Apple",
+  "category": "tablets",
+  "year": 2022,
+  "tagline": "Lovable. Drawable. Magical.",
+  "subtitle": "10.9\" · A14 Bionic",
+  "price": 45000,
+  "new_price": 62000,
+  "storages": [
+   "64GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   },
+   {
+    "name": "Blue",
+    "hex": "#a6c5dc"
+   },
+   {
+    "name": "Purple",
+    "hex": "#c9b8dc"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#f0e4d3"
+   }
+  ],
+  "hue": 205,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "10.9\" Liquid Retina",
+   "Chip": "A14 Bionic",
+   "Camera": "12MP Wide",
+   "Connectivity": "Wi-Fi 6, USB-C"
+  },
+  "description": "Lovable. Drawable. Magical. The Apple iPad (10th gen) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPad (9th gen)",
+  "brand": "Apple",
+  "category": "tablets",
+  "year": 2021,
+  "tagline": "The everyday iPad.",
+  "subtitle": "10.2\" · A13 Bionic",
+  "price": 30000,
+  "new_price": 45000,
+  "storages": [
+   "64GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "10.2\" Retina",
+   "Chip": "A13 Bionic",
+   "Camera": "8MP Wide",
+   "Connectivity": "Wi-Fi, Lightning"
+  },
+  "description": "The everyday iPad. The Apple iPad (9th gen) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "iPad mini (6th gen)",
+  "brand": "Apple",
+  "category": "tablets",
+  "year": 2021,
+  "tagline": "Mega power. Mini sized.",
+  "subtitle": "8.3\" · A15 Bionic",
+  "price": 52000,
+  "new_price": 75000,
+  "storages": [
+   "64GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Space Gray",
+    "hex": "#5f6166"
+   },
+   {
+    "name": "Blue",
+    "hex": "#a6c5dc"
+   },
+   {
+    "name": "Purple",
+    "hex": "#c9b8dc"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#f0e4d3"
+   }
+  ],
+  "hue": 205,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "8.3\" Liquid Retina",
+   "Chip": "A15 Bionic",
+   "Camera": "12MP Wide",
+   "Connectivity": "Wi-Fi 6, USB-C"
+  },
+  "description": "Mega power. Mini sized. The Apple iPad mini (6th gen) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy Tab S9",
+  "brand": "Samsung",
+  "category": "tablets",
+  "year": 2023,
+  "tagline": "Dynamic AMOLED, IP68, S Pen in the box.",
+  "subtitle": "11\" · Snapdragon 8 Gen 2 for Galaxy",
+  "price": 70000,
+  "new_price": 105000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Graphite",
+    "hex": "#4a4c50"
+   },
+   {
+    "name": "Beige",
+    "hex": "#e6dccb"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 37,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Display": "11\" Dynamic AMOLED 2X 120Hz",
+   "Chip": "Snapdragon 8 Gen 2 for Galaxy",
+   "Camera": "13MP Wide",
+   "Connectivity": "Wi-Fi 6E, USB-C"
+  },
+  "description": "Dynamic AMOLED, IP68, S Pen in the box. The Samsung Galaxy Tab S9 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy Tab S8",
+  "brand": "Samsung",
+  "category": "tablets",
+  "year": 2022,
+  "tagline": "Work and play, with S Pen.",
+  "subtitle": "11\" · Snapdragon 8 Gen 1",
+  "price": 52000,
+  "new_price": 80000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Graphite",
+    "hex": "#4a4c50"
+   },
+   {
+    "name": "Beige",
+    "hex": "#e6dccb"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 37,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "11\" LTPS 120Hz",
+   "Chip": "Snapdragon 8 Gen 1",
+   "Camera": "13MP + 6MP UW",
+   "Connectivity": "Wi-Fi 6E, USB-C"
+  },
+  "description": "Work and play, with S Pen. The Samsung Galaxy Tab S8 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy Tab A9+",
+  "brand": "Samsung",
+  "category": "tablets",
+  "year": 2023,
+  "tagline": "Big screen family tablet.",
+  "subtitle": "11\" · Snapdragon 695",
+  "price": 22000,
+  "new_price": 30000,
+  "storages": [
+   "64GB",
+   "128GB"
+  ],
+  "colors": [
+   {
+    "name": "Graphite",
+    "hex": "#4a4c50"
+   },
+   {
+    "name": "Beige",
+    "hex": "#e6dccb"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 37,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Display": "11\" LCD 90Hz",
+   "Chip": "Snapdragon 695",
+   "Camera": "8MP Wide",
+   "Connectivity": "Wi-Fi 5, USB-C"
+  },
+  "description": "Big screen family tablet. The Samsung Galaxy Tab A9+ is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Pad 6",
+  "brand": "Xiaomi",
+  "category": "tablets",
+  "year": 2023,
+  "tagline": "144Hz WQHD+ for less.",
+  "subtitle": "11\" · Snapdragon 870",
+  "price": 36000,
+  "new_price": 50000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Graphite",
+    "hex": "#4a4c50"
+   },
+   {
+    "name": "Beige",
+    "hex": "#e6dccb"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 37,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "11\" WQHD+ 144Hz",
+   "Chip": "Snapdragon 870",
+   "Camera": "13MP Wide",
+   "Connectivity": "Wi-Fi 6, USB-C"
+  },
+  "description": "144Hz WQHD+ for less. The Xiaomi Pad 6 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Tab P11 Pro (Gen 2)",
+  "brand": "Lenovo",
+  "category": "tablets",
+  "year": 2022,
+  "tagline": "OLED tablet for entertainment.",
+  "subtitle": "11.2\" · Dimensity 1300T",
+  "price": 32000,
+  "new_price": 50000,
+  "storages": [
+   "128GB",
+   "256GB"
+  ],
+  "colors": [
+   {
+    "name": "Graphite",
+    "hex": "#4a4c50"
+   },
+   {
+    "name": "Beige",
+    "hex": "#e6dccb"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 37,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "11.2\" 2.5K OLED 120Hz",
+   "Chip": "Dimensity 1300T",
+   "Camera": "13MP Wide",
+   "Connectivity": "Wi-Fi 6, USB-C"
+  },
+  "description": "OLED tablet for entertainment. The Lenovo Tab P11 Pro (Gen 2) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Surface Pro 8",
+  "brand": "Microsoft",
+  "category": "tablets",
+  "year": 2021,
+  "tagline": "The tablet that replaces your laptop.",
+  "subtitle": "13\" · Intel Core i5-1135G7",
+  "price": 72000,
+  "new_price": 125000,
+  "storages": [
+   "128GB",
+   "256GB",
+   "512GB"
+  ],
+  "colors": [
+   {
+    "name": "Graphite",
+    "hex": "#4a4c50"
+   },
+   {
+    "name": "Beige",
+    "hex": "#e6dccb"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 37,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "13\" PixelSense Flow 120Hz",
+   "Chip": "Intel Core i5-1135G7",
+   "Camera": "10MP rear + 4K video",
+   "Connectivity": "Wi-Fi 6, 2× Thunderbolt 4"
+  },
+  "description": "The tablet that replaces your laptop. The Microsoft Surface Pro 8 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Megapad 11",
+  "brand": "Tecno",
+  "category": "tablets",
+  "year": 2024,
+  "tagline": "Big screen, made for Africa.",
+  "subtitle": "11\" · Helio G99",
+  "price": 18000,
+  "new_price": 25000,
+  "storages": [
+   "128GB"
+  ],
+  "colors": [
+   {
+    "name": "Graphite",
+    "hex": "#4a4c50"
+   },
+   {
+    "name": "Beige",
+    "hex": "#e6dccb"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   }
+  ],
+  "hue": 37,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Display": "11\" FHD+ 90Hz",
+   "Chip": "Helio G99",
+   "Camera": "8MP Wide",
+   "Connectivity": "Wi-Fi 5, USB-C"
+  },
+  "description": "Big screen, made for Africa. The Tecno Megapad 11 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a battery health guarantee. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Apple Watch Series 9",
+  "brand": "Apple",
+  "category": "accessories",
+  "year": 2023,
+  "tagline": "Smarter. Brighter. Mightier.",
+  "subtitle": "Smartwatch · GPS",
+  "price": 40000,
+  "new_price": 60000,
+  "storages": [
+   "41mm",
+   "45mm"
+  ],
+  "colors": [
+   {
+    "name": "Midnight",
+    "hex": "#232a31"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#faf6f2"
+   },
+   {
+    "name": "Silver",
+    "hex": "#e3e4e5"
+   },
+   {
+    "name": "(PRODUCT)RED",
+    "hex": "#bf0013"
+   }
+  ],
+  "hue": 354,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Type": "Smartwatch · GPS",
+   "Highlights": "S9 SiP, Double Tap, ECG, Blood Oxygen",
+   "Battery": "Up to 18 hrs",
+   "Durability": "WR50 · IP6X"
+  },
+  "description": "Smarter. Brighter. Mightier. The Apple Apple Watch Series 9 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a full sanitisation. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Apple Watch Ultra 2",
+  "brand": "Apple",
+  "category": "accessories",
+  "year": 2023,
+  "tagline": "Next-level adventure.",
+  "subtitle": "Smartwatch · GPS + Cellular",
+  "price": 82000,
+  "new_price": 120000,
+  "storages": [
+   "49mm"
+  ],
+  "colors": [
+   {
+    "name": "Natural Titanium",
+    "hex": "#c2bcb2"
+   },
+   {
+    "name": "Black Titanium",
+    "hex": "#3c3c3d"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Type": "Smartwatch · GPS + Cellular",
+   "Highlights": "3000-nit display, precision dual-frequency GPS",
+   "Battery": "Up to 36 hrs",
+   "Durability": "WR100 · EN13319"
+  },
+  "description": "Next-level adventure. The Apple Apple Watch Ultra 2 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a full sanitisation. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Apple Watch SE (2nd gen)",
+  "brand": "Apple",
+  "category": "accessories",
+  "year": 2022,
+  "tagline": "A great deal to love.",
+  "subtitle": "Smartwatch · GPS",
+  "price": 25000,
+  "new_price": 36000,
+  "storages": [
+   "40mm",
+   "44mm"
+  ],
+  "colors": [
+   {
+    "name": "Midnight",
+    "hex": "#232a31"
+   },
+   {
+    "name": "Starlight",
+    "hex": "#faf6f2"
+   },
+   {
+    "name": "Silver",
+    "hex": "#e3e4e5"
+   },
+   {
+    "name": "(PRODUCT)RED",
+    "hex": "#bf0013"
+   }
+  ],
+  "hue": 354,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Type": "Smartwatch · GPS",
+   "Highlights": "Crash Detection, Fall Detection",
+   "Battery": "Up to 18 hrs",
+   "Durability": "WR50"
+  },
+  "description": "A great deal to love. The Apple Apple Watch SE (2nd gen) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a full sanitisation. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy Watch6 Classic",
+  "brand": "Samsung",
+  "category": "accessories",
+  "year": 2023,
+  "tagline": "The rotating bezel is back.",
+  "subtitle": "Smartwatch · Bluetooth",
+  "price": 30000,
+  "new_price": 45000,
+  "storages": [
+   "43mm",
+   "47mm"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f1f21"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Midnight Blue",
+    "hex": "#2e3a55"
+   }
+  ],
+  "hue": 221,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Type": "Smartwatch · Bluetooth",
+   "Highlights": "Rotating bezel, BIA body composition, ECG",
+   "Battery": "Up to 40 hrs",
+   "Durability": "5ATM · IP68"
+  },
+  "description": "The rotating bezel is back. The Samsung Galaxy Watch6 Classic is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a full sanitisation. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Pixel Watch 2",
+  "brand": "Google",
+  "category": "accessories",
+  "year": 2023,
+  "tagline": "Help by Google. Health by Fitbit.",
+  "subtitle": "Smartwatch · Wi-Fi",
+  "price": 26000,
+  "new_price": 40000,
+  "storages": [
+   "41mm"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f1f21"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Midnight Blue",
+    "hex": "#2e3a55"
+   }
+  ],
+  "hue": 221,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Type": "Smartwatch · Wi-Fi",
+   "Highlights": "Fitbit health, Safety Check",
+   "Battery": "Up to 24 hrs",
+   "Durability": "5ATM"
+  },
+  "description": "Help by Google. Health by Fitbit. The Google Pixel Watch 2 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a full sanitisation. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "AirPods Pro (2nd gen)",
+  "brand": "Apple",
+  "category": "accessories",
+  "year": 2023,
+  "tagline": "Adaptive Audio. Now playing.",
+  "subtitle": "Earbuds · MagSafe case",
+  "price": 24000,
+  "new_price": 36000,
+  "storages": [
+   "USB-C"
+  ],
+  "colors": [
+   {
+    "name": "White",
+    "hex": "#f5f5f3"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": true,
+  "specs": {
+   "Type": "Earbuds · MagSafe case",
+   "Highlights": "H2 chip, Active Noise Cancellation, Adaptive Audio",
+   "Battery": "Up to 30 hrs with case",
+   "Durability": "IP54"
+  },
+  "description": "Adaptive Audio. Now playing. The Apple AirPods Pro (2nd gen) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a full sanitisation. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "AirPods (3rd gen)",
+  "brand": "Apple",
+  "category": "accessories",
+  "year": 2021,
+  "tagline": "All-new design. Spatial audio.",
+  "subtitle": "Earbuds · charging case",
+  "price": 16000,
+  "new_price": 26000,
+  "storages": [
+   "Lightning"
+  ],
+  "colors": [
+   {
+    "name": "White",
+    "hex": "#f5f5f3"
+   }
+  ],
+  "hue": 220,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Type": "Earbuds · charging case",
+   "Highlights": "Personalised Spatial Audio, Adaptive EQ",
+   "Battery": "Up to 30 hrs with case",
+   "Durability": "IPX4"
+  },
+  "description": "All-new design. Spatial audio. The Apple AirPods (3rd gen) is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a full sanitisation. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "Galaxy Buds2 Pro",
+  "brand": "Samsung",
+  "category": "accessories",
+  "year": 2022,
+  "tagline": "24-bit Hi-Fi sound.",
+  "subtitle": "Earbuds · wireless case",
+  "price": 13500,
+  "new_price": 22000,
+  "storages": [
+   "Standard"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f1f21"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Midnight Blue",
+    "hex": "#2e3a55"
+   }
+  ],
+  "hue": 221,
+  "featured": false,
+  "deal": false,
+  "specs": {
+   "Type": "Earbuds · wireless case",
+   "Highlights": "Intelligent ANC, 360 Audio",
+   "Battery": "Up to 18 hrs with case",
+   "Durability": "IPX7"
+  },
+  "description": "24-bit Hi-Fi sound. The Samsung Galaxy Buds2 Pro is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a full sanitisation. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ },
+ {
+  "name": "WH-1000XM5",
+  "brand": "Sony",
+  "category": "accessories",
+  "year": 2022,
+  "tagline": "Industry-leading noise cancelling.",
+  "subtitle": "Headphones · over-ear",
+  "price": 32000,
+  "new_price": 52000,
+  "storages": [
+   "Standard"
+  ],
+  "colors": [
+   {
+    "name": "Black",
+    "hex": "#1f1f21"
+   },
+   {
+    "name": "Silver",
+    "hex": "#d9dadc"
+   },
+   {
+    "name": "Midnight Blue",
+    "hex": "#2e3a55"
+   }
+  ],
+  "hue": 221,
+  "featured": true,
+  "deal": false,
+  "specs": {
+   "Type": "Headphones · over-ear",
+   "Highlights": "Auto NC Optimizer, 8 mics, multipoint",
+   "Battery": "Up to 30 hrs",
+   "Durability": "—"
+  },
+  "description": "Industry-leading noise cancelling. The Sony WH-1000XM5 is professionally refurbished and certified by our engineers: 72-point inspection, verified genuine parts, a fresh data wipe and a full sanitisation. Backed by our 6-month warranty, 30-day free returns and M-Pesa escrow."
+ }
 ]

@@ -1,87 +1,78 @@
 'use client'
 
 import Link from 'next/link'
-import DeviceArt from '@/components/DeviceArt'
-import Icon from '@/components/Icon'
+import { ProductImage } from '@/components/DeviceArt'
 import { GradeBadge } from '@/components/ProductCard'
-import { useCart } from '@/components/Providers'
 import ProductRail from '@/components/ProductRail'
+import { useCart } from '@/components/Providers'
 import { ksh } from '@/lib/format'
 
 const FREE_AT = 5000
+const art = (i) => ({ slug: i.slug, name: i.name, brand: i.brand, category: i.category, hue: i.hue, image_url: i.image_url, colors: [] })
 
-export default function CartPage() {
+export default function BagPage() {
   const { items, ready, update, remove, subtotal, savings, count } = useCart()
 
   if (!ready) return <div className="container section"><div className="skeleton" style={{ height: 300 }} /></div>
 
   if (!items.length) {
     return (
-      <div className="container">
-        <div className="empty-state">
-          <div className="big">🛒</div>
-          <h2>Your cart is empty</h2>
-          <p>Certified devices, up to 40% cheaper than new. Let’s find you something great.</p>
-          <Link href="/shop" className="btn btn-primary btn-lg">Start shopping</Link>
+      <>
+        <div className="container bag-head">
+          <h1>Your bag is empty.</h1>
+          <p>Certified devices from 22 brands, up to 50% less than new.</p>
+          <Link href="/" className="btn btn-primary">Continue shopping</Link>
         </div>
         <section className="section-sm">
-          <div className="section-head"><h2>Popular right now</h2></div>
-          <ProductRail params={{ featured: true }} count={4} />
+          <div className="container section-head"><h2>Popular right now.</h2></div>
+          <ProductRail params={{ featured: true }} count={10} label="Popular" />
         </section>
-      </div>
+      </>
     )
   }
 
   const toFree = Math.max(FREE_AT - subtotal, 0)
 
   return (
-    <div className="container section-sm">
-      <h1 style={{ fontSize: 34, marginBottom: 20 }}>Your cart <span className="muted" style={{ fontSize: 18 }}>({count})</span></h1>
-      <div className="panel-grid">
-        <div className="card">
-          {items.map((i) => (
-            <div className="cart-item" key={i.variant_id}>
-              <Link href={`/product/${i.slug}`} className="cart-thumb"><DeviceArt category={i.category} name={i.name} hue={i.hue} /></Link>
-              <div>
-                <div className="product-brand">{i.brand}</div>
-                <h4><Link href={`/product/${i.slug}`} style={{ textDecoration: 'none' }}>{i.name}</Link></h4>
-                <div className="subtle" style={{ margin: '2px 0 8px' }}>{i.subtitle} · <GradeBadge grade={i.grade} /></div>
-                <div className="row" style={{ justifyContent: 'flex-start' }}>
-                  <div className="qty">
-                    <button onClick={() => update(i.variant_id, i.quantity - 1)} disabled={i.quantity <= 1} aria-label="Decrease">−</button>
-                    <span>{i.quantity}</span>
-                    <button onClick={() => update(i.variant_id, i.quantity + 1)} disabled={i.quantity >= Math.min(5, i.stock)} aria-label="Increase">+</button>
-                  </div>
-                  <button className="remove" onClick={() => remove(i.variant_id)}>Remove</button>
+    <div className="container">
+      <div className="bag-head">
+        <h1>Your bag total is {ksh(subtotal)}.</h1>
+        <p>Free delivery in Nairobi{toFree ? ` on orders over ${ksh(FREE_AT)}` : ''}. Pay with M-Pesa — held in escrow until delivery.</p>
+        <Link href="/checkout" className="btn btn-primary btn-lg" style={{ minWidth: 240 }}>Check Out</Link>
+      </div>
+
+      <div style={{ borderTop: '1px solid var(--border-lt)' }}>
+        {items.map((i) => (
+          <div className="cart-item" key={i.key}>
+            <Link href={`/product/${i.slug}`} className="cart-thumb"><ProductImage product={art(i)} color={i.colorHex} /></Link>
+            <div>
+              <h4><Link href={`/product/${i.slug}`} style={{ textDecoration: 'none' }}>{i.brand === 'Apple' ? '' : `${i.brand} `}{i.name}</Link></h4>
+              <p className="muted" style={{ margin: '4px 0 10px' }}>{i.storage}{i.color && ` · ${i.color}`} · <GradeBadge grade={i.grade} /></p>
+              <div className="row" style={{ justifyContent: 'flex-start', gap: 18 }}>
+                <div className="qty">
+                  <button onClick={() => update(i.key, i.quantity - 1)} disabled={i.quantity <= 1} aria-label="Decrease">−</button>
+                  <span>{i.quantity}</span>
+                  <button onClick={() => update(i.key, i.quantity + 1)} disabled={i.quantity >= Math.min(5, i.stock)} aria-label="Increase">+</button>
                 </div>
               </div>
-              <div className="cart-line-price">
-                {ksh(i.price * i.quantity)}
-                {i.quantity > 1 && <div className="subtle">{ksh(i.price)} each</div>}
-              </div>
+              <button className="remove" onClick={() => remove(i.key)}>Remove</button>
             </div>
-          ))}
-        </div>
+            <div className="cart-line-price">
+              {ksh(i.price * i.quantity)}
+              {i.new_price > i.price && <div className="subtle" style={{ fontWeight: 400 }}>{ksh(i.new_price * i.quantity)} new</div>}
+            </div>
+          </div>
+        ))}
+      </div>
 
-        <aside className="card sticky">
-          <h3>Order summary</h3>
-          <div className="divider" />
-          <div className="row"><span className="muted">Subtotal</span><strong>{ksh(subtotal)}</strong></div>
-          <div className="row"><span className="muted">Delivery</span><span>{toFree ? 'From KSh 300' : 'Free in Nairobi'}</span></div>
-          {savings > 0 && <div className="row" style={{ color: 'var(--green)' }}><span>You save vs new</span><strong>{ksh(savings)}</strong></div>}
-          <div className="divider" />
-          <div className="row total"><span>Total</span><span>{ksh(subtotal)}</span></div>
-          {toFree > 0 ? (
-            <div style={{ marginTop: 12 }}>
-              <p className="subtle">Add {ksh(toFree)} more for free Nairobi delivery</p>
-              <div className="progress-free"><div style={{ width: `${(subtotal / FREE_AT) * 100}%` }} /></div>
-            </div>
-          ) : <p className="form-success" style={{ marginTop: 12 }}>🎉 You’ve unlocked free Nairobi delivery</p>}
-          <Link href="/checkout" className="btn btn-primary btn-lg btn-block" style={{ marginTop: 18 }}>
-            <Icon name="lock" size={16} /> Secure checkout
-          </Link>
-          <p className="subtle" style={{ textAlign: 'center', marginTop: 12 }}>Pay with M-Pesa · held in escrow until delivery</p>
-        </aside>
+      <div className="bag-summary">
+        <div className="row"><span className="muted">Subtotal ({count} item{count === 1 ? '' : 's'})</span><span>{ksh(subtotal)}</span></div>
+        <div className="row"><span className="muted">Delivery</span><span>{toFree ? 'Calculated at checkout' : 'FREE in Nairobi'}</span></div>
+        {savings > 0 && <div className="row" style={{ color: 'var(--green)' }}><span>You save vs. new</span><span>{ksh(savings)}</span></div>}
+        <div className="divider" />
+        <div className="row total"><span>Total</span><span>{ksh(subtotal)}</span></div>
+        <p className="subtle" style={{ marginTop: 10 }}>Have a promo code? Add it at checkout.</p>
+        <Link href="/checkout" className="btn btn-primary btn-lg btn-block" style={{ marginTop: 22 }}>Check Out</Link>
       </div>
     </div>
   )
