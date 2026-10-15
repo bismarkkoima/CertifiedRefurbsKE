@@ -18,7 +18,7 @@ Kenya's marketplace for certified refurbished phones, laptops and tablets. Every
 - **Bag & checkout**: promo codes, delivery options, M-Pesa STK Push with live payment status
 - **Escrow order tracking**: timeline, escrow status, and a "release funds" button once shipped
 - **Import for me** landed-cost calculator and **Trade In** instant quotes
-- **Accounts** and an **admin dashboard**: orders, products and per-variant stock/prices, promo codes
+- **Accounts** and an **admin dashboard** where you can add, edit and delete products, storage/condition options, promo codes, reviews, trade-in and import requests, messages, accounts (incl. staff) and newsletter subscribers, with CSV export. Products that have been ordered are archived instead of deleted, so order history stays intact
 - SEO metadata, sitemap and robots.txt, responsive layout down to 360px
 
 See [`docs/ROADMAP.md`](docs/ROADMAP.md) for what's still missing before launch and ideas for new features.
@@ -90,7 +90,7 @@ any unpaid/paid state ──(admin cancels)──► cancelled [escrow: refunded
 | Imports | `POST /imports/quote`, `POST /imports/requests` |
 | Trade-ins | `POST /sell/quote`, `POST /sell/requests` |
 | Site | `POST /site/newsletter`, `POST /site/contact` |
-| Admin | `GET /admin/stats`, `PATCH /admin/orders/{number}`, `GET/POST /admin/products`, `PATCH /admin/products/{id}`, `PATCH /admin/variants/{id}`, `GET/POST/PATCH /admin/coupons`, `DELETE /admin/reviews/{id}` |
+| Admin | `GET /admin/stats`; orders `PATCH/DELETE /admin/orders/{number}`; products `GET/POST /admin/products`, `PATCH/DELETE /admin/products/{id}`, `POST /admin/products/{id}/variants`, `PATCH/DELETE /admin/variants/{id}`; coupons `GET/POST /admin/coupons`, `PATCH/DELETE /admin/coupons/{id}`; `GET /admin/reviews`, `DELETE /admin/reviews/{id}`; `GET /admin/{imports,trade-ins,messages,subscribers}`, `PATCH /admin/{imports,trade-ins}/{id}/status`, `DELETE /admin/{kind}/{id}`; accounts `GET/POST /admin/users`, `PATCH /admin/users/{id}/admin`, `DELETE /admin/users/{id}` |
 
 ## Project structure
 

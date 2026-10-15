@@ -52,7 +52,7 @@ def detail(product: Product) -> ProductDetail:
 
 
 def _base_query(q: str | None, category: str | None) -> Select:
-    stmt = select(Product)
+    stmt = select(Product).where(Product.active.is_(True))
     if category:
         stmt = stmt.where(Product.category == category)
     if q:
@@ -154,6 +154,7 @@ def brands(db: DB):
     rows = db.execute(
         select(Product.brand, Product.category, func.count(distinct(Product.id)), func.min(ProductVariant.price))
         .join(ProductVariant, ProductVariant.product_id == Product.id)
+        .where(Product.active.is_(True))
         .group_by(Product.brand, Product.category)
     ).all()
     out: dict[str, BrandOut] = {}
@@ -166,7 +167,7 @@ def brands(db: DB):
 
 
 def _get(db, slug: str, *options) -> Product:
-    product = db.scalar(select(Product).where(Product.slug == slug).options(*options))
+    product = db.scalar(select(Product).where(Product.slug == slug, Product.active.is_(True)).options(*options))
     if not product:
         raise HTTPException(404, "Product not found")
     return product
@@ -182,7 +183,7 @@ def related_products(slug: str, db: DB, limit: int = Query(4, ge=1, le=12)):
     product = _get(db, slug)
     stmt = (
         select(Product)
-        .where(Product.category == product.category, Product.id != product.id)
+        .where(Product.category == product.category, Product.id != product.id, Product.active.is_(True))
         .options(selectinload(Product.variants))
         .order_by((Product.brand == product.brand).desc(), func.abs(Product.new_price - product.new_price))
         .limit(limit)

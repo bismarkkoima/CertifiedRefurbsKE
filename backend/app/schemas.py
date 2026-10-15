@@ -74,6 +74,7 @@ class ProductSummary(ORM):
     price_from: int
     best_grade: str
     in_stock: bool
+    active: bool = True
 
 
 class ProductDetail(ProductSummary):
@@ -295,10 +296,28 @@ class AdminVariantUpdate(BaseModel):
 
 
 class AdminProductUpdate(BaseModel):
+    name: str | None = Field(default=None, min_length=2, max_length=160)
+    brand: str | None = Field(default=None, min_length=1, max_length=60)
+    category: Category | None = None
+    year: int | None = Field(default=None, ge=2010, le=2100)
+    tagline: str | None = Field(default=None, max_length=160)
+    subtitle: str | None = Field(default=None, min_length=2, max_length=160)
+    description: str | None = Field(default=None, min_length=10)
+    specs: dict[str, str] | None = None
+    colors: list[Colour] | None = Field(default=None, min_length=1)
+    new_price: int | None = Field(default=None, gt=0)
+    image_url: str | None = Field(default=None, max_length=500)
     featured: bool | None = None
     deal: bool | None = None
-    tagline: str | None = Field(default=None, max_length=160)
-    image_url: str | None = Field(default=None, max_length=500)
+    active: bool | None = None
+
+
+class AdminVariantCreate(BaseModel):
+    grade: Literal["excellent", "good", "fair"]
+    storage: str = Field(min_length=1, max_length=40)
+    price: int = Field(gt=0)
+    new_price: int = Field(gt=0)
+    stock: int = Field(default=0, ge=0)
 
 
 class AdminProductCreate(BaseModel):

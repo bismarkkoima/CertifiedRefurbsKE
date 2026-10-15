@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Literal
 
 from fastapi import APIRouter, HTTPException
@@ -7,11 +8,13 @@ from sqlalchemy.orm import selectinload
 
 from app.api.deps import DB, AdminUser
 from app.api.v1.endpoints.listings import detail
-from app.db.models import (Coupon, EscrowStatus, Grade, ImportRequest, Order, OrderStatus, Product, ProductVariant,
-                           Review, TradeIn, User)
+from app.db.models import (ContactMessage, Coupon, EscrowStatus, Grade, ImportRequest, NewsletterSubscriber, Order,
+                           OrderItem, OrderStatus, Product, ProductVariant, Review, TradeIn,
+                           User)
+from app.core.security import hash_password
 from app.db.seed import product_slug
-from app.schemas import (AdminProductCreate, AdminProductUpdate, AdminStats, AdminVariantUpdate, OrderOut,
-                         ProductDetail)
+from app.schemas import (AdminProductCreate, AdminProductUpdate, AdminStats, AdminVariantCreate, AdminVariantUpdate,
+                         ImportRequestOut, OrderOut, ProductDetail, TradeInOut, UserCreate, UserOut)
 from app.services.orders import add_event
 from app.services.pricing import GRADE_BATTERY, grade_price, tier_prices
 
@@ -131,6 +134,8 @@ def update_product(product_id: int, data: AdminProductUpdate, db: DB, _: AdminUs
     for key, value in data.model_dump(exclude_unset=True).items():
         if key == "image_url":
             value = value or None
+        if value is None and key != "image_url":
+            continue
         setattr(product, key, value)
     db.commit()
     return detail(product)
@@ -187,4 +192,244 @@ def delete_review(review_id: int, db: DB, _: AdminUser):
                             .where(Review.product_id == product_id)).one()
     product = db.get(Product, product_id)
     product.reviews_count, product.rating = count, round(float(avg or 0), 1)
+    db.commit()
+
+
+def _ordered(db, variant_ids: list[int]) -> bool:
+    return bool(variant_ids) and bool(
+        db.scalar(select(OrderItem.id).where(OrderItem.variant_id.in_(variant_ids)).limit(1))
+    )
+
+
+class DeleteResult(BaseModel):
+    deleted: bool
+    archived: bool = False
+    message: str
+
+
+@router.delete("/products/{product_id}", response_model=DeleteResult)
+def delete_product(product_id: int, db: DB, _: AdminUser):
+    """Hard-delete a product, or archive it if it has ever been ordered (keeps order history intact)."""
+    product = _product(db, product_id)
+    if _ordered(db, [v.id for v in product.variants]):
+        product.active = False
+        db.commit()
+        return DeleteResult(deleted=False, archived=True,
+                            message=f"{product.name} has past orders, so it was archived and hidden from the store.")
+    db.delete(product)
+    db.commit()
+    return DeleteResult(deleted=True, message=f"{product.name} was deleted.")
+
+
+@router.post("/products/{product_id}/variants", response_model=ProductDetail, status_code=201)
+def create_variant(product_id: int, data: AdminVariantCreate, db: DB, _: AdminUser):
+    product = _product(db, product_id)
+    if any(v.grade.value == data.grade and v.storage == data.storage for v in product.variants):
+        raise HTTPException(409, f"{data.storage} in {data.grade} grade already exists")
+    product.variants.append(ProductVariant(
+        grade=Grade(data.grade), storage=data.storage, price=data.price, new_price=data.new_price,
+        stock=data.stock, battery_health=GRADE_BATTERY[data.grade],
+    ))
+    db.commit()
+    return detail(_product(db, product_id))
+
+
+@router.delete("/variants/{variant_id}", response_model=ProductDetail)
+def delete_variant(variant_id: int, db: DB, _: AdminUser):
+    variant = db.get(ProductVariant, variant_id)
+    if not variant:
+        raise HTTPException(404, "Variant not found")
+    product_id = variant.product_id
+    if _ordered(db, [variant.id]):
+        raise HTTPException(409, "This option has past orders. Set its stock to 0 instead of deleting it.")
+    if db.scalar(select(func.count(ProductVariant.id)).where(ProductVariant.product_id == product_id)) <= 1:
+        raise HTTPException(409, "A product needs at least one option. Delete the product instead.")
+    db.delete(variant)
+    db.commit()
+    return detail(_product(db, product_id))
+
+
+@router.delete("/coupons/{coupon_id}", status_code=204)
+def delete_coupon(coupon_id: int, db: DB, _: AdminUser):
+    coupon = db.get(Coupon, coupon_id)
+    if not coupon:
+        raise HTTPException(404, "Coupon not found")
+    db.delete(coupon)
+    db.commit()
+
+
+@router.delete("/orders/{number}", status_code=204)
+def delete_order(number: str, db: DB, _: AdminUser):
+    order = db.scalar(select(Order).where(Order.number == number.upper()))
+    if not order:
+        raise HTTPException(404, "Order not found")
+    if order.status not in (OrderStatus.pending_payment, OrderStatus.cancelled):
+        raise HTTPException(409, "Only unpaid or cancelled orders can be deleted")
+    db.delete(order)
+    db.commit()
+
+
+# ── Reviews ──
+class AdminReviewOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    author_name: str
+    rating: int
+    title: str
+    body: str
+    verified: bool
+    created_at: datetime
+    product_name: str
+    product_slug: str
+
+
+@router.get("/reviews", response_model=list[AdminReviewOut])
+def list_reviews(db: DB, _: AdminUser):
+    rows = db.execute(select(Review, Product.name, Product.slug).join(Product)
+                      .order_by(Review.created_at.desc()).limit(500)).all()
+    return [AdminReviewOut(**{c: getattr(r, c) for c in ("id", "author_name", "rating", "title", "body", "verified",
+                                                          "created_at")}, product_name=n, product_slug=sl)
+            for r, n, sl in rows]
+
+
+# ── Requests & messages ──
+class RequestStatus(BaseModel):
+    status: Literal["received", "quoted", "in_progress", "completed", "rejected"]
+
+
+class AdminImportOut(ImportRequestOut):
+    id: int
+    full_name: str
+    phone: str
+    email: str
+    item_url: str
+    item_description: str
+
+
+class AdminTradeInOut(TradeInOut):
+    id: int
+    full_name: str
+    phone: str
+    email: str
+    category: str
+    brand: str
+    model: str
+    storage: str
+    condition: str
+
+
+class ContactOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    full_name: str
+    email: str
+    subject: str
+    message: str
+    created_at: datetime
+
+
+class SubscriberOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    email: str
+    created_at: datetime
+
+
+class AdminUserOut(UserOut):
+    created_at: datetime
+    order_count: int = 0
+
+
+SIMPLE = {"imports": ImportRequest, "trade-ins": TradeIn, "messages": ContactMessage, "subscribers": NewsletterSubscriber}
+
+
+@router.get("/imports", response_model=list[AdminImportOut])
+def list_imports(db: DB, _: AdminUser):
+    return db.scalars(select(ImportRequest).order_by(ImportRequest.created_at.desc())).all()
+
+
+@router.get("/trade-ins", response_model=list[AdminTradeInOut])
+def list_trade_ins(db: DB, _: AdminUser):
+    return db.scalars(select(TradeIn).order_by(TradeIn.created_at.desc())).all()
+
+
+@router.get("/messages", response_model=list[ContactOut])
+def list_messages(db: DB, _: AdminUser):
+    return db.scalars(select(ContactMessage).order_by(ContactMessage.created_at.desc())).all()
+
+
+@router.get("/subscribers", response_model=list[SubscriberOut])
+def list_subscribers(db: DB, _: AdminUser):
+    return db.scalars(select(NewsletterSubscriber).order_by(NewsletterSubscriber.created_at.desc())).all()
+
+
+# ── Customers ──
+@router.get("/users", response_model=list[AdminUserOut])
+def list_users(db: DB, _: AdminUser):
+    counts = dict(db.execute(select(Order.user_id, func.count(Order.id)).group_by(Order.user_id)).all())
+    users = db.scalars(select(User).order_by(User.created_at.desc())).all()
+    return [AdminUserOut.model_validate(u).model_copy(update={"order_count": counts.get(u.id, 0)}) for u in users]
+
+
+class AdminUserCreate(UserCreate):
+    is_admin: bool = False
+
+
+@router.post("/users", response_model=AdminUserOut, status_code=201)
+def create_user(data: AdminUserCreate, db: DB, _: AdminUser):
+    email = data.email.lower()
+    if db.scalar(select(User.id).where(func.lower(User.email) == email)):
+        raise HTTPException(409, "An account with this email already exists")
+    user = User(email=email, full_name=data.full_name, phone=data.phone,
+                hashed_password=hash_password(data.password), is_admin=data.is_admin)
+    db.add(user)
+    db.commit()
+    return AdminUserOut.model_validate(user)
+
+
+@router.patch("/users/{user_id}/admin", response_model=AdminUserOut)
+def toggle_admin(user_id: int, db: DB, admin: AdminUser):
+    user = db.get(User, user_id)
+    if not user:
+        raise HTTPException(404, "User not found")
+    if user.id == admin.id:
+        raise HTTPException(409, "You can't change your own admin access")
+    user.is_admin = not user.is_admin
+    db.commit()
+    return AdminUserOut.model_validate(user).model_copy(
+        update={"order_count": db.scalar(select(func.count(Order.id)).where(Order.user_id == user.id))})
+
+
+@router.delete("/users/{user_id}", status_code=204)
+def delete_user(user_id: int, db: DB, admin: AdminUser):
+    user = db.get(User, user_id)
+    if not user:
+        raise HTTPException(404, "User not found")
+    if user.id == admin.id:
+        raise HTTPException(409, "You can't delete your own account")
+    # Keep their orders (needed for accounting) but detach them from the account.
+    for order in db.scalars(select(Order).where(Order.user_id == user.id)):
+        order.user_id = None
+    for review in db.scalars(select(Review).where(Review.user_id == user.id)):
+        review.user_id = None
+    db.delete(user)
+    db.commit()
+
+
+# Generic routes last so they don't shadow the specific ones above.
+@router.patch("/{kind}/{item_id}/status", status_code=204)
+def set_request_status(kind: Literal["imports", "trade-ins"], item_id: int, data: RequestStatus, db: DB, _: AdminUser):
+    item = db.get(SIMPLE[kind], item_id)
+    if not item:
+        raise HTTPException(404, "Not found")
+    item.status = data.status
+    db.commit()
+
+
+@router.delete("/{kind}/{item_id}", status_code=204)
+def delete_simple(kind: Literal["imports", "trade-ins", "messages", "subscribers"], item_id: int, db: DB, _: AdminUser):
+    item = db.get(SIMPLE[kind], item_id)
+    if not item:
+        raise HTTPException(404, "Not found")
+    db.delete(item)
     db.commit()

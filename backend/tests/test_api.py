@@ -192,3 +192,86 @@ def test_admin_manages_catalogue(client):
     flagged = client.patch(f"/api/v1/admin/products/{product['id']}", headers=headers, json={"deal": True}).json()
     assert flagged["deal"] is True
     assert client.get("/api/v1/admin/products").status_code == 401
+
+
+def _admin(client):
+    token = client.post("/api/v1/auth/login", json={"email": "admin@certifiedrefurbs.co.ke",
+                                                    "password": "admin12345"}).json()["access_token"]
+    return {"Authorization": f"Bearer {token}"}
+
+
+def test_admin_delete_and_archive_products(client):
+    h = _admin(client)
+    # A product with no orders is deleted outright.
+    p = client.get("/api/v1/listings/itel-p55").json()
+    res = client.delete(f"/api/v1/admin/products/{p['id']}", headers=h).json()
+    assert res["deleted"] is True
+    assert client.get("/api/v1/listings/itel-p55").status_code == 404
+
+    # A product with an order is archived: hidden from the store but kept.
+    order, variant = _place_order(client)
+    p = client.get("/api/v1/listings/apple-iphone-13").json()
+    res = client.delete(f"/api/v1/admin/products/{p['id']}", headers=h).json()
+    assert res["archived"] is True
+    assert client.get("/api/v1/listings/apple-iphone-13").status_code == 404
+    assert client.get("/api/v1/listings", params={"q": "iphone 13", "page_size": 60}).json()["items"][0]["slug"] != "apple-iphone-13"
+    assert any(x["id"] == p["id"] and not x["active"] for x in client.get("/api/v1/admin/products", headers=h).json())
+    restored = client.patch(f"/api/v1/admin/products/{p['id']}", headers=h, json={"active": True}).json()
+    assert restored["active"] is True
+    # Ordered variants can't be deleted.
+    assert client.delete(f"/api/v1/admin/variants/{variant['id']}", headers=h).status_code == 409
+    # Unpaid orders can be deleted.
+    assert client.delete(f"/api/v1/admin/orders/{order['number']}", headers=h).status_code == 204
+
+
+def test_admin_variants_edit_and_coupons(client):
+    h = _admin(client)
+    p = client.get("/api/v1/listings/tecno-pova-6-pro-5g").json()
+    added = client.post(f"/api/v1/admin/products/{p['id']}/variants", headers=h,
+                        json={"grade": "excellent", "storage": "512GB", "price": 29000, "new_price": 38000, "stock": 2}).json()
+    new = next(v for v in added["variants"] if v["storage"] == "512GB")
+    assert "512GB" in added["storages"]
+    assert client.post(f"/api/v1/admin/products/{p['id']}/variants", headers=h,
+                       json={"grade": "excellent", "storage": "512GB", "price": 1, "new_price": 1}).status_code == 409
+    after = client.delete(f"/api/v1/admin/variants/{new['id']}", headers=h).json()
+    assert "512GB" not in after["storages"]
+    edited = client.patch(f"/api/v1/admin/products/{p['id']}", headers=h,
+                          json={"name": "Pova 6 Pro", "colors": [{"name": "Meteorite Grey", "hex": "#55585c"}]}).json()
+    assert edited["name"] == "Pova 6 Pro" and edited["colors"][0]["name"] == "Meteorite Grey"
+
+    c = client.post("/api/v1/admin/coupons", headers=h, json={"code": "flash10", "percent_off": 10}).json()
+    assert c["code"] == "FLASH10"
+    assert client.delete(f"/api/v1/admin/coupons/{c['id']}", headers=h).status_code == 204
+    assert client.post("/api/v1/orders/validate-coupon", json={"code": "FLASH10", "subtotal": 9000}).status_code == 400
+
+
+def test_admin_inboxes_and_users(client):
+    h = _admin(client)
+    client.post("/api/v1/site/contact", json={"full_name": "Ann", "email": "a@example.com", "subject": "Hi",
+                                              "message": "Do you have iPhone 16?"})
+    client.post("/api/v1/site/newsletter", json={"email": "n@example.com"})
+    client.post("/api/v1/sell/requests", json={"category": "phones", "brand": "Apple", "model": "iPhone 12",
+                                               "storage": "128GB", "condition": "good", "full_name": "Ann",
+                                               "phone": "0712345678", "email": "a@example.com"})
+    client.post("/api/v1/listings/tecno-spark-20-pro/reviews", json={"author_name": "Bo", "rating": 4, "title": "Nice",
+                                                                    "body": "Good value phone for the price."})
+    for kind in ("messages", "subscribers", "trade-ins"):
+        items = client.get(f"/api/v1/admin/{kind}", headers=h).json()
+        assert len(items) == 1
+        if kind == "trade-ins":
+            assert client.patch(f"/api/v1/admin/trade-ins/{items[0]['id']}/status", headers=h,
+                                json={"status": "completed"}).status_code == 204
+        assert client.delete(f"/api/v1/admin/{kind}/{items[0]['id']}", headers=h).status_code == 204
+        assert client.get(f"/api/v1/admin/{kind}", headers=h).json() == []
+    reviews = client.get("/api/v1/admin/reviews", headers=h).json()
+    assert reviews[0]["product_slug"] == "tecno-spark-20-pro"
+    assert client.delete(f"/api/v1/admin/reviews/{reviews[0]['id']}", headers=h).status_code == 204
+
+    staff = client.post("/api/v1/admin/users", headers=h, json={"email": "staff@example.com", "full_name": "Staff One",
+                                                               "password": "staffpass1", "is_admin": True}).json()
+    assert staff["is_admin"] is True
+    me = client.get("/api/v1/auth/me", headers=h).json()
+    assert client.delete(f"/api/v1/admin/users/{me['id']}", headers=h).status_code == 409
+    assert client.patch(f"/api/v1/admin/users/{staff['id']}/admin", headers=h).json()["is_admin"] is False
+    assert client.delete(f"/api/v1/admin/users/{staff['id']}", headers=h).status_code == 204
+    assert all(u["email"] != "staff@example.com" for u in client.get("/api/v1/admin/users", headers=h).json())
