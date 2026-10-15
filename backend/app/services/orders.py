@@ -1,9 +1,10 @@
 import re
 import secrets
 
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.db.models import EscrowStatus, Order, OrderEvent, OrderStatus, Payment, PaymentStatus, ProductVariant
+from app.db.models import Coupon, EscrowStatus, Order, OrderEvent, OrderStatus, Payment, PaymentStatus, ProductVariant
 
 
 def reference(prefix: str) -> str:
@@ -31,6 +32,10 @@ def apply_payment_result(db: Session, payment: Payment, status: str, desc: str, 
         if order.status == OrderStatus.pending_payment:
             order.status = OrderStatus.paid
             order.escrow_status = EscrowStatus.held
+            if order.coupon_code:
+                coupon = db.scalar(select(Coupon).where(Coupon.code == order.coupon_code))
+                if coupon:
+                    coupon.uses += 1
             for item in order.items:
                 variant = db.get(ProductVariant, item.variant_id)
                 if variant:

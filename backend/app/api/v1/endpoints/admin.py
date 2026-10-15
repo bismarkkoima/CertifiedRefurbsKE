@@ -1,15 +1,19 @@
 from typing import Literal
 
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy import func, select
 from sqlalchemy.orm import selectinload
 
 from app.api.deps import DB, AdminUser
-from app.db.models import (EscrowStatus, ImportRequest, Order, OrderStatus, Product, ProductVariant,
-                           TradeIn, User)
-from app.schemas import AdminStats, OrderOut
+from app.api.v1.endpoints.listings import detail
+from app.db.models import (Coupon, EscrowStatus, Grade, ImportRequest, Order, OrderStatus, Product, ProductVariant,
+                           Review, TradeIn, User)
+from app.db.seed import product_slug
+from app.schemas import (AdminProductCreate, AdminProductUpdate, AdminStats, AdminVariantUpdate, OrderOut,
+                         ProductDetail)
 from app.services.orders import add_event
+from app.services.pricing import GRADE_BATTERY, grade_price, tier_prices
 
 router = APIRouter()
 
@@ -25,6 +29,30 @@ STATUS_EVENTS = {
 
 class StatusUpdate(BaseModel):
     status: Literal["processing", "shipped", "delivered", "cancelled"]
+
+
+class CouponIn(BaseModel):
+    code: str = Field(min_length=3, max_length=30, pattern=r"^[A-Za-z0-9_-]+$")
+    description: str = Field(default="", max_length=160)
+    percent_off: int = Field(default=0, ge=0, le=90)
+    amount_off: int = Field(default=0, ge=0)
+    max_discount: int | None = Field(default=None, ge=0)
+    min_subtotal: int = Field(default=0, ge=0)
+    max_uses: int | None = Field(default=None, ge=1)
+
+
+class CouponOut(CouponIn):
+    model_config = ConfigDict(from_attributes=True)
+    id: int
+    uses: int
+    active: bool
+
+
+def _product(db, product_id: int) -> Product:
+    product = db.scalar(select(Product).where(Product.id == product_id).options(selectinload(Product.variants)))
+    if not product:
+        raise HTTPException(404, "Product not found")
+    return product
 
 
 @router.get("/stats", response_model=AdminStats)
@@ -64,3 +92,99 @@ def update_order_status(number: str, data: StatusUpdate, db: DB, _: AdminUser):
     add_event(order, *STATUS_EVENTS[new_status])
     db.commit()
     return order
+
+
+@router.get("/products", response_model=list[ProductDetail])
+def list_products(db: DB, _: AdminUser):
+    products = db.scalars(select(Product).options(selectinload(Product.variants))
+                          .order_by(Product.category, Product.brand, Product.year.desc())).all()
+    return [detail(p) for p in products]
+
+
+@router.post("/products", response_model=ProductDetail, status_code=201)
+def create_product(data: AdminProductCreate, db: DB, _: AdminUser):
+    item = data.model_dump()
+    slug = product_slug(item)
+    if db.scalar(select(Product.id).where(Product.slug == slug)):
+        raise HTTPException(409, "A product with this brand and name already exists")
+    hue = 220
+    product = Product(
+        slug=slug, name=data.name, brand=data.brand, category=data.category, year=data.year,
+        tagline=data.tagline, subtitle=data.subtitle, description=data.description, specs=data.specs,
+        colors=[c.model_dump() for c in data.colors], image_url=data.image_url, new_price=data.new_price, hue=hue,
+    )
+    for tier, storage in enumerate(data.storages):
+        price, new_price = tier_prices(data.price, data.new_price, data.category, tier)
+        for grade in Grade:
+            product.variants.append(ProductVariant(
+                grade=grade, storage=storage, price=grade_price(price, grade.value), new_price=new_price,
+                stock=data.stock, battery_health=GRADE_BATTERY[grade.value],
+            ))
+    db.add(product)
+    db.commit()
+    return detail(_product(db, product.id))
+
+
+@router.patch("/products/{product_id}", response_model=ProductDetail)
+def update_product(product_id: int, data: AdminProductUpdate, db: DB, _: AdminUser):
+    product = _product(db, product_id)
+    for key, value in data.model_dump(exclude_unset=True).items():
+        if key == "image_url":
+            value = value or None
+        setattr(product, key, value)
+    db.commit()
+    return detail(product)
+
+
+@router.patch("/variants/{variant_id}", response_model=ProductDetail)
+def update_variant(variant_id: int, data: AdminVariantUpdate, db: DB, _: AdminUser):
+    variant = db.get(ProductVariant, variant_id)
+    if not variant:
+        raise HTTPException(404, "Variant not found")
+    for key, value in data.model_dump(exclude_none=True).items():
+        setattr(variant, key, value)
+    db.commit()
+    return detail(_product(db, variant.product_id))
+
+
+@router.get("/coupons", response_model=list[CouponOut])
+def list_coupons(db: DB, _: AdminUser):
+    return db.scalars(select(Coupon).order_by(Coupon.created_at.desc())).all()
+
+
+@router.post("/coupons", response_model=CouponOut, status_code=201)
+def create_coupon(data: CouponIn, db: DB, _: AdminUser):
+    if not data.percent_off and not data.amount_off:
+        raise HTTPException(422, "Set a percentage or an amount off")
+    code = data.code.upper()
+    if db.scalar(select(Coupon.id).where(func.upper(Coupon.code) == code)):
+        raise HTTPException(409, "That code already exists")
+    coupon = Coupon(**{**data.model_dump(), "code": code})
+    db.add(coupon)
+    db.commit()
+    return coupon
+
+
+@router.patch("/coupons/{coupon_id}", response_model=CouponOut)
+def toggle_coupon(coupon_id: int, db: DB, _: AdminUser):
+    coupon = db.get(Coupon, coupon_id)
+    if not coupon:
+        raise HTTPException(404, "Coupon not found")
+    coupon.active = not coupon.active
+    db.commit()
+    return coupon
+
+
+@router.delete("/reviews/{review_id}", status_code=204)
+def delete_review(review_id: int, db: DB, _: AdminUser):
+    review = db.get(Review, review_id)
+    if not review:
+        raise HTTPException(404, "Review not found")
+    product_id = review.product_id
+    db.delete(review)
+    db.flush()
+    count, avg = db.execute(select(func.count(Review.id), func.avg(Review.rating))
+                            .where(Review.product_id == product_id)).one()
+    product = db.get(Product, product_id)
+    product.reviews_count, product.rating = count, round(float(avg or 0), 1)
+    db.commit()

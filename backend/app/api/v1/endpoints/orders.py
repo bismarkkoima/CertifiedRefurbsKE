@@ -4,7 +4,8 @@ from sqlalchemy.orm import selectinload
 
 from app.api.deps import DB, CurrentUser, OptionalUser
 from app.db.models import EscrowStatus, Order, OrderItem, OrderStatus, ProductVariant
-from app.schemas import OrderCreate, OrderOut
+from app.schemas import CouponCheckIn, CouponCheckOut, OrderCreate, OrderOut
+from app.services.coupons import evaluate
 from app.services.orders import add_event, phone_matches, reference
 from app.services.pricing import delivery_fee
 
@@ -41,6 +42,7 @@ def create_order(data: OrderCreate, db: DB, user: OptionalUser):
         city=data.city,
         delivery_method=data.delivery_method,
         subtotal=0,
+        discount=0,
         delivery_fee=0,
         total=0,
     )
@@ -49,24 +51,40 @@ def create_order(data: OrderCreate, db: DB, user: OptionalUser):
         variant = db.get(ProductVariant, line.variant_id)
         if not variant:
             raise HTTPException(400, f"Item {line.variant_id} is no longer available")
+        product = variant.product
         if variant.stock < line.quantity:
-            raise HTTPException(409, f"Only {variant.stock} left of {variant.product.name} ({variant.grade.value})")
+            left = f"Only {variant.stock} left" if variant.stock else "Sold out"
+            raise HTTPException(409, f"{left}: {product.name} {variant.storage} ({variant.grade.value})")
+        colours = [c["name"] for c in product.colors]
+        if colours and line.color not in colours:
+            raise HTTPException(400, f"Choose a finish for {product.name}: {', '.join(colours)}")
         subtotal += variant.price * line.quantity
         order.items.append(OrderItem(
             variant_id=variant.id,
-            product_name=variant.product.name,
-            product_slug=variant.product.slug,
+            product_name=product.name,
+            product_slug=product.slug,
             grade=variant.grade,
+            storage=variant.storage,
+            color=line.color,
             unit_price=variant.price,
             quantity=line.quantity,
         ))
     order.subtotal = subtotal
+    if data.coupon_code:
+        coupon, order.discount = evaluate(db, data.coupon_code, subtotal)
+        order.coupon_code = coupon.code
     order.delivery_fee = delivery_fee(subtotal, data.delivery_method)
-    order.total = subtotal + order.delivery_fee
+    order.total = subtotal - order.discount + order.delivery_fee
     add_event(order, "Order placed", f"{sum(i.quantity for i in order.items)} item(s) · awaiting M-Pesa payment")
     db.add(order)
     db.commit()
     return _load(db, order.number)
+
+
+@router.post("/validate-coupon", response_model=CouponCheckOut)
+def validate_coupon(data: CouponCheckIn, db: DB):
+    coupon, discount = evaluate(db, data.code, data.subtotal)
+    return CouponCheckOut(code=coupon.code, description=coupon.description, discount=discount)
 
 
 @router.get("/mine", response_model=list[OrderOut])

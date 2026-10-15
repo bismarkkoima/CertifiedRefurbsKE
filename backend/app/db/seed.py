@@ -7,12 +7,18 @@ from sqlalchemy.orm import Session
 
 from app.core.config import settings
 from app.core.security import hash_password
-from app.db.models import Grade, Product, ProductVariant, User
+from app.db.models import Coupon, Grade, Product, ProductVariant, User
 from app.db.session import Base, SessionLocal, engine
-from app.services.pricing import GRADE_BATTERY, grade_price
+from app.services.pricing import GRADE_BATTERY, grade_price, stock_for, tier_prices
 
 CATALOG_PATH = Path(__file__).with_name("catalog.json")
-STOCK = {"excellent": 6, "good": 9, "fair": 4}
+GRADES = ("excellent", "good", "fair")
+COUPONS = [
+    {"code": "KARIBU5", "description": "5% off your first order (max KSh 5,000)", "percent_off": 5,
+     "max_discount": 5000, "min_subtotal": 10000},
+    {"code": "STUDENT2K", "description": "KSh 2,000 off orders over KSh 40,000", "amount_off": 2000,
+     "min_subtotal": 40000},
+]
 
 
 def slugify(value: str) -> str:
@@ -20,43 +26,54 @@ def slugify(value: str) -> str:
 
 
 def product_slug(item: dict) -> str:
-    return slugify(f"{item['brand']} {item['name']} {item['storage']}")
+    return slugify(f"{item['brand']} {item['name']}")
+
+
+def build_product(item: dict, index: int) -> Product:
+    product = Product(
+        slug=product_slug(item),
+        name=item["name"],
+        brand=item["brand"],
+        category=item["category"],
+        year=item["year"],
+        tagline=item["tagline"],
+        subtitle=item["subtitle"],
+        description=item["description"],
+        specs=item["specs"],
+        colors=item["colors"],
+        new_price=item["new_price"],
+        hue=item["hue"],
+        featured=item["featured"],
+        deal=item["deal"],
+    )
+    for tier, storage in enumerate(item["storages"]):
+        price, new_price = tier_prices(item["price"], item["new_price"], item["category"], tier)
+        for grade in GRADES:
+            product.variants.append(ProductVariant(
+                grade=Grade(grade),
+                storage=storage,
+                price=grade_price(price, grade),
+                new_price=new_price,
+                stock=stock_for(index, tier, grade),
+                battery_health=GRADE_BATTERY[grade],
+            ))
+    return product
 
 
 def seed_catalog(db: Session) -> int:
     if db.scalar(select(Product.id).limit(1)):
         return 0
     items = json.loads(CATALOG_PATH.read_text())
-    for item in items:
-        product = Product(
-            slug=product_slug(item),
-            name=item["name"],
-            brand=item["brand"],
-            category=item["category"],
-            storage=item["storage"],
-            color=item["color"],
-            subtitle=item["subtitle"],
-            description=item["description"],
-            specs=item["specs"],
-            new_price=item["new_price"],
-            rating=item["rating"],
-            reviews_count=item["reviews_count"],
-            hue=item["hue"],
-            featured=item["featured"],
-            deal=item["deal"],
-        )
-        product.variants = [
-            ProductVariant(
-                grade=Grade(grade),
-                price=grade_price(item["price"], grade),
-                stock=STOCK[grade],
-                battery_health=GRADE_BATTERY[grade],
-            )
-            for grade in ("excellent", "good", "fair")
-        ]
-        db.add(product)
+    db.add_all(build_product(item, i) for i, item in enumerate(items))
     db.commit()
     return len(items)
+
+
+def seed_coupons(db: Session) -> None:
+    for data in COUPONS:
+        if not db.scalar(select(Coupon).where(Coupon.code == data["code"])):
+            db.add(Coupon(**data))
+    db.commit()
 
 
 def seed_admin(db: Session) -> None:
@@ -78,6 +95,7 @@ def init_db(seed: bool = True) -> None:
     if seed:
         with SessionLocal() as db:
             seed_catalog(db)
+            seed_coupons(db)
             seed_admin(db)
 
 

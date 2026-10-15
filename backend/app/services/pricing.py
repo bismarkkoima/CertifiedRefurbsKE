@@ -16,6 +16,24 @@ def grade_price(excellent_price: int, grade: str) -> int:
     return round_to(excellent_price * GRADE_MULTIPLIERS[grade])
 
 
+def storage_step(category: str) -> tuple[float, float]:
+    """(refurbished, new) price uplift per storage tier above the base model."""
+    return (0.08, 0.08) if category == "accessories" else (0.14, 0.16)
+
+
+def tier_prices(base_price: int, base_new: int, category: str, tier: int) -> tuple[int, int]:
+    step, new_step = storage_step(category)
+    return round_to(base_price * (1 + step * tier)), round_to(base_new * (1 + new_step * tier))
+
+
+def stock_for(product_index: int, tier: int, grade: str) -> int:
+    """Deterministic, varied demo stock levels (some variants sell out)."""
+    spread = {"excellent": 4, "good": 6, "fair": 3}[grade]
+    if (product_index * 5 + tier * 7 + len(grade)) % 11 == 0:
+        return 0
+    return 1 + (product_index * 7 + tier * 3 + len(grade)) % spread
+
+
 def delivery_fee(subtotal: int, method: str) -> int:
     if method == "pickup":
         return 0

@@ -62,13 +62,16 @@ class Product(Base):
     name: Mapped[str] = mapped_column(String(160))
     brand: Mapped[str] = mapped_column(String(60), index=True)
     category: Mapped[str] = mapped_column(String(40), index=True)
-    storage: Mapped[str] = mapped_column(String(40), index=True)
-    color: Mapped[str] = mapped_column(String(60))
+    year: Mapped[int] = mapped_column(Integer, default=2023)
+    tagline: Mapped[str] = mapped_column(String(160), default="")
     subtitle: Mapped[str] = mapped_column(String(160))
     description: Mapped[str] = mapped_column(Text)
     specs: Mapped[dict] = mapped_column(JSON, default=dict)
+    colors: Mapped[list] = mapped_column(JSON, default=list)
+    image_url: Mapped[str | None] = mapped_column(String(500))
     new_price: Mapped[int] = mapped_column(Integer)
-    rating: Mapped[float] = mapped_column(Float, default=4.5)
+    # Denormalised from real customer reviews.
+    rating: Mapped[float] = mapped_column(Float, default=0)
     reviews_count: Mapped[int] = mapped_column(Integer, default=0)
     warranty_months: Mapped[int] = mapped_column(Integer, default=6)
     hue: Mapped[int] = mapped_column(Integer, default=220)
@@ -77,7 +80,10 @@ class Product(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
 
     variants: Mapped[list["ProductVariant"]] = relationship(
-        back_populates="product", cascade="all, delete-orphan", order_by="ProductVariant.price.desc()"
+        back_populates="product", cascade="all, delete-orphan", order_by="ProductVariant.id"
+    )
+    reviews: Mapped[list["Review"]] = relationship(
+        back_populates="product", cascade="all, delete-orphan", order_by="Review.created_at.desc()"
     )
 
 
@@ -87,7 +93,9 @@ class ProductVariant(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     product_id: Mapped[int] = mapped_column(ForeignKey("products.id", ondelete="CASCADE"), index=True)
     grade: Mapped[Grade] = mapped_column(Enum(Grade))
+    storage: Mapped[str] = mapped_column(String(40), index=True)
     price: Mapped[int] = mapped_column(Integer)
+    new_price: Mapped[int] = mapped_column(Integer)
     stock: Mapped[int] = mapped_column(Integer, default=0)
     battery_health: Mapped[int] = mapped_column(Integer, default=90)
 
@@ -107,6 +115,8 @@ class Order(Base):
     city: Mapped[str] = mapped_column(String(80))
     delivery_method: Mapped[str] = mapped_column(String(30), default="nairobi")
     subtotal: Mapped[int] = mapped_column(Integer)
+    coupon_code: Mapped[str | None] = mapped_column(String(30))
+    discount: Mapped[int] = mapped_column(Integer, default=0)
     delivery_fee: Mapped[int] = mapped_column(Integer)
     total: Mapped[int] = mapped_column(Integer)
     status: Mapped[OrderStatus] = mapped_column(Enum(OrderStatus), default=OrderStatus.pending_payment)
@@ -131,6 +141,8 @@ class OrderItem(Base):
     product_name: Mapped[str] = mapped_column(String(160))
     product_slug: Mapped[str] = mapped_column(String(160))
     grade: Mapped[Grade] = mapped_column(Enum(Grade))
+    storage: Mapped[str] = mapped_column(String(40), default="")
+    color: Mapped[str] = mapped_column(String(60), default="")
     unit_price: Mapped[int] = mapped_column(Integer)
     quantity: Mapped[int] = mapped_column(Integer, default=1)
 
@@ -198,6 +210,39 @@ class TradeIn(Base):
     condition: Mapped[str] = mapped_column(String(30))
     quoted_price: Mapped[int] = mapped_column(Integer)
     status: Mapped[str] = mapped_column(String(30), default="received")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class Review(Base):
+    __tablename__ = "reviews"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    product_id: Mapped[int] = mapped_column(ForeignKey("products.id", ondelete="CASCADE"), index=True)
+    user_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"))
+    author_name: Mapped[str] = mapped_column(String(80))
+    rating: Mapped[int] = mapped_column(Integer)
+    title: Mapped[str] = mapped_column(String(120))
+    body: Mapped[str] = mapped_column(Text)
+    verified: Mapped[bool] = mapped_column(Boolean, default=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+    product: Mapped[Product] = relationship(back_populates="reviews")
+
+
+class Coupon(Base):
+    __tablename__ = "coupons"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    code: Mapped[str] = mapped_column(String(30), unique=True, index=True)
+    description: Mapped[str] = mapped_column(String(160), default="")
+    percent_off: Mapped[int] = mapped_column(Integer, default=0)
+    amount_off: Mapped[int] = mapped_column(Integer, default=0)
+    max_discount: Mapped[int | None] = mapped_column(Integer)
+    min_subtotal: Mapped[int] = mapped_column(Integer, default=0)
+    max_uses: Mapped[int | None] = mapped_column(Integer)
+    uses: Mapped[int] = mapped_column(Integer, default=0)
+    active: Mapped[bool] = mapped_column(Boolean, default=True)
+    expires_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
 
 
