@@ -10,15 +10,18 @@ Kenya's marketplace for certified refurbished phones, laptops and tablets. Every
 
 ## Features
 
-- **Shop**: search, category/brand/condition/price/storage filters, sorting, pagination, wishlist
-- **Product pages**: Excellent / Good / Fair grades, each with its own price, stock and battery health
-- **Cart & checkout**: delivery options, M-Pesa STK Push with live payment status
-- **Escrow order tracking**: timeline, escrow status, and a "release funds" button once the order ships
-- **Import for me**: landed-cost calculator (freight, KRA import duty, excise, VAT, IDF, RDL) and import requests
-- **Sell / trade in**: instant trade-in quotes and pickup requests
-- **Accounts**: register, sign in, order history
-- **Admin dashboard**: revenue and stock stats, order status updates (processing → shipped → delivered / cancel)
-- Newsletter and contact forms, SEO metadata, sitemap and robots.txt, responsive layout down to 360px
+- **Store home** in an Apple-store style: category icons, brand chips, "The latest" carousel and product shelves, with light and dark themes
+- **113 devices from 22 brands**: Apple, Samsung, Google, Tecno, Infinix, itel, Xiaomi, Oppo, Vivo, Realme, OnePlus, Nokia, Huawei, Honor, Motorola, Sony, HP, Dell, Lenovo, Asus, Acer, Microsoft
+- **Buy page configurator**: Condition (Excellent / Good / Fair) → Finish → Storage, with each combination priced and stocked separately, plus a sticky "Add to Bag" bar
+- **Shop**: search with live suggestions, category/brand/condition/price/storage filters, sorting, favourites, recently viewed
+- **Brand pages**, a **compare tool** (up to 3 devices) and **genuine customer reviews** (verified-purchase badges)
+- **Bag & checkout**: promo codes, delivery options, M-Pesa STK Push with live payment status
+- **Escrow order tracking**: timeline, escrow status, and a "release funds" button once shipped
+- **Import for me** landed-cost calculator and **Trade In** instant quotes
+- **Accounts** and an **admin dashboard**: orders, products and per-variant stock/prices, promo codes
+- SEO metadata, sitemap and robots.txt, responsive layout down to 360px
+
+See [`docs/ROADMAP.md`](docs/ROADMAP.md) for what's still missing before launch and ideas for new features.
 
 ## Quick start (Docker)
 
@@ -30,7 +33,7 @@ docker compose up --build
 - API docs: http://localhost:8000/docs
 - Admin login: `admin@certifiedrefurbs.co.ke` / `admin12345` (change `ADMIN_EMAIL` / `ADMIN_PASSWORD` in `backend/.env`)
 
-The database is created and seeded with the catalogue on first start.
+The database is created and seeded with the catalogue on first start. There are no migrations yet (see the roadmap), so after pulling schema changes, reset the database: `docker compose down -v`, or delete `backend/certifiedrefurbs.db` for SQLite.
 
 ## Local development
 
@@ -81,13 +84,13 @@ any unpaid/paid state ──(admin cancels)──► cancelled [escrow: refunded
 | Area | Endpoints |
 |---|---|
 | Auth | `POST /auth/register`, `POST /auth/login`, `GET /auth/me` |
-| Catalogue | `GET /listings`, `GET /listings/{slug}`, `GET /listings/{slug}/related` |
-| Orders | `POST /orders`, `GET /orders/mine`, `GET /orders/{number}?phone=`, `POST /orders/{number}/confirm-delivery` |
+| Catalogue | `GET /listings`, `GET /listings/brands`, `GET /listings/{slug}`, `GET /listings/{slug}/related`, `GET/POST /listings/{slug}/reviews` |
+| Orders | `POST /orders`, `POST /orders/validate-coupon`, `GET /orders/mine`, `GET /orders/{number}?phone=`, `POST /orders/{number}/confirm-delivery` |
 | Payments | `POST /payments/mpesa/stkpush`, `GET /payments/{id}`, `POST /payments/mpesa/callback` |
 | Imports | `POST /imports/quote`, `POST /imports/requests` |
 | Trade-ins | `POST /sell/quote`, `POST /sell/requests` |
 | Site | `POST /site/newsletter`, `POST /site/contact` |
-| Admin | `GET /admin/stats`, `PATCH /admin/orders/{number}` |
+| Admin | `GET /admin/stats`, `PATCH /admin/orders/{number}`, `GET/POST /admin/products`, `PATCH /admin/products/{id}`, `PATCH /admin/variants/{id}`, `GET/POST/PATCH /admin/coupons`, `DELETE /admin/reviews/{id}` |
 
 ## Project structure
 
@@ -111,6 +114,7 @@ docker-compose.yml
 ## Before going live
 
 - Set a long random `SECRET_KEY` and change the admin password.
-- Replace the placeholder marketing figures (stats, reviews) on the home and about pages with real numbers.
+- Replace the placeholder store address and contact details with real ones.
+- Read the P0 list in `docs/ROADMAP.md` (eTIMS, data protection, escrow licensing, stock reservation).
 - Check the import-duty rates in `backend/app/services/pricing.py` against current KRA rates.
-- Use real product photography if you have it. The device images are currently generated SVG illustrations (`components/DeviceArt.js`).
+- Add real product photos: set a photo URL on a product in the admin and it replaces the generated illustration (`components/DeviceArt.js`).
