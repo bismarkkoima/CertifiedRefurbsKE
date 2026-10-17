@@ -1,11 +1,13 @@
-import { Inter } from 'next/font/google'
+import { Figtree, Fraunces } from 'next/font/google'
 import CompareBar from '@/components/CompareBar'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Providers from '@/components/Providers'
 import './globals.css'
 
-const body = Inter({ subsets: ['latin'], variable: '--font-body' })
+// Free stand-ins for a soft serif display face and a geometric sans.
+const serif = Fraunces({ subsets: ['latin'], variable: '--font-serif', axes: ['SOFT', 'opsz'] })
+const sans = Figtree({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
@@ -21,8 +23,8 @@ export const metadata = {
 
 export const viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+    { media: '(prefers-color-scheme: light)', color: '#FAF8F4' },
+    { media: '(prefers-color-scheme: dark)', color: '#131312' },
   ],
 }
 
@@ -31,7 +33,7 @@ const themeScript = `try{var t=localStorage.getItem('crk_theme');if(!t)t=matchMe
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={body.variable} suppressHydrationWarning>
+    <html lang="en" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

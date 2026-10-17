@@ -19,7 +19,7 @@ export default function BagPage() {
     return (
       <>
         <div className="container bag-head">
-          <h1>Your bag is empty.</h1>
+          <h1>Your cart is empty.</h1>
           <p>Certified devices from 22 brands, up to 50% less than new.</p>
           <Link href="/" className="btn btn-primary">Continue shopping</Link>
         </div>
@@ -36,7 +36,7 @@ export default function BagPage() {
   return (
     <div className="container">
       <div className="bag-head">
-        <h1>Your bag total is {ksh(subtotal)}.</h1>
+        <h1>Your cart total is {ksh(subtotal)}.</h1>
         <p>Free delivery in Nairobi{toFree ? ` on orders over ${ksh(FREE_AT)}` : ''}. Pay with M-Pesa — held in escrow until delivery.</p>
         <Link href="/checkout" className="btn btn-primary btn-lg" style={{ minWidth: 240 }}>Check Out</Link>
       </div>

@@ -19,6 +19,8 @@ const CAT_ICONS = [
   ['/shop?deal=true', 'Deals', 'phones', 'Deal', '#d82e2e'],
 ]
 
+const TILE_BG = ['bg-lilac', 'bg-mint', 'bg-sun', 'bg-peach', 'bg-sky', 'bg-sand']
+
 const LATEST = [
   { slug: 'apple-iphone-16-pro', eyebrow: 'New in refurbished', title: 'iPhone 16 Pro', copy: 'Camera Control. Titanium. Apple Intelligence.', dark: true },
   { slug: 'samsung-galaxy-s24-ultra', eyebrow: 'Galaxy AI', title: 'Galaxy S24 Ultra', copy: 'Titanium frame. 200MP. Built-in S Pen.' },
@@ -43,31 +45,58 @@ export default function Store() {
   return (
     <>
       <div className="container">
-        <div className="store-head reveal">
-          <h1>Store. <span className="grey">The best way to buy the tech you love — certified, for less.</span></h1>
-          <div className="store-help">
-            <span className="avatar" style={{ background: 'linear-gradient(135deg,#0071E3,#7D4DFF)' }}>💬</span>
-            <span>Need shopping help?<Link href="/contact" className="link-arrow">Ask a Specialist</Link></span>
+        <section className="hero-bm">
+          <div className="hero-main reveal">
+            <div className="rings" aria-hidden="true" />
+            <span className="eyebrow">Certified refurbished · 22 brands</span>
+            <h1 style={{ marginTop: 10 }}>Great tech, kinder prices.</h1>
+            <p>Phones, laptops and tablets checked by engineers, backed by a 6-month warranty and paid safely through M-Pesa escrow.</p>
+            <div className="hero-cta" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              <Link href="/shop?category=phones" className="btn btn-primary btn-lg">Shop smartphones</Link>
+              <Link href="/sell" className="btn btn-outline btn-lg">Sell your phone</Link>
+            </div>
+            <div className="hero-art" aria-hidden="true"><DeviceArt category="phones" name="iPhone 15 Pro" hue={250} color="#3f4a59" view="pair" /></div>
           </div>
+          <div className="hero-side">
+            <Link href="/shop?brand=Tecno,Infinix,itel" className="promo bg-sun">
+              <div className="stripes" aria-hidden="true" />
+              <div className="promo-art" aria-hidden="true"><DeviceArt category="phones" name="Camon 30 Pro" hue={90} color="#1d1f26" view="pair" /></div>
+              <h3>Tecno, Infinix & itel</h3>
+              <p>Big batteries and bright screens from KSh 9,500.</p>
+            </Link>
+            <Link href="/shop?category=laptops" className="promo bg-mint">
+              <div className="stripes" aria-hidden="true" />
+              <div className="promo-art" aria-hidden="true"><DeviceArt category="laptops" name="MacBook" hue={215} color="#7d7e80" /></div>
+              <h3>Laptops for work & school</h3>
+              <p>MacBook, ThinkPad, XPS and more — up to 50% off new.</p>
+            </Link>
+          </div>
+        </section>
+
+        <div className="reassure">
+          <div><Icon name="shield" size={22} /><span><strong>6-month warranty</strong><span>On every device</span></span></div>
+          <div><Icon name="refresh" size={22} /><span><strong>30-day free returns</strong><span>Change your mind? No problem</span></span></div>
+          <div><Icon name="lock" size={22} /><span><strong>M-Pesa escrow</strong><span>Paid out only after delivery</span></span></div>
+          <div><Icon name="truck" size={22} /><span><strong>Fast delivery</strong><span>Same day in Nairobi, 47 counties</span></span></div>
         </div>
-        <nav className="cat-nav" aria-label="Shop by category">
-          {CAT_ICONS.map(([href, label, cat, name, color]) => (
-            <Link href={href} key={label}>
-              <div className="cat-icon"><DeviceArt category={cat} name={name} color={color} hue={cat === 'phones' ? 220 : 210} /></div>
-              {label}
-            </Link>
-          ))}
-          {['Samsung', 'Tecno', 'Infinix', 'Xiaomi'].map((b) => (
-            <Link href={`/brand/${brandSlug(b)}`} key={b}>
-              <div className="brand-chip"><BrandMark name={b} size={b.length > 6 ? 17 : 20} /></div>
-              {b}
-            </Link>
-          ))}
-        </nav>
       </div>
 
       <section className="section-sm">
-        <div className="container section-head"><h2>The latest. <span className="grey">Take a look at what’s new in certified.</span></h2></div>
+        <div className="container section-head"><h2>Shop by category</h2></div>
+        <div className="container">
+          <nav className="cat-tiles" aria-label="Shop by category">
+            {CAT_ICONS.map(([href, label, cat, name, color], i) => (
+              <Link href={href} key={label} className={`cat-tile ${TILE_BG[i % TILE_BG.length]}`}>
+                <div className="ct-art"><DeviceArt category={cat} name={name} color={color} hue={cat === 'phones' ? 220 : 210} /></div>
+                {label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </section>
+
+      <section className="section-sm">
+        <div className="container section-head"><h2>New in certified <span className="grey">The latest models, inspected and ready to ship.</span></h2></div>
         <Shelf variant="wide" label="Latest devices">
           {LATEST.map((t) => {
             const p = findProduct(t.slug)
@@ -87,7 +116,7 @@ export default function Store() {
 
       <section className="section-sm">
         <div className="container section-head">
-          <h2>Shop by brand. <span className="grey">Over 20 brands, one trusted store.</span></h2>
+          <h2>Shop by brand <span className="grey">Over 20 brands, one trusted store.</span></h2>
           <Link href="/brands" className="link link-arrow">All brands</Link>
         </div>
         <div className="container">
@@ -103,7 +132,7 @@ export default function Store() {
       </section>
 
       <section className="section-sm">
-        <div className="container section-head"><h2>The CertifiedRefurbs difference. <span className="grey">Even more reasons to shop with us.</span></h2></div>
+        <div className="container section-head"><h2>Why buy refurbished with us? <span className="grey">Even more reasons to shop with us.</span></h2></div>
         <Shelf variant="narrow" label="Why shop with us">
           {DIFFERENCE.map(([icon, title, copy], i) => (
             <div className="info-card" key={i}>
@@ -117,7 +146,7 @@ export default function Store() {
 
       <section className="section-sm">
         <div className="container section-head">
-          <h2>iPhone. <span className="grey">Every model, every finish.</span></h2>
+          <h2>iPhone <span className="grey">Every model, every finish.</span></h2>
           <Link href="/shop?brand=Apple&category=phones" className="link link-arrow">Shop iPhone</Link>
         </div>
         <ProductRail params={{ brand: 'Apple', category: 'phones', sort: 'newest' }} count={10} label="iPhone" />
@@ -125,7 +154,7 @@ export default function Store() {
 
       <section className="section-sm">
         <div className="container section-head">
-          <h2>Galaxy & Pixel. <span className="grey">The best of Android.</span></h2>
+          <h2>Galaxy & Pixel <span className="grey">The best of Android.</span></h2>
           <Link href="/shop?brand=Samsung,Google,OnePlus&category=phones" className="link link-arrow">Shop Android flagships</Link>
         </div>
         <ProductRail params={{ brand: 'Samsung,Google,OnePlus,Xiaomi', category: 'phones', sort: 'newest' }} count={10} label="Android flagships" />
@@ -133,7 +162,7 @@ export default function Store() {
 
       <section className="section-sm">
         <div className="container section-head">
-          <h2>Under KSh 30,000. <span className="grey">Tecno, Infinix, itel, Redmi and more.</span></h2>
+          <h2>Under KSh 30,000 <span className="grey">Tecno, Infinix, itel, Redmi and more.</span></h2>
           <Link href="/shop?category=phones&max_price=30000&sort=price_asc" className="link link-arrow">Shop budget phones</Link>
         </div>
         <ProductRail params={{ category: 'phones', max_price: 30000, sort: 'newest' }} count={12} label="Budget phones" />
@@ -160,7 +189,7 @@ export default function Store() {
 
       <section className="section-sm">
         <div className="container section-head">
-          <h2>Mac & laptops. <span className="grey">Work smarter for less.</span></h2>
+          <h2>Mac & laptops <span className="grey">Work smarter for less.</span></h2>
           <Link href="/shop?category=laptops" className="link link-arrow">Shop laptops</Link>
         </div>
         <ProductRail params={{ category: 'laptops' }} count={10} label="Laptops" />
@@ -168,7 +197,7 @@ export default function Store() {
 
       <section className="section-sm">
         <div className="container section-head">
-          <h2>Deals. <span className="grey">Hand-picked price drops, refreshed every Friday.</span></h2>
+          <h2>Good deals <span className="grey">Hand-picked price drops, refreshed every Friday.</span></h2>
           <Link href="/shop?deal=true" className="link link-arrow">All deals</Link>
         </div>
         <ProductRail params={{ deal: true, sort: 'discount' }} count={10} label="Deals" />
@@ -176,7 +205,7 @@ export default function Store() {
 
       <section className="section-sm">
         <div className="container section-head">
-          <h2>Wearables & audio. <span className="grey">Sound and style, certified.</span></h2>
+          <h2>Watches & audio <span className="grey">Sound and style, certified.</span></h2>
           <Link href="/shop?category=accessories" className="link link-arrow">Shop wearables</Link>
         </div>
         <ProductRail params={{ category: 'accessories' }} count={10} label="Wearables" />
@@ -185,7 +214,7 @@ export default function Store() {
       <RecentlyViewed />
 
       <section className="section-sm">
-        <div className="container section-head"><h2>Help is here. <span className="grey">Whenever and however you need it.</span></h2></div>
+        <div className="container section-head"><h2>Help is here <span className="grey">Whenever and however you need it.</span></h2></div>
         <div className="container">
           <div className="feature-grid">
             <Link href="/compare" className="feature" style={{ textDecoration: 'none' }}>
@@ -208,7 +237,7 @@ export default function Store() {
       </section>
 
       <section className="section-sm">
-        <div className="container section-head"><h2>Categories. <span className="grey">Find exactly what you need.</span></h2></div>
+        <div className="container section-head"><h2>All categories <span className="grey">Find exactly what you need.</span></h2></div>
         <div className="container">
           <div className="feature-grid four">
             {Object.entries(CATEGORIES).map(([key, c]) => (

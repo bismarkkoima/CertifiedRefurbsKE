@@ -48,7 +48,8 @@ export default function ProductCard({ product, showGrade = false, compare = fals
   return (
     <Link href={`/product/${product.slug}`} className="product-card">
       <div className="product-tags">
-        {product.deal ? <span className="tag tag-deal">Deal</span> : isNew(product) && <span className="tag">New in refurbished</span>}
+        <span className="cert-pill">✓ Certified</span>
+        {product.deal ? <span className="tag tag-deal">Deal</span> : isNew(product) && <span className="tag">New in</span>}
         {!product.in_stock && <span className="tag tag-muted">Sold out</span>}
         {showGrade && <GradeBadge grade={product.best_grade} />}
       </div>
@@ -66,10 +67,11 @@ export default function ProductCard({ product, showGrade = false, compare = fals
       )}
       <div className="product-pricing">
         <div>
-          <div className="product-price">From {ksh(product.price_from)}</div>
+          <div className="price-label">Starting at</div>
+          <div className="product-price">{ksh(product.price_from)}</div>
           {save > 0 && <div className="product-was">{ksh(product.new_price)} new</div>}
         </div>
-        {save > 0 && <span className="save-pill">Save {save}%</span>}
+        {save > 0 && <span className="save-pill">−{save}%</span>}
       </div>
       {compare && (
         <label className="compare-toggle" onClick={toggleCompare}>

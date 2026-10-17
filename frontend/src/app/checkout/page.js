@@ -39,8 +39,8 @@ export default function CheckoutPage() {
     return (
       <div className="container empty-state">
         <div className="big">🛍️</div>
-        <h2>Your bag is empty.</h2>
-        <p>Add a device to your bag first.</p>
+        <h2>Your cart is empty.</h2>
+        <p>Add a device to your cart first.</p>
         <Link href="/shop" className="btn btn-primary">Browse devices</Link>
       </div>
     )
@@ -110,7 +110,7 @@ export default function CheckoutPage() {
   return (
     <div className="container section-sm">
       <div className="steps">
-        <span className="step done"><span className="step-num">✓</span>Bag</span><span className="step-line" />
+        <span className="step done"><span className="step-num">✓</span>Cart</span><span className="step-line" />
         <span className={`step ${order ? 'done' : 'active'}`}><span className="step-num">{order ? '✓' : 2}</span>Details</span><span className="step-line" />
         <span className={`step ${order ? 'active' : ''}`}><span className="step-num">3</span>M-Pesa payment</span>
       </div>

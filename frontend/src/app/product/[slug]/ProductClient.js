@@ -196,7 +196,7 @@ export default function ProductClient({ slug }) {
   const add = (goToBag) => {
     cart.add(product, variant, color, qty)
     if (goToBag) router.push('/cart')
-    else toast(`Added to your bag: ${product.name} ${variant.storage}`, { href: '/cart', label: 'Review bag' })
+    else toast(`Added to your cart: ${product.name} ${variant.storage}`, { href: '/cart', label: 'View cart' })
   }
 
   return (
@@ -322,7 +322,7 @@ export default function ProductClient({ slug }) {
             <strong>{ksh(variant.price * qty)}</strong>
             <span>Pay with M-Pesa</span>
           </div>
-          <button className="btn btn-primary" disabled={variant.stock === 0} onClick={() => add(false)}>Add to Bag</button>
+          <button className="btn btn-primary" disabled={variant.stock === 0} onClick={() => add(false)}>Add to cart</button>
           <button className="btn btn-mpesa hide-sm" disabled={variant.stock === 0} onClick={() => add(true)}>Buy now</button>
         </div>
       </div>

@@ -8,7 +8,7 @@ const COLS = [
   ['Shop and Learn', [['/shop?category=phones', 'Phones'], ['/shop?category=laptops', 'Laptops'], ['/shop?category=tablets', 'Tablets'], ['/shop?category=accessories', 'Wearables & Audio'], ['/brands', 'All brands'], ['/shop?deal=true', 'Deals']]],
   ['Popular brands', [['/brand/apple', 'Apple'], ['/brand/samsung', 'Samsung'], ['/brand/tecno', 'Tecno'], ['/brand/infinix', 'Infinix'], ['/brand/xiaomi', 'Xiaomi'], ['/brand/google', 'Google Pixel']]],
   ['Services', [['/sell', 'Trade In'], ['/import', 'Import for me'], ['/compare', 'Compare devices'], ['/how-it-works#escrow', 'M-Pesa escrow']]],
-  ['Account', [['/account', 'Manage your account'], ['/track', 'Order status'], ['/wishlist', 'Favourites'], ['/cart', 'Bag']]],
+  ['Account', [['/account', 'Manage your account'], ['/track', 'Order status'], ['/wishlist', 'Favourites'], ['/cart', 'Cart']]],
   ['About CertifiedRefurbs', [['/about', 'About us'], ['/how-it-works#grading', 'Grading guide'], ['/warranty', 'Warranty & returns'], ['/how-it-works#faq', 'Help & FAQs'], ['/contact', 'Contact us']]],
 ]
 
